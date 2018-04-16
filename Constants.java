@@ -1,11 +1,4 @@
-public final class Constants {
-
-    private Constants() {
-        // restrict instantiation
-    }
-
-    public static final double PI = 3.14159;
-    public static final double PLANCK_CONSTANT = 6.62606896e-34;
+public final class MyConstants {
 
     public static final int GUPPY_PRICE = 50;
     public static final int PIRANHA_PRICE = 250;
@@ -38,10 +31,10 @@ public final class Constants {
     public static final int SIPUT_MOVEMENT_SPD = 100;
     public static final int FOOD_MOVEMENT_SPD = 50;
 
-    public static final int SCREEN_TOP = 80;
-    public static final int SCREEN_BOTTOM = SCREEN_HEIGHT - 80;
-    public static final int SCREEN_LEFT = 80;
-    public static final int SCREEN_RIGHT = SCREEN_WIDTH - 80;
+    // public static final int SCREEN_TOP = 80;
+    // public static final int SCREEN_BOTTOM = SCREEN_HEIGHT - 80;
+    // public static final int SCREEN_LEFT = 80;
+    // public static final int SCREEN_RIGHT = SCREEN_WIDTH - 80;
 
     /**** IMAGE ****/
 
@@ -83,4 +76,8 @@ public final class Constants {
     public static final String FILE_lose = "img/gameover.png";
 
     public static final String FILE_credit = "img/credit.jpeg";
-}
+
+    private Constants() {
+        // restrict instantiation
+    }
+};
