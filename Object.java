@@ -5,5 +5,5 @@ public abstract class Object{
 	protected double position_y;
 	protected String direction;
 
-    public abstract draw();
+    public abstract void draw();
 }

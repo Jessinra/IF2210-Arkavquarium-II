@@ -7,5 +7,5 @@ public interface Moveable{
 		
 	public void set_x(double x);
 	public void set_y(double y);
-	public void set_dir(string dir);
+	public void set_dir(String dir);
 }
