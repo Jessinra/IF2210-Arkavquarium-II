@@ -1,5 +1,3 @@
-
-
 public class Aquarium extends Object{
 
     static public int egg = 0;
@@ -112,12 +110,13 @@ public class Aquarium extends Object{
     public void buy_guppy(){
 
         // Money sufficient 
-        if (Aquarium.money >= GUPPY_PRICE){
+        if (Aquarium.money >= Constants.GUPPY_PRICE){
     
             Guppy g = new Guppy();
             add_guppy(g);
     
-            Aquarium.money -= GUPPY_PRICE;
+            Aquarium.money -= Constants.GUPPY_PRICE;
+            
     
         }
 
@@ -130,12 +129,12 @@ public class Aquarium extends Object{
     public void buy_piranha(){
     
         // Money sufficient 
-        if (Aquarium.money >= PIRANHA_PRICE){
+        if (Aquarium.money >= Constants.PIRANHA_PRICE){
     
             Piranha p = new Piranha();
             add_piranha(p);
     
-            Aquarium.money -= PIRANHA_PRICE;
+            Aquarium.money -= Constants.PIRANHA_PRICE;
     
         }
     
@@ -148,12 +147,12 @@ public class Aquarium extends Object{
     public void buy_food(){
     
         // Money sufficient 
-        if (Aquarium.money >= FOOD_PRICE){
+        if (Aquarium.money >= Constants.FOOD_PRICE){
             
             Food f = new Food();
             add_food(f);
     
-            Aquarium.money -= FOOD_PRICE;
+            Aquarium.money -= Constants.FOOD_PRICE;
         }
     
         // unsufficient money
@@ -164,12 +163,12 @@ public class Aquarium extends Object{
     
     public void buy_food(double x) {
         // Money sufficient 
-        if (Aquarium.money >= FOOD_PRICE){
+        if (Aquarium.money >= Constants.FOOD_PRICE){
             
             Food f = new Food(x);
             add_food(f);
     
-            Aquarium.money -= FOOD_PRICE;
+            Aquarium.money -= Constants.FOOD_PRICE;
         }
     
         // unsufficient money
@@ -181,10 +180,10 @@ public class Aquarium extends Object{
     public void buy_egg(){
     
         // Money sufficient 
-        if (Aquarium.money >= EGG_PRICE){
+        if (Aquarium.money >= Constants.EGG_PRICE){
             
             Aquarium.egg++;
-            Aquarium.money -= EGG_PRICE;
+            Aquarium.money -= Constants.EGG_PRICE;
         }
     
         // unsufficient money
@@ -198,12 +197,12 @@ public class Aquarium extends Object{
     public void buy_snail(){
     
         // Money sufficient 
-        if (Aquarium.money >= SIPUT_PRICE){
+        if (Aquarium.money >= Constants.SIPUT_PRICE){
     
             Siput s = new Siput();
             add_siput(s);
     
-            Aquarium.money -= SIPUT_PRICE;
+            Aquarium.money -= Constants.SIPUT_PRICE;
         }
     
         // unsufficient money

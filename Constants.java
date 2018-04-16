@@ -1,4 +1,4 @@
-public final class MyConstants {
+public final class Constants {
 
     public static final int GUPPY_PRICE = 50;
     public static final int PIRANHA_PRICE = 250;
