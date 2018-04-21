@@ -1,23 +1,41 @@
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+
 public class Aquarium extends Object{
 
     static public int egg = 0;
     static public int money = 20000;
 
+    public static final ImageIcon image_aquarium = new ImageIcon(Constants.FILE_aquarium);
+
     private LinkedList<Guppy> list_guppy;
 	private LinkedList<Piranha> list_piranha;
 	private LinkedList<Siput> list_siput;
 	private LinkedList<Food> list_food;
-	private LinkedList<Coin> list_coin;
+    private LinkedList<Coin> list_coin;
+    
+    private JPanel panel;
 
-    public Aquarium(){
+    public Aquarium(JFrame frame){
+        // frame : where to put the aquarium
         
         Guppy g = new Guppy();
         Guppy g1 = new Guppy();
-        this.list_guppy.add(g);
-        this.list_guppy.add(g1);
+
+        this.add_guppy(g);
+        this.add_guppy(g1);
 
         Siput s = new Siput();
-        this.list_siput.add(s);
+        this.add_siput(s);
+
+        // set panel
+        this.panel = (JPanel) frame.getContentPane();
+        this.panel.setLayout(null);
+
+        this.change_image(Aquarium.image_aquarium);
+        this.change_position(0, 0);
+        this.size = this.label.getPreferredSize();
 
     }
 
@@ -41,70 +59,84 @@ public class Aquarium extends Object{
         return list_coin;
     }
 
-    public void draw(){
-        // might get changed due to using different class for GUI
+    // public void draw(){
+    //     might get changed due to using different class for GUI
 
-        // draw_image(FILE_aquarium, SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+    //     draw_image(FILE_aquarium, SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
 	
-        // for (int i = 1; i <= list_guppy.getNBelmt(); i++){
-        //     list_guppy.get(i).draw();
-        // }
+    //     for (int i = 1; i <= list_guppy.getNBelmt(); i++){
+    //         list_guppy.get(i).draw();
+    //     }
 
-        // for (int i = 1; i <= list_piranha.getNBelmt(); i++){
-        //     list_piranha.get(i).draw();
-        // }
+    //     for (int i = 1; i <= list_piranha.getNBelmt(); i++){
+    //         list_piranha.get(i).draw();
+    //     }
 
-        // for (int i = 1; i <= list_siput.getNBelmt(); i++){
-        //     list_siput.get(i).draw();
-        // }
+    //     for (int i = 1; i <= list_siput.getNBelmt(); i++){
+    //         list_siput.get(i).draw();
+    //     }
 
-        // for (int i = 1; i <= list_food.getNBelmt(); i++){
-        //     list_food.get(i).draw();
-        // }
+    //     for (int i = 1; i <= list_food.getNBelmt(); i++){
+    //         list_food.get(i).draw();
+    //     }
 
-        // for (int i = 1; i <= list_coin.getNBelmt(); i++){
-        //     list_coin.get(i).draw();
-        // }
-    }
+    //     for (int i = 1; i <= list_coin.getNBelmt(); i++){
+    //         list_coin.get(i).draw();
+    //     }
+    // }
     
     private void add_guppy(Guppy guppy) {
         list_guppy.add(guppy);
+        this.panel.add(guppy.get_label());
     }
  
     private void remove_guppy(Guppy guppy) {
         list_guppy.remove(guppy);
+        this.panel.remove(guppy.get_label());
     }
     
     private void add_piranha(Piranha piranha) {
         list_piranha.add(piranha);
+        this.panel.add(piranha.get_label());
     }
 
     private void remove_piranha(Piranha piranha) {
         list_piranha.remove(piranha);
+        this.panel.remove(piranha.get_label());
     }
     
     private void add_siput(Siput siput){
         list_siput.add(siput);
+        this.panel.add(siput.get_label());
     }
     
     private void remove_siput(Siput siput){
         list_siput.remove(siput);
+        this.panel.remove(siput.get_label());
     }
     
     private void add_food(Food food){
         list_food.add(food);
+        this.panel.add(food.get_label());
     }
 
     private void remove_food(Food food){
         list_food.remove(food);
+        this.panel.remove(food.get_label());
     }
 
     private void add_coin(Coin coin){
         list_coin.add(coin);
+        this.panel.add(coin.get_label());
     }
 
     private void remove_coin(Coin coin){
         list_coin.remove(coin);
+        this.panel.remove(coin.get_label());
+    }
+
+    public JPanel get_panel(){
+        return this.panel;
     }
 
     public void buy_guppy(){
