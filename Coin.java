@@ -1,9 +1,15 @@
+import java.awt.Dimension;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 public class Coin extends Object implements Moveable {
 
     public static int coin_amount = 0;
     private int coin_id;
     private int coin_value;
     private int coin_speed;
+
+    public static final ImageIcon image_coin = new ImageIcon(Constants.FILE_coin);
 
     /**
      * default constructor
@@ -14,6 +20,11 @@ public class Coin extends Object implements Moveable {
         set_id(0);
         set_value(0);
         set_speed(0);
+
+        // set label image
+        this.change_image(Coin.image_coin);
+        this.change_position(get_x(), get_y());
+        this.size = this.label.getPreferredSize();
     }
 
 
@@ -32,36 +43,11 @@ public class Coin extends Object implements Moveable {
         set_id(coin_amount);
         set_value(coin_value);
         set_speed(Constants.COIN_MOVEMENT_SPD);
-    }
 
-    @Override
-    public double get_x() {
-        return position_x;
-    }
-
-    @Override
-    public double get_y() {
-        return position_y;
-    }
-
-    @Override
-    public void set_x(double x) {
-        position_x = x;
-    }
-
-    @Override
-    public void set_y(double y) {
-        position_y = y;
-    }
-
-    @Override
-    public void set_dir(String dir) {
-        direction = dir;
-    }
-
-    @Override
-    public String get_dir() {
-        return direction;
+        // set label image
+        this.change_image(Coin.image_coin);
+        this.change_position(get_x(), get_y());
+        this.size = this.label.getPreferredSize();
     }
 
     /**
@@ -91,20 +77,19 @@ public class Coin extends Object implements Moveable {
         this.coin_speed = coin_speed;
     }
 
-    @Override
-    public void draw() {
-        set_y(2);
-
-    }
-
-
     public void move(double sec_since_last) {
         // if coin is not on buttom yet
-        if (get_y() <= Constants.SCREEN_BUTTOM) {
+        if (get_y() <= Constants.SCREEN_BOTTOM) {
+
             // move coin towards buttom
             set_y(get_y() + (get_speed() * sec_since_last));
+
         } else {
-            set_y(Constants.SCREEN_BUTTOM);
+
+            set_y(Constants.SCREEN_BOTTOM);
         }
+
+        // change label position
+        change_position(get_x(), get_y());
     }
 }
