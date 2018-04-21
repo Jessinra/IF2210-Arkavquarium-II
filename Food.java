@@ -10,8 +10,7 @@ public class Food extends Object implements Moveable {
     private JLabel label = new JLabel();
     private Dimension size;
 
-    private static String image_link = Constants.FILE_food;
-    public static ImageIcon image_food = new ImageIcon(image_link);
+    public static final ImageIcon image_food = new ImageIcon(Constants.FILE_food);
 
     public Food() {
 
