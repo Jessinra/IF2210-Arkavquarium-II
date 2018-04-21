@@ -7,8 +7,6 @@ public class Food extends Object implements Moveable {
     private static int food_count = 0;
     private int food_id;
     private int food_speed;
-    private JLabel label = new JLabel();
-    private Dimension size;
 
     public static final ImageIcon image_food = new ImageIcon(Constants.FILE_food);
 
@@ -59,15 +57,6 @@ public class Food extends Object implements Moveable {
         this.food_speed = spd;
     }
 
-    public JLabel get_label(){
-        return this.label;
-    }
-    
-
-    // public void draw() {
-    //     // draw_image(Constants.FILE_food, super.get_x(), super.get_y());
-    // }
-
     public void move(double sec_since_last) {
 
         if (get_y() <= Constants.SCREEN_BOTTOM) {
@@ -79,14 +68,5 @@ public class Food extends Object implements Moveable {
         }
     }
 
-    public void change_image(ImageIcon image){
-
-        this.label.setIcon(image);
-    }
-
-    public void change_position(double x, double y){
-
-        this.size = this.label.getPreferredSize();
-        this.label.setBounds((int) x - this.size.width/2,(int) y - this.size.height/2, this.size.width, this.size.height);
-    }
+    
 }

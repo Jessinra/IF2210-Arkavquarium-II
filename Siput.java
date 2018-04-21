@@ -1,13 +1,12 @@
 import java.util.*;
+import static java.lang.Math.abs;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class Siput extends Pet {
+public class Siput extends Pet{
     private double distance_to_coin;
     private int speed;
-    private JLabel label = new JLabel();
-    private Dimension size;
 
     public static final ImageIcon image_siput_left = new ImageIcon(Constants.FILE_siput_left);
     public static final ImageIcon image_siput_right = new ImageIcon(Constants.FILE_siput_right);
@@ -20,10 +19,9 @@ public class Siput extends Pet {
         set_y(Constants.SCREEN_BOTTOM);
 
         // set label image
-        this.label.setIcon(Siput.image_siput_right);
+        this.change_image(Siput.image_siput_right);
         this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
-
     }
 
     public int get_speed() {
@@ -35,7 +33,7 @@ public class Siput extends Pet {
     }
 
     public void move(double sec_since_last, LinkedList<Coin> C) {
-        int x_coin;
+        double x_coin;
 
         if (C.getNBelmt() > 0) {
             int radius = inRadius(C);
@@ -47,22 +45,27 @@ public class Siput extends Pet {
                 if (x_coin - get_x() > 0) {
                     set_x(get_x() + sec_since_last * get_speed());
                     set_dir("Right");
+                    change_image(Siput.image_siput_right);
+
                 } else {
                     set_x(get_x() - sec_since_last * get_speed());
                     set_dir("Left");
+                    change_image(Siput.image_siput_left);
                 }
             }
-        }
+
+            change_position(get_x(), get_y());
+        }   
     }
 
-    public double euclidean() {}
+    // public double euclidean() {}
 
     public boolean find_coin(LinkedList<Coin> C) {
         boolean find = false;
         int i = 1;
 
         while (i < C.getNBelmt() && !find) {
-            if (C.get(i).get_y() == Constant.SCREEN_BOTTOM) {
+            if (C.get(i).get_y() == Constants.SCREEN_BOTTOM) {
                 find = true;
             } else {
                 i++;
@@ -74,20 +77,20 @@ public class Siput extends Pet {
     public int inRadius(LinkedList<Coin> C) {
         int idx = 1;
         int nearest;
-        double radius = 1;
+        int radius = 1;
         boolean find = false;
 
         if (find_coin(C)) {
             for (idx=1; idx<=C.getNBelmt(); idx++) {
-                if (C.get(idx).get_y() == Constant.SCREEN_BOTTOM) {
+                if (C.get(idx).get_y() == Constants.SCREEN_BOTTOM) {
                     break;
                 }
             }
-            nearest = abs(C.get(idx).get_x() - get_x());
+            nearest = (int) abs(C.get(idx).get_x() - get_x());
             while (idx+1 < C.getNBelmt()) {
-                if (C.get(idx).get_y() == Constant.SCREEN_BOTTOM) {
+                if (C.get(idx).get_y() == Constants.SCREEN_BOTTOM) {
                     if (abs(C.get(idx).get_x() - get_x()) < nearest) {
-                        nearest = abs(C.get(idx).get_x() - get_x());
+                        nearest = (int) abs(C.get(idx).get_x() - get_x());
                         radius = idx;
                     } else {
                         idx++;
@@ -97,7 +100,7 @@ public class Siput extends Pet {
                 }
             }
         } else {
-            nearest = C.get(idx).get_y();
+            nearest = (int) C.get(idx).get_y();
             for (idx=2; idx<=C.getNBelmt(); idx++) {
                 if (C.get(idx).get_y() > nearest) {
                     radius = idx;
@@ -107,13 +110,17 @@ public class Siput extends Pet {
         return radius;
     }
 
-    public int take_coin() {
+    public int take_coin(LinkedList<Coin> C) {
         if (C.getNBelmt() > 0) {
             int idx = inRadius(C);
-            if (C.get(idx).get_x() >= get_x() - 30 && C.get(idx).get_x() + 30 && C.get(idx).get_y() >= Constant.SCREEN_BOTTOM) {
-                int value = C.get(idx).get_value();
-                C.remove(C.get(idx));
+
+            Coin current_coin = C.get(idx);
+
+            if ((current_coin.get_x() >= get_x() - 30) && (current_coin.get_x() <= get_x() + 30) && (current_coin.get_y() >= Constants.SCREEN_BOTTOM)) {
+                int value = current_coin.get_value();
+                C.remove(current_coin);
                 return value;
+                
             } else {
                 return 0;
             }
