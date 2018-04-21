@@ -25,7 +25,7 @@ public class Food extends Object implements Moveable {
 
        
         // set label image
-        this.label.setIcon(Food.image_food);
+        this.change_image(Food.image_food);
         this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
     }
@@ -38,7 +38,7 @@ public class Food extends Object implements Moveable {
         set_speed(Constants.FOOD_MOVEMENT_SPD);
 
         // set label image
-        this.label.setIcon(Food.image_food);
+        this.change_image(Food.image_food);
         this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
     }
