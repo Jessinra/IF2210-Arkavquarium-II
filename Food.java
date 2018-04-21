@@ -1,7 +1,6 @@
 import java.util.*;
-import java.awt.Dimension;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+
 
 public class Food extends Object implements Moveable {
     private static int food_count = 0;

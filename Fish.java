@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public abstract class Fish extends Object implements Moveable {
+public abstract class Fish extends Object {
 
     private static int fish_count = 0;
     private int fish_id;
@@ -14,57 +14,20 @@ public abstract class Fish extends Object implements Moveable {
     private int y_move;
     private double max_hunger = Constants.FISH_MAX_HUNGER; 
 
-
-    /**
-     * implement moveable
-     */
-    @Override
-    public double get_x() {
-        return position_x;
-    }
-
-    @Override
-    public double get_y() {
-        return position_y;
-    }
-
-    @Override
-    public void set_x(double x) {
-        position_x = x;
-    }
-
-    @Override
-    public void set_y(double y) {
-        position_y = y;
-    }
-
-    @Override
-    public void set_dir(String dir) {
-        direction = dir;
-    }
-
-    @Override
-    public String get_dir() {
-        return direction;
-    }
-
     /**
      * constructor with parameter
      * @param price
      * @param cvalue
      */
     Fish(int price, int cvalue) {
-        //ukuran layar
-        int SCREEN_RIGHT = 1280 - 80;
-        int SCREEN_BOTTOM = 720 - 80;
         
         Random rand = new Random();
         // set position
         double random_x = rand.nextDouble() * 200;
         double random_y = rand.nextDouble() * 200;
 
-        set_x(SCREEN_RIGHT/2+random_x);
-        set_y(SCREEN_BOTTOM/2+random_y);
+        set_x(Constants.SCREEN_RIGHT/2 + random_x);
+        set_y(Constants.SCREEN_BOTTOM/2 + random_y);
 
         fish_count++;
 

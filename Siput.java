@@ -1,8 +1,6 @@
 import java.util.*;
 import static java.lang.Math.abs;
-import java.awt.Dimension;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class Siput extends Pet{
     private double distance_to_coin;
