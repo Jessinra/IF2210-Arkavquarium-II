@@ -1,10 +1,27 @@
-public class Guppy extends Fish {
+import javax.swing.ImageIcon;
+
+public class Guppy extends Fish implements able_to_search<Food> {
     
     private int number_eat;
     private int level_grow;
     private double timer;
     private static final int max_level = Constants.GUPPY_MAX_LV;
     
+    public static final ImageIcon image_guppy_01_L = new ImageIcon(Constants.FILE_guppy_01_left);
+    public static final ImageIcon image_guppy_01_R = new ImageIcon(Constants.FILE_guppy_01_right);
+    public static final ImageIcon image_guppy_01_L_H = new ImageIcon(Constants.FILE_guppy_01_left_hungry);
+    public static final ImageIcon image_guppy_01_R_H = new ImageIcon(Constants.FILE_guppy_01_right_hungry);
+
+    public static final ImageIcon image_guppy_02_L = new ImageIcon(Constants.FILE_guppy_02_left);
+    public static final ImageIcon image_guppy_02_R = new ImageIcon(Constants.FILE_guppy_02_right);
+    public static final ImageIcon image_guppy_02_L_H = new ImageIcon(Constants.FILE_guppy_02_left_hungry);
+    public static final ImageIcon image_guppy_02_R_H = new ImageIcon(Constants.FILE_guppy_02_right_hungry);
+
+    public static final ImageIcon image_guppy_03_L = new ImageIcon(Constants.FILE_guppy_03_left);
+    public static final ImageIcon image_guppy_03_R = new ImageIcon(Constants.FILE_guppy_03_right);
+    public static final ImageIcon image_guppy_03_L_H = new ImageIcon(Constants.FILE_guppy_03_left_hungry);
+    public static final ImageIcon image_guppy_03_R_H = new ImageIcon(Constants.FILE_guppy_03_right_hungry);
+
     /**
      * default constructor
      */
@@ -15,6 +32,11 @@ public class Guppy extends Fish {
         set_number_eat(0);
         set_timer(Constants.GUPPY_DROP_COIN_TIME);
         set_level(1);
+
+        // set label image
+        this.change_image(Guppy.image_guppy_01_R);
+        this.change_position(get_x(), get_y());
+        this.size = this.label.getPreferredSize();
     }
 
     /**
@@ -65,60 +87,60 @@ public class Guppy extends Fish {
         return get_id() != g.get_id();
     }
 
-    public String draw() {
-        if (isHungry()) {
-                if (level_grow == 1) {
-                    if (get_dir() == "Left") {
-                        return Constants.FILE_guppy_01_left_hungry;
-                    }
-                    else {
-                       return Constants.FILE_guppy_01_right_hungry;    
-                    }
-                }
-                else if (level_grow == 2) {
-                    if (get_dir() == "Left") {
-                        return Constants.FILE_guppy_02_left_hungry;
-                    }
-                    else {
-                        return Constants.FILE_guppy_02_right_hungry;    
-                    }
-                }
-                else if (level_grow == 3) {
-                    if (get_dir() == "Left") {
-                        return Constants.FILE_guppy_03_left_hungry;
-                    }
-                    else {
-                        return Constants.FILE_guppy_03_right_hungry;    
-                    }
-                }
-        }
-        else {  
-                if (level_grow == 1) {
-                    if (get_dir() == "Left") {
-                        return Constants.FILE_guppy_01_left;
-                    }
-                    else {
-                        return Constants.FILE_guppy_01_right;    
-                    }
-                }
-                else if (level_grow == 2) {
-                    if (get_dir() == "Left") {
-                        return Constants.FILE_guppy_02_left;
-                    }
-                    else {
-                        return Constants.FILE_guppy_02_right;    
-                    }
-                }
-                else if (level_grow == 3) {
-                    if (get_dir() == "Left") {
-                        return Constants.FILE_guppy_03_left;
-                    }
-                    else {
-                        return Constants.FILE_guppy_03_right;    
-                    }
-                }
-        }
-    }
+    // public String draw() {
+    //     if (isHungry()) {
+    //             if (level_grow == 1) {
+    //                 if (get_dir() == "Left") {
+    //                     return Constants.FILE_guppy_01_left_hungry;
+    //                 }
+    //                 else {
+    //                    return Constants.FILE_guppy_01_right_hungry;    
+    //                 }
+    //             }
+    //             else if (level_grow == 2) {
+    //                 if (get_dir() == "Left") {
+    //                     return Constants.FILE_guppy_02_left_hungry;
+    //                 }
+    //                 else {
+    //                     return Constants.FILE_guppy_02_right_hungry;    
+    //                 }
+    //             }
+    //             else if (level_grow == 3) {
+    //                 if (get_dir() == "Left") {
+    //                     return Constants.FILE_guppy_03_left_hungry;
+    //                 }
+    //                 else {
+    //                     return Constants.FILE_guppy_03_right_hungry;    
+    //                 }
+    //             }
+    //     }
+    //     else {  
+    //             if (level_grow == 1) {
+    //                 if (get_dir() == "Left") {
+    //                     return Constants.FILE_guppy_01_left;
+    //                 }
+    //                 else {
+    //                     return Constants.FILE_guppy_01_right;    
+    //                 }
+    //             }
+    //             else if (level_grow == 2) {
+    //                 if (get_dir() == "Left") {
+    //                     return Constants.FILE_guppy_02_left;
+    //                 }
+    //                 else {
+    //                     return Constants.FILE_guppy_02_right;    
+    //                 }
+    //             }
+    //             else if (level_grow == 3) {
+    //                 if (get_dir() == "Left") {
+    //                     return Constants.FILE_guppy_03_left;
+    //                 }
+    //                 else {
+    //                     return Constants.FILE_guppy_03_right;    
+    //                 }
+    //             }
+    //     }
+    // }
 
     public boolean produce_coin() {
         // check if guppy able to drop coin
@@ -136,19 +158,19 @@ public class Guppy extends Fish {
     }  
 
     public int findFood(LinkedList<Food> F) {
-        //ukuran layar
-        int SCREEN_RIGHT = 1280 - 80;
-        int SCREEN_BOTTOM = 720 - 80;
-        int SCREEN_LEFT = 80;
-        int SCREEN_TOP = 80;
 
         //nyari yg terdekat brrti pake iterate dari list Food
         int idx = 1;
         int i = 2; //indeks perbandingan mulai dari 2
 
         while (i<=F.getNBelmt()) {
-            if (F.get(i).get_x() > SCREEN_TOP && F.get(i).get_x() < SCREEN_BOTTOM && F.get(i).get_x() > SCREEN_LEFT && F.get(i).get_x() < SCREEN_RIGHT && euclidean(F.get(idx)) > euclidean(F.get(i))) {
-                idx = i;
+            Food current_food = F.get(i);
+            if (current_food.get_x() > Constants.SCREEN_TOP &&
+                current_food.get_x() < Constants.SCREEN_BOTTOM &&
+                current_food.get_x() > Constants.SCREEN_LEFT &&
+                current_food.get_x() < Constants.SCREEN_RIGHT &&
+                euclidean(F.get(idx)) > euclidean(current_food)) {
+                    idx = i;
             }
             else {
                 i++;
@@ -157,12 +179,7 @@ public class Guppy extends Fish {
         return idx;
     }
 
-    public int move(double sec_since_last, LinkedList<Food> F) {
-        //ukuran layar
-        int SCREEN_RIGHT = 1280 - 80;
-        int SCREEN_BOTTOM = 720 - 80;
-        int SCREEN_LEFT = 80;
-        int SCREEN_TOP = 80;
+    public void move(double sec_since_last, LinkedList<Food> F) {
 
         if (isHungry() && F.getNBelmt() > 0) {
             //mengejar food pakai tips
@@ -190,10 +207,10 @@ public class Guppy extends Fish {
             }
 
             //kalau sampai ujung
-            if (get_x() >= SCREEN_RIGHT || get_x() <= SCREEN_LEFT) {
+            if (get_x() >= Constants.SCREEN_RIGHT || get_x() <= Constants.SCREEN_LEFT) {
                 set_x_move(get_x_move()*(-1));
             }
-            if (get_y() <= SCREEN_TOP || get_y() >= SCREEN_BOTTOM) {
+            if (get_y() <= Constants.SCREEN_TOP || get_y() >= Constants.SCREEN_BOTTOM) {
                 set_y_move(get_y_move()*(-1));
             }
 
@@ -208,17 +225,19 @@ public class Guppy extends Fish {
             set_x(get_x()+get_speed()*sec_since_last*get_x_move());
             set_y(get_y()+get_speed()*sec_since_last*get_y_move());
         }
+
+        change_position(get_x(), get_y());
     } 
 
     public double euclidean(Food m) {
     // get euclidean distance from guppy to food
 
-    double x_guppy = get_x();
-    double y_guppy = get_y();
-    double x_food = m.get_x(); 
-    double y_food = m.get_y();
+        double x_guppy = get_x();
+        double y_guppy = get_y();
+        double x_food = m.get_x(); 
+        double y_food = m.get_y();
 
-    return (Math.sqrt(Math.pow(x_guppy-x_food, 2)) + (Math.pow(y_guppy-y_food, 2)));
+        return (Math.sqrt(Math.pow(x_guppy-x_food, 2)) + (Math.pow(y_guppy-y_food, 2)));
     }
 
     public int inRadius(LinkedList<Food> F) {
