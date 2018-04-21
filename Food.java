@@ -39,6 +39,7 @@ public class Food extends Object implements Moveable {
 
         // set label image
         this.label.setIcon(Food.image_food);
+        this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
     }
 
