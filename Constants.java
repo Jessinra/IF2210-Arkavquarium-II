@@ -1,5 +1,13 @@
 public final class Constants {
 
+    public static final int SCREEN_WIDTH = 1280;
+    public static final int SCREEN_HEIGHT = 720;
+
+    public static final int SCREEN_TOP = 80;
+    public static final int SCREEN_BOTTOM = SCREEN_HEIGHT - 80;
+    public static final int SCREEN_LEFT = 80;
+    public static final int SCREEN_RIGHT = SCREEN_WIDTH - 80;
+
     public static final int GUPPY_PRICE = 50;
     public static final int PIRANHA_PRICE = 250;
     public static final int FOOD_PRICE = 2;

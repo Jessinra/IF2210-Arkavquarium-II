@@ -1,8 +1,9 @@
 import java.util.*;
 
+
 public class Pet extends Object implements Moveable {
-    private pet_count = 0;
-    private pet_id = pet_count;
+    private int pet_count = 0;
+    private int pet_id = pet_count;
 
     public Pet() {
         pet_count++;
