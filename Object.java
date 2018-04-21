@@ -30,5 +30,5 @@ public abstract class Object{
         direction = dir;
     }
     
-    public abstract void draw();
+    // public abstract void draw();
 }
