@@ -2,7 +2,7 @@ import java.util.*;
 import javax.swing.ImageIcon;
 
 
-public class Food extends Object implements Moveable {
+public class Food extends Object {
     private static int food_count = 0;
     private int food_id;
     private int food_speed;
@@ -56,11 +56,11 @@ public class Food extends Object implements Moveable {
         this.food_speed = spd;
     }
 
-    public void move(double sec_since_last) {
+    public void move() {
 
         if (get_y() <= Constants.SCREEN_BOTTOM) {
             System.out.println("Food move " + get_x() + "," + get_y());
-            set_y(get_y() + (get_speed() * sec_since_last));
+            set_y(get_y() + get_speed());
 
             // change label position
             change_position(get_x(), get_y());

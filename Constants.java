@@ -37,7 +37,7 @@ public final class Constants {
     public static final int PIRANHA_MOVEMENT_SPD = 150;
     public static final int COIN_MOVEMENT_SPD = 50;
     public static final int SIPUT_MOVEMENT_SPD = 100;
-    public static final int FOOD_MOVEMENT_SPD = 50;
+    public static final int FOOD_MOVEMENT_SPD = 1;
 
     // public static final int SCREEN_TOP = 80;
     // public static final int SCREEN_BOTTOM = SCREEN_HEIGHT - 80;
