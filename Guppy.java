@@ -1,4 +1,6 @@
 import javax.swing.ImageIcon;
+import java.io.File;
+import java.util.*;
 
 public class Guppy extends Fish implements able_to_search<Food> {
     
@@ -7,20 +9,22 @@ public class Guppy extends Fish implements able_to_search<Food> {
     private double timer;
     private static final int max_level = Constants.GUPPY_MAX_LV;
     
-    public static final ImageIcon image_guppy_01_L = new ImageIcon(Constants.FILE_guppy_01_left);
-    public static final ImageIcon image_guppy_01_R = new ImageIcon(Constants.FILE_guppy_01_right);
-    public static final ImageIcon image_guppy_01_L_H = new ImageIcon(Constants.FILE_guppy_01_left_hungry);
-    public static final ImageIcon image_guppy_01_R_H = new ImageIcon(Constants.FILE_guppy_01_right_hungry);
+    private static File image_guppy_01_L = new File(Constants.FILE_guppy_01_left);
+    private static File image_guppy_01_R = new File(Constants.FILE_guppy_01_right);
+    private static File image_guppy_01_L_H = new File(Constants.FILE_guppy_01_left_hungry);
+    private static File image_guppy_01_R_H = new File(Constants.FILE_guppy_01_right_hungry);
 
-    public static final ImageIcon image_guppy_02_L = new ImageIcon(Constants.FILE_guppy_02_left);
-    public static final ImageIcon image_guppy_02_R = new ImageIcon(Constants.FILE_guppy_02_right);
-    public static final ImageIcon image_guppy_02_L_H = new ImageIcon(Constants.FILE_guppy_02_left_hungry);
-    public static final ImageIcon image_guppy_02_R_H = new ImageIcon(Constants.FILE_guppy_02_right_hungry);
+    private static File image_guppy_02_L = new File(Constants.FILE_guppy_02_left);
+    private static File image_guppy_02_R = new File(Constants.FILE_guppy_02_right);
+    private static File image_guppy_02_L_H = new File(Constants.FILE_guppy_02_left_hungry);
+    private static File image_guppy_02_R_H = new File(Constants.FILE_guppy_02_right_hungry);
 
-    public static final ImageIcon image_guppy_03_L = new ImageIcon(Constants.FILE_guppy_03_left);
-    public static final ImageIcon image_guppy_03_R = new ImageIcon(Constants.FILE_guppy_03_right);
-    public static final ImageIcon image_guppy_03_L_H = new ImageIcon(Constants.FILE_guppy_03_left_hungry);
-    public static final ImageIcon image_guppy_03_R_H = new ImageIcon(Constants.FILE_guppy_03_right_hungry);
+    private static File image_guppy_03_L = new File(Constants.FILE_guppy_03_left);
+    private static File image_guppy_03_R = new File(Constants.FILE_guppy_03_right);
+    private static File image_guppy_03_L_H = new File(Constants.FILE_guppy_03_left_hungry);
+    private static File image_guppy_03_R_H = new File(Constants.FILE_guppy_03_right_hungry);
+
+    private File image_guppy;
 
     /**
      * default constructor
@@ -34,9 +38,12 @@ public class Guppy extends Fish implements able_to_search<Food> {
         set_level(1);
 
         // set label image
-        this.change_image(Guppy.image_guppy_01_R);
+        image_guppy = image_guppy_01_R;
+        //this.change_image(image_guppy);
+
         this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
+
     }
 
     /**
@@ -73,6 +80,17 @@ public class Guppy extends Fish implements able_to_search<Food> {
     }
 
     /**
+     * @return image_guppy
+     */
+    public File get_image() {
+        return image_guppy;
+    }
+
+    public void set_image(File f) {
+        image_guppy = f;
+    }
+
+    /**
      * @return max_level
      */
     public final int get_max_level() {
@@ -87,60 +105,60 @@ public class Guppy extends Fish implements able_to_search<Food> {
         return get_id() != g.get_id();
     }
 
-    // public String draw() {
-    //     if (isHungry()) {
-    //             if (level_grow == 1) {
-    //                 if (get_dir() == "Left") {
-    //                     return Constants.FILE_guppy_01_left_hungry;
-    //                 }
-    //                 else {
-    //                    return Constants.FILE_guppy_01_right_hungry;    
-    //                 }
-    //             }
-    //             else if (level_grow == 2) {
-    //                 if (get_dir() == "Left") {
-    //                     return Constants.FILE_guppy_02_left_hungry;
-    //                 }
-    //                 else {
-    //                     return Constants.FILE_guppy_02_right_hungry;    
-    //                 }
-    //             }
-    //             else if (level_grow == 3) {
-    //                 if (get_dir() == "Left") {
-    //                     return Constants.FILE_guppy_03_left_hungry;
-    //                 }
-    //                 else {
-    //                     return Constants.FILE_guppy_03_right_hungry;    
-    //                 }
-    //             }
-    //     }
-    //     else {  
-    //             if (level_grow == 1) {
-    //                 if (get_dir() == "Left") {
-    //                     return Constants.FILE_guppy_01_left;
-    //                 }
-    //                 else {
-    //                     return Constants.FILE_guppy_01_right;    
-    //                 }
-    //             }
-    //             else if (level_grow == 2) {
-    //                 if (get_dir() == "Left") {
-    //                     return Constants.FILE_guppy_02_left;
-    //                 }
-    //                 else {
-    //                     return Constants.FILE_guppy_02_right;    
-    //                 }
-    //             }
-    //             else if (level_grow == 3) {
-    //                 if (get_dir() == "Left") {
-    //                     return Constants.FILE_guppy_03_left;
-    //                 }
-    //                 else {
-    //                     return Constants.FILE_guppy_03_right;    
-    //                 }
-    //             }
-    //     }
-    // }
+    public void update_image() {
+        if (isHungry()) {
+                if (level_grow == 1) {
+                    if (get_dir() == "Left") {
+                        set_image(image_guppy_01_L_H);
+                    }
+                    else {
+                        set_image(image_guppy_01_R_H);    
+                    }
+                }
+                 else if (level_grow == 2) {
+                    if (get_dir() == "Left") {
+                       set_image(image_guppy_02_L_H);
+                    }
+                    else {
+                       set_image(image_guppy_02_R_H);    
+                    }
+                 }
+                 else if (level_grow == 3) {
+                    if (get_dir() == "Left") {
+                       set_image(image_guppy_03_L_H);
+                    }
+                    else {
+                       set_image(image_guppy_03_R_H);    
+                    }
+                }
+         }
+         else {  
+                 if (level_grow == 1) {
+                     if (get_dir() == "Left") {
+                        set_image(image_guppy_01_L);
+                     }
+                     else {
+                        set_image(image_guppy_01_R);    
+                     }
+                 }
+                 else if (level_grow == 2) {
+                     if (get_dir() == "Left") {
+                        set_image(image_guppy_02_L);
+                     }
+                     else {
+                        set_image(image_guppy_02_R);    
+                     }
+                 }
+                 else if (level_grow == 3) {
+                     if (get_dir() == "Left") {
+                        set_image(image_guppy_03_L);
+                     }
+                     else {
+                        set_image(image_guppy_03_R);    
+                     }
+                 }
+         }
+    }
 
     public boolean produce_coin() {
         // check if guppy able to drop coin
@@ -179,7 +197,7 @@ public class Guppy extends Fish implements able_to_search<Food> {
         return idx;
     }
 
-    public void move(double sec_since_last, LinkedList<Food> F) {
+    public void move(LinkedList<Food> F) {
 
         if (isHungry() && F.getNBelmt() > 0) {
             //mengejar food pakai tips
@@ -193,8 +211,8 @@ public class Guppy extends Fish implements able_to_search<Food> {
 
             //double atan2(double y, double x)
             double a = Math.atan2(F.get(idx).get_y()-get_y(), F.get(idx).get_x()-get_x());
-            set_x(get_x()+(double)(get_speed()*Math.cos(a)*sec_since_last*1.5));
-            set_y(get_y()+(double)(get_speed()*Math.sin(a)*sec_since_last*1.5));
+            set_x(get_x()+(double)(get_speed()*Math.cos(a)*1.5));
+            set_y(get_y()+(double)(get_speed()*Math.sin(a)*1.5));
         }
         else {
             //random arahnya
@@ -203,7 +221,7 @@ public class Guppy extends Fish implements able_to_search<Food> {
                 setRandomDirection();
             }
             else {
-                set_time_move(get_time_move()-sec_since_last);
+                set_time_move(get_time_move());
             }
 
             //kalau sampai ujung
@@ -214,18 +232,20 @@ public class Guppy extends Fish implements able_to_search<Food> {
                 set_y_move(get_y_move()*(-1));
             }
 
-            if (get_x()+get_speed()*sec_since_last*get_x_move() < get_x()) {
+            if (get_x()+get_speed()*get_x_move() < get_x()) {
                 set_dir("Left");
             }
-            else if (get_x()+get_speed()*sec_since_last*get_x_move() >= get_x()) {
+            else if (get_x()+get_speed()*get_x_move() >= get_x()) {
                 set_dir("Right");
             }
 
             //pindahkan ikan
-            set_x(get_x()+get_speed()*sec_since_last*get_x_move());
-            set_y(get_y()+get_speed()*sec_since_last*get_y_move());
+            set_x(get_x()+get_speed()*get_x_move());
+            set_y(get_y()+get_speed()*get_y_move());
         }
 
+        update_image();
+        //change_image(image_guppy);
         change_position(get_x(), get_y());
     } 
 
