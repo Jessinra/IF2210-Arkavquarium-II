@@ -1,13 +1,12 @@
+import java.io.File;
 import java.util.*;
-import javax.swing.ImageIcon;
 
-
-public class Food extends Object implements Moveable {
+public class Food extends Object {
     private static int food_count = 0;
     private int food_id;
     private int food_speed;
 
-    public static final ImageIcon image_food = new ImageIcon(Constants.FILE_food);
+    private static File image = new File(Constants.FILE_food);
 
     public Food() {
 
@@ -20,11 +19,7 @@ public class Food extends Object implements Moveable {
         set_id(food_count);
         set_speed(Constants.FOOD_MOVEMENT_SPD);
 
-       
-        // set label image
-        this.change_image(Food.image_food);
         this.change_position(get_x(), get_y());
-        this.size = this.label.getPreferredSize();
     }
 
     public Food(double x) {
@@ -34,11 +29,10 @@ public class Food extends Object implements Moveable {
         set_id(food_count);
         set_speed(Constants.FOOD_MOVEMENT_SPD);
 
-        // set label image
-        this.change_image(Food.image_food);
         this.change_position(get_x(), get_y());
-        this.size = this.label.getPreferredSize();
     }
+
+    public File getImage() {return image; }
 
     public int get_id() {
         return this.food_id;
@@ -56,16 +50,14 @@ public class Food extends Object implements Moveable {
         this.food_speed = spd;
     }
 
-    public void move(double sec_since_last) {
+    public void move() {
 
         if (get_y() <= Constants.SCREEN_BOTTOM) {
             System.out.println("Food move " + get_x() + "," + get_y());
-            set_y(get_y() + (get_speed() * sec_since_last));
+            set_y(get_y() + get_speed());
 
             // change label position
             change_position(get_x(), get_y());
         }
     }
-
-    
 }

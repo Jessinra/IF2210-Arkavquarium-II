@@ -9,11 +9,11 @@ public class Aquarium extends Object{
 
     public static final ImageIcon image_aquarium = new ImageIcon(Constants.FILE_aquarium);
 
-    private LinkedList<Guppy> list_guppy;
-	private LinkedList<Piranha> list_piranha;
-	private LinkedList<Siput> list_siput;
-	private LinkedList<Food> list_food;
-    private LinkedList<Coin> list_coin;
+    private LinkedList<Guppy> list_guppy = new LinkedList<>;
+	private LinkedList<Piranha> list_piranha = new LinkedList<>;
+	private LinkedList<Siput> list_siput = new LinkedList<>;
+	private LinkedList<Food> list_food = new LinkedList<>;
+    private LinkedList<Coin> list_coin = new LinkedList<>;
     
     private JPanel panel;
 
@@ -30,12 +30,12 @@ public class Aquarium extends Object{
         this.add_siput(s);
 
         // set panel
-        this.panel = (JPanel) frame.getContentPane();
-        this.panel.setLayout(null);
-
-        this.change_image(Aquarium.image_aquarium);
-        this.change_position(0, 0);
-        this.size = this.label.getPreferredSize();
+//        this.panel = (JPanel) frame.getContentPane();
+//        this.panel.setLayout(null);
+//
+//        this.change_image(Aquarium.image_aquarium);
+//        this.change_position(0, 0);
+//        this.size = this.label.getPreferredSize();
 
     }
 
