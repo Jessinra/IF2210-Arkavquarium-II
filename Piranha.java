@@ -85,11 +85,6 @@ public class Piranha extends Fish implements able_to_search<Guppy> {
     }
 
     public void move(LinkedList<Guppy> G) {
-        //ukuran layar
-        int SCREEN_RIGHT = 1280 - 80;
-        int SCREEN_BOTTOM = 720 - 80;
-        int SCREEN_LEFT = 80;
-        int SCREEN_TOP = 80;
 
         if (isHungry() && G.getNBelmt() > 0) {
             //mengejar food pakai tips
@@ -115,23 +110,23 @@ public class Piranha extends Fish implements able_to_search<Guppy> {
             }
 
             //kalau sampai ujung
-            if (get_x() >= SCREEN_RIGHT || get_x() <= SCREEN_LEFT) {
+            if (get_x() >= Constants.SCREEN_RIGHT || get_x() <= Constants.SCREEN_LEFT) {
                 set_x_move(get_x_move()*(-1));
             }
-            if (get_y() <= SCREEN_TOP || get_y() >= SCREEN_BOTTOM) {
+            if (get_y() <= Constants.SCREEN_TOP || get_y() >= Constants.SCREEN_BOTTOM) {
                 set_y_move(get_y_move()*(-1));
             }
 
-            if (get_x()+get_speed()*get_x_move() < get_x()) {
+            if (get_x() + get_speed() * get_x_move() < get_x()) {
                 set_dir("Left");
             }
-            else if (get_x()+get_speed()*get_x_move() >= get_x()) {
+            else if (get_x() + get_speed() * get_x_move() >= get_x()) {
                 set_dir("Right");
             }
 
             //pindahkan ikan
-            set_x(get_x()+get_speed()*get_x_move());
-            set_y(get_y()+get_speed()*get_y_move());
+            set_x(get_x() + get_speed() * get_x_move());
+            set_y(get_y() + get_speed() * get_y_move());
         }
 
         update_image();
