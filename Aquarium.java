@@ -12,6 +12,9 @@ public class Aquarium extends Object {
     private LinkedList<Food> list_food = new LinkedList<>();
     private LinkedList<Coin> list_coin = new LinkedList<>();
 
+    /**
+     * default constructor
+     */
     public Aquarium() {
         // frame : where to put the aquarium
 
@@ -37,66 +40,130 @@ public class Aquarium extends Object {
 
     }
 
+    /**
+     * getter list guppy
+     * @return list_guppy
+     */
     public LinkedList<Guppy> get_list_guppy() {
         return list_guppy;
     }
 
+    /**
+     * getter list piranha
+     * @return list_piranha
+     */
     public LinkedList<Piranha> get_list_piranha() {
         return list_piranha;
     }
 
+    /**
+     * getter list siput
+     * @return list_siput
+     */
     public LinkedList<Siput> get_list_siput() {
         return list_siput;
     }
 
+    /**
+     * getter list food
+     * @return list_food
+     */
     public LinkedList<Food> get_list_food() {
         return list_food;
     }
 
+    /**
+     * getter list coin
+     * @return list_coin
+     */
     public LinkedList<Coin> get_list_coin() {
         return list_coin;
     }
 
+    /**
+     * menambahkan guppy ke dalam list guppy
+     * @param guppy
+     */
     public void add_guppy(Guppy guppy) {
         list_guppy.add(guppy);
     }
 
+    /**
+     * menghapus guppy dari dalam list guppy
+     * @param guppy
+     */
     public void remove_guppy(Guppy guppy) {
         list_guppy.remove(guppy);
     }
 
+    /**
+     * menambahkan piranha ke dalam list guppy
+     * @param piranha
+     */
     public void add_piranha(Piranha piranha) {
         list_piranha.add(piranha);
     }
 
+    /**
+     * menghapus piranha dari dalam list guppy
+     * @param piranha
+     */
     public void remove_piranha(Piranha piranha) {
         list_piranha.remove(piranha);
     }
 
+    /**
+     * menambahkan siput ke dalam list guppy
+     * @param siput
+     */
     public void add_siput(Siput siput) {
         list_siput.add(siput);
     }
 
+    /**
+     * menghapus siput dari dalam list guppy
+     * @param siput
+     */
     public void remove_siput(Siput siput) {
         list_siput.remove(siput);
     }
 
+    /**
+     * menambahkan food ke dalam list guppy
+     * @param food
+     */
     public void add_food(Food food) {
         list_food.add(food);
     }
 
+    /**
+     * menghapus food dari dalam list guppy
+     * @param food
+     */
     public void remove_food(Food food) {
         list_food.remove(food);
     }
 
+    /**
+     * menambahkan coin ke dalam list guppy
+     * @param coin
+     */
     public void add_coin(Coin coin) {
         list_coin.add(coin);
     }
 
+    /**
+     * menghapus coin dari dalam list guppy
+     * @param coin
+     */
     public void remove_coin(Coin coin) {
         list_coin.remove(coin);
     }
 
+    /**
+     * membeli guppy
+     * menambah guppy ke dalam list guppy dan mengurangi money
+     */
     public void buy_guppy() {
 
         // Money sufficient 
@@ -116,6 +183,10 @@ public class Aquarium extends Object {
         }
     }
 
+    /**
+     * membeli piranha
+     * menambah piranha ke dalam list piranha dan mengurangi money
+     */
     public void buy_piranha() {
 
         // Money sufficient 
@@ -134,6 +205,10 @@ public class Aquarium extends Object {
         }
     }
 
+    /**
+     * membeli food
+     * menambah food ke dalam list food dan mengurangi money
+     */
     public void buy_food() {
 
         // Money sufficient 
@@ -151,6 +226,11 @@ public class Aquarium extends Object {
         }
     }
 
+    /**
+     * membeli food
+     * menambah food ke dalam list food dan mengurangi money
+     * @param x
+     */
     public void buy_food(double x) {
         // Money sufficient 
         if (Aquarium.money >= Constants.FOOD_PRICE) {
@@ -167,6 +247,10 @@ public class Aquarium extends Object {
         }
     }
 
+    /**
+     * membeli egg
+     * menambah egg jumlah nilai variabel egg dan mengurangi money
+     */
     public void buy_egg() {
 
         // Money sufficient 
@@ -184,6 +268,10 @@ public class Aquarium extends Object {
 
     }
 
+    /**
+     * membeli siput
+     * menambah siput ke dalam list siput dan mengurangi money
+     */
     public void buy_snail() {
 
         // Money sufficient 
@@ -201,6 +289,12 @@ public class Aquarium extends Object {
         }
     }
 
+    /**
+     * menghitung euclidean (jarak lurus antar dua titik)
+     * @param x
+     * @param c
+     * @param y
+     */
     public double euclidean(double x, double y, Coin c) {
         // get euclidean distance to coin
 
@@ -210,7 +304,11 @@ public class Aquarium extends Object {
         return (sqrt(pow(x - x_coin, 2)) + (pow(y - y_coin, 2)));
     }
 
-
+    /**
+     * mengecek elemen di dalam radius
+     * @param x
+     * @param y
+     */
     public int inRadius(double x, double y) {
 
         int idx = 1;
@@ -231,6 +329,11 @@ public class Aquarium extends Object {
         return radius;
     }
 
+    /**
+     * klik coin menggunakan kursor
+     * @param x
+     * @param y
+     */
     public int click_coin(double x, double y) {
         //find coin in radius
         if (get_list_coin().getNBelmt() > 0) {

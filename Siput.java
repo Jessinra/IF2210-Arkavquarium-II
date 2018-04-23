@@ -8,6 +8,9 @@ public class Siput extends Pet {
     private double distance_to_coin;
     private int speed;
 
+    /**
+     * default constructor
+     */
     public Siput() {
         distance_to_coin = 0;
         set_speed(Constants.SIPUT_MOVEMENT_SPD);
@@ -22,14 +25,26 @@ public class Siput extends Pet {
         this.size = this.label.getPreferredSize();
     }
 
+    /**
+     * getter speed
+     * @return speed
+     */
     public int get_speed() {
         return this.speed;
     }
 
+    /**
+     * mengubah nilai speed
+     * @param speed
+     */
     public void set_speed(int speed) {
         this.speed = speed;
     }
 
+    /**
+     * memindahkan siput
+     * @param C
+     */
     public void move(LinkedList<Coin> C) {
         double x_coin;
 
@@ -58,6 +73,11 @@ public class Siput extends Pet {
 
     // public double euclidean() {}
 
+    /**
+     * mencari coin
+     * @param C
+     * @return boolean find
+     */
     public boolean find_coin(LinkedList<Coin> C) {
         boolean find = false;
         int i = 1;
@@ -72,6 +92,11 @@ public class Siput extends Pet {
         return find;
     }
 
+    /**
+     * mencari coin yang ada di dalam radius siput
+     * @param C
+     * @return idx coin dalam radius, 0 jika tidak ada coin dalam radius
+     */
     public int inRadius(LinkedList<Coin> C) {
         int idx = 1;
         int nearest;
@@ -108,6 +133,11 @@ public class Siput extends Pet {
         return radius;
     }
 
+    /**
+     * mengambil coin
+     * @param C
+     * @return idx coin yang diambil
+     */
     public int take_coin(LinkedList<Coin> C) {
         if (C.getNBelmt() > 0) {
             int idx = inRadius(C);

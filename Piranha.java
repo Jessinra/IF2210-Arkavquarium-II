@@ -16,14 +16,27 @@ public class Piranha extends Fish {
 
     }
 
+    /**
+     * cek piranha
+     * @param p
+     * @return true jika piranha tersebut sama dengan current piranha
+     */
     public boolean isEqual(Piranha p) {
         return get_id() == p.get_id();
     }
 
+    /**
+     * check piranha
+     * @param p
+     * @return true jika piranha tersebut berbeda dengan current piranha
+     */
     public boolean isNotEqual(Piranha p) {
         return get_id() != p.get_id();
     }
 
+    /**
+     * update piranha image
+     */
     public void update_image() {
         if (isHungry()) {
             if (get_dir() == "Left") {
@@ -40,6 +53,11 @@ public class Piranha extends Fish {
         }
     }
 
+    /**
+     * mencari guppy dalam radius piranha
+     * @param G
+     * @return guppy id yang ada di dalam radius, 1 by default
+     */
     public int findGuppy(LinkedList<Guppy> G) {
 
         int idx = 1;
@@ -60,6 +78,10 @@ public class Piranha extends Fish {
         return idx;
     }
 
+    /**
+     * memindahkan piranha
+     * @param G
+     */
     public void move(LinkedList<Guppy> G) {
 
         if (isHungry() && G.getNBelmt() > 0) {
@@ -105,6 +127,11 @@ public class Piranha extends Fish {
         change_position(get_x(), get_y());
     }
 
+    /**
+     * euclidean antara piranha dan guppy
+     * @param g
+     * @return nilai euclidean
+     */
     public double euclidean(Guppy g) {
 
         double x_piranha = get_x();
@@ -115,6 +142,11 @@ public class Piranha extends Fish {
         return (Math.sqrt(Math.pow(x_piranha - x_guppy, 2)) + (Math.pow(y_piranha - y_guppy, 2)));
     }
 
+    /**
+     * mencari guppy yang ada di dalam radius piranha
+     * @param G
+     * @return guppy id dalam radius piranha, -999 jika tidak ada guppy dalam radius
+     */
     public int inRadius(LinkedList<Guppy> G) {
 
         int idx = 1;
@@ -136,6 +168,11 @@ public class Piranha extends Fish {
         }
     }
 
+    /**
+     * piranha makan
+     * @param G
+     * @return guppy id yang dimakan
+     */
     public int eat(LinkedList<Guppy> G) {
         int idx = inRadius(G);
         // found

@@ -27,53 +27,82 @@ public class Guppy extends Fish {
     }
 
     /**
+     * getter level_grow
      * @return level_grow
      */
     public int get_level() {
         return level_grow;
     }
 
+    /**
+     * setter level_grow
+     * @param lv
+     */
     public void set_level(int lv) {
         level_grow = lv;
     }
 
     /**
+     * getter number_eat
      * @return number_eat
      */
     public int get_number_eat() {
         return number_eat;
     }
 
+    /**
+     * setter number_eat
+     * @param number
+     */
     public void set_number_eat(int number) {
         number_eat = number;
     }
 
     /**
+     * getter timer
      * @return timer
      */
     public double get_timer() {
         return timer;
     }
 
+    /**
+     * setter timer
+     * @param time
+     */
     public void set_timer(double time) {
         timer = time;
     }
 
     /**
+     * getter max_level
      * @return max_level
      */
     public final int get_max_level() {
         return max_level;
     }
 
+    /**
+     * cek guppy
+     * @param g
+     * @return true jika guppy tersebut sama dengan current guppy
+     */
     public boolean isEqual(Guppy g) {
         return get_id() == g.get_id();
     }
 
+    /**
+     * cek guppy
+     * @param g
+     * @return true jika guppy tersebut berbeda dengan current guppy
+     */
     public boolean isNotEqual(Guppy g) {
         return get_id() != g.get_id();
     }
 
+    /**
+     * update guppy image
+     */
     public void update_image() {
         if (isHungry()) {
             if (level_grow == 1) {
@@ -118,6 +147,10 @@ public class Guppy extends Fish {
         }
     }
 
+    /**
+     * guppy menghasilkan coin
+     * @return true for success producing coin
+     */
     public boolean produce_coin() {
         // check if guppy able to drop coin
         // if yes,
@@ -132,6 +165,11 @@ public class Guppy extends Fish {
         }
     }
 
+    /**
+     * mencari food
+     * @param F
+     * @return food id in radius
+     */
     public int findFood(LinkedList<Food> F) {
 
         //nyari yg terdekat brrti pake iterate dari list Food
@@ -153,6 +191,10 @@ public class Guppy extends Fish {
         return idx;
     }
 
+    /**
+     * memindahkan guppy
+     * @param F
+     */
     public void move(LinkedList<Food> F) {
 
         if (isHungry() && F.getNBelmt() > 0) {
@@ -200,6 +242,11 @@ public class Guppy extends Fish {
         change_position(get_x(), get_y());
     }
 
+    /**
+     * euclidean antara food dan guppy
+     * @param m
+     * @return nilai euclidean
+     */
     public double euclidean(Food m) {
         // get euclidean distance from guppy to food
 
@@ -211,6 +258,11 @@ public class Guppy extends Fish {
         return (Math.sqrt(Math.pow(x_guppy - x_food, 2)) + (Math.pow(y_guppy - y_food, 2)));
     }
 
+    /**
+     * mencari food dalam radius guppy
+     * @param F
+     * @return food id in radius, 0 if there's none
+     */
     public int inRadius(LinkedList<Food> F) {
         //nyari ikan nya udah diradius itu blm
         int idx = 1;
@@ -232,6 +284,10 @@ public class Guppy extends Fish {
         }
     }
 
+    /**
+     * guppy makan
+     * @param F
+     */
     public void eat(LinkedList<Food> F) {
         //eat gak usah pake validasi laper. yg validasi laper itu move.
         //kalau ada ikan diradius itu, eat (itu aja fx nya)
@@ -258,6 +314,9 @@ public class Guppy extends Fish {
         }
     }
 
+    /**
+     * guppy tumbuh
+     */
     public void grow() {
         if (get_number_eat() == Constants.GUPPY_REQ_FOOD_COUNT && get_level() != Constants.GUPPY_MAX_LV) {
 

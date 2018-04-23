@@ -15,10 +15,17 @@ public class LinkedList<T> {
     //     this.head = node;
     // }
 
+    /**
+     * default constructor
+     */
     public LinkedList() {
         this.head = null;
     }
 
+    /**
+     * default constructor
+     * @param L
+     */
     public LinkedList(LinkedList<T> L) {
 
         // set head
@@ -40,6 +47,11 @@ public class LinkedList<T> {
         }
     }
 
+    /**
+     * assignmet
+     * @param L
+     * @return list
+     */
     public LinkedList<T> assign(LinkedList<T> L) {
 
         // set head
@@ -63,10 +75,18 @@ public class LinkedList<T> {
         return this;
     }
 
+    /**
+     * mengecek keadaan list
+     * @return boolean kosong atau tidaknya
+     */
     public Boolean isEmpty() {
         return this.head == null;
     }
 
+    /**
+     * menambah elemen ke dalam list
+     * @param element
+     */
     public void add(T element) {
         if (!isEmpty()) {
             Node<T> i = this.head;
@@ -89,6 +109,10 @@ public class LinkedList<T> {
         }
     }
 
+    /**
+     * menghapus elemen dari dalam list
+     * @param element
+     */
     public void remove(T element) {
         /** menghapus element dengan identitas demikian yang paling pertama
          */
@@ -110,7 +134,10 @@ public class LinkedList<T> {
         }
     }
 
-
+    /**
+     * mencari elemen di dalam list
+     * @param element
+     */
     public int find(T element) {
         /** mengembalikan indeks element dengan identitas demikian yang paling pertama. bila tidak ada return -1
          */
@@ -131,6 +158,11 @@ public class LinkedList<T> {
         return -1;
     }
 
+    /**
+     * mendapatkan elemen dengan indeks tertentu
+     * @param idx
+     * @return elemen
+     */
     public T get(int idx) {
         /** dipastikan ada
          */
@@ -151,6 +183,9 @@ public class LinkedList<T> {
         return null;
     }
 
+    /**
+     * mencetak list ke layar
+     */
     public void printList() {
         /** print isi list dengan format [1,2,...,n]
          */
@@ -169,6 +204,10 @@ public class LinkedList<T> {
         }
     }
 
+    /**
+     * mendapatkan panjang list
+     * @return panjang list
+     */
     public int getNBelmt() {
         // get number of element in list
         if (!this.isEmpty()) {

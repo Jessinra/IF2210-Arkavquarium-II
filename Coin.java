@@ -49,32 +49,56 @@ public class Coin extends Object implements Moveable {
     }
 
     /**
+     * getter coin_id
      * @return coin_id
      */
     public int get_id() {
         return coin_id;
     }
 
+    /**
+     * setter coin_id
+     * @param coin_id
+     */
     public void set_id(int coin_id) {
         this.coin_id = coin_id;
     }
 
+    /**
+     * getter coin_value
+     * @return coin_value
+     */
     public int get_value() {
         return coin_value;
     }
 
+    /**
+     * setter set_value
+     * @param coin_value
+     */
     public void set_value(int coin_value) {
         this.coin_value = coin_value;
     }
 
+    /**
+     * getter coin_speed
+     * @return coin_speed
+     */
     public int get_speed() {
         return coin_speed;
     }
 
+    /**
+     * setter coin_speed
+     * @param coin_speed
+     */
     public void set_speed(int coin_speed) {
         this.coin_speed = coin_speed;
     }
 
+    /**
+     * memindahkan coin
+     */
     public void move() {
         // if coin is not on buttom yet
         if (get_y() < Constants.SCREEN_BOTTOM) {
