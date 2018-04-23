@@ -1,38 +1,33 @@
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class Gameplay extends JPanel implements ActionListener, KeyListener, MouseListener {
-    private boolean play = true;
 
-    private Timer timer;
-    private int delay = 15;
+    private static final long serialVersionUID = 1L; // dont know what is this, needed to be implemented
 
+	private boolean play = true;
     private int win = 0;
 
     private Aquarium aquarium;
+    private Timer timer;
 
     public Gameplay() {
-        aquarium = new Aquarium();
 
         ImageCollection.init_image();
+        aquarium = new Aquarium();
 
         addMouseListener(this);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-        timer = new Timer(delay, this);
+        
+        timer = new Timer(Constants.TIME_DELAY, this);
         timer.start();
     }
 
     public void paint(Graphics g) {
-        // background
+
         g.setColor(Color.BLACK);
         g.drawImage(aquarium.get_image(),0,0,this);
 
@@ -50,33 +45,42 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
         }
 
         // iterate list guppy
-        for (int i = 1; i <= aquarium.get_list_guppy().getNBelmt(); i++) {
-            g.drawImage(aquarium.get_list_guppy().get(i).get_image(), (int) aquarium.get_list_guppy().get(i).get_x(),
-                    (int) aquarium.get_list_guppy().get(i).get_y(), this);
+        LinkedList<Guppy> guppyList = aquarium.get_list_guppy();
+		for (int i = 1; i <= guppyList.getNBelmt(); i++) {
+
+            Guppy currentGuppy = guppyList.get(i);
+			g.drawImage(currentGuppy.get_image(), (int) currentGuppy.get_x(), (int) currentGuppy.get_y(), this);
         }
 
         // iterate list piranha
-        for (int i = 1; i <= aquarium.get_list_piranha().getNBelmt(); i++) {
-            g.drawImage(aquarium.get_list_piranha().get(i).get_image(), (int) aquarium.get_list_piranha().get(i).get_x(),
-                    (int) aquarium.get_list_piranha().get(i).get_y(), this);
+        LinkedList<Piranha> piranhaList = aquarium.get_list_piranha();
+		for (int i = 1; i <= piranhaList.getNBelmt(); i++) {
+
+            Piranha currentPiranha = piranhaList.get(i);
+			g.drawImage(currentPiranha.get_image(), (int) currentPiranha.get_x(), (int) currentPiranha.get_y(), this);
         }
 
         // iterate list siput
-        for (int i = 1; i <= aquarium.get_list_siput().getNBelmt(); i++) {
-            g.drawImage(aquarium.get_list_siput().get(i).get_image(), (int) aquarium.get_list_siput().get(i).get_x(),
-                    (int) aquarium.get_list_siput().get(i).get_y(), this);
+        LinkedList<Siput> siputList = aquarium.get_list_siput();
+		for (int i = 1; i <= siputList.getNBelmt(); i++) {
+
+            Siput currentSiput = siputList.get(i);
+			g.drawImage(currentSiput.get_image(), (int) currentSiput.get_x(), (int) currentSiput.get_y(), this);
         }
 
         // iterate list food
-        for (int i = 1; i <= aquarium.get_list_food().getNBelmt(); i++) {
-            g.drawImage(aquarium.get_list_food().get(i).get_image(), (int) aquarium.get_list_food().get(i).get_x(),
-                    (int) aquarium.get_list_food().get(i).get_y(), this);
+        LinkedList<Food> foodList = aquarium.get_list_food();
+		for (int i = 1; i <= foodList.getNBelmt(); i++) {
+            Food currentFood = foodList.get(i);
+			g.drawImage(currentFood.get_image(), (int) currentFood.get_x(), (int) currentFood.get_y(), this);
         }
 
         // iterate list coin
-        for (int i = 1; i <= aquarium.get_list_coin().getNBelmt(); i++) {
-            g.drawImage(aquarium.get_list_coin().get(i).get_image(), (int) aquarium.get_list_coin().get(i).get_x(),
-                    (int) aquarium.get_list_coin().get(i).get_y(), this);
+        LinkedList<Coin> coinList = aquarium.get_list_coin();
+		for (int i = 1; i <= coinList.getNBelmt(); i++) {
+
+            Coin currentCoin = coinList.get(i);
+			g.drawImage(currentCoin.get_image(), (int) currentCoin.get_x(), (int) currentCoin.get_y(), this);
         }
 
         g.dispose();
@@ -108,8 +112,8 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
                     current_guppy.move(aquarium.get_list_food());
                     // cek drop coin
                     if (current_guppy.produce_coin()) {
-                        Coin c = new Coin(current_guppy.get_x(),
-                                current_guppy.get_y(), current_guppy.get_coin_value());
+                        
+                        Coin c = new Coin(current_guppy.get_x(), current_guppy.get_y(), current_guppy.get_coin_value());
                         aquarium.add_coin(c);
                     }
                     // makan

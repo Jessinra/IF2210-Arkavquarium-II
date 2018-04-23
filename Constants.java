@@ -39,6 +39,8 @@ public final class Constants {
     public static final int SIPUT_MOVEMENT_SPD = 2;
     public static final int FOOD_MOVEMENT_SPD = 1;
 
+    public static final int TIME_DELAY = 15;
+
     private Constants() {
         // restrict instantiation
     }

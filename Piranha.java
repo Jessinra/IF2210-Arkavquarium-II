@@ -76,8 +76,8 @@ public class Piranha extends Fish {
                 set_dir("Right");
             }
             double a = Math.atan2(G.get(idx).get_y()-get_y(), G.get(idx).get_x()-get_x());
-            set_x(get_x()+(double)(get_speed()*Math.cos(a)*1.5));
-            set_y(get_y()+(double)(get_speed()*Math.sin(a)*1.5));
+            set_x(get_x() + (get_speed() * Math.cos(a) * 1.5));
+            set_y(get_y() + (get_speed() * Math.sin(a) * 1.5));
         }
         else {
             //random arahnya

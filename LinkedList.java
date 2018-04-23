@@ -31,7 +31,7 @@ public class LinkedList<T> {
         
         while (n1.getNext() != null) {
             n1 = n1.getNext();
-            Node<T> n = new Node();
+            Node<T> n = new Node<T>();
             n.setValue(n1.getValue());
             prec.setNext(n);
             prec = n;
@@ -52,7 +52,7 @@ public class LinkedList<T> {
         
         while (n1.getNext() != null) {
             n1 = n1.getNext();
-            Node<T> n = new Node();
+            Node<T> n = new Node<T>();
             n.setValue(n1.getValue());
             prec.setNext(n);
             prec = n;

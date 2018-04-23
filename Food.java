@@ -51,7 +51,7 @@ public class Food extends Object {
     public void move() {
 
         if (get_y() <= Constants.SCREEN_BOTTOM) {
-            System.out.println("Food move " + get_x() + "," + get_y());
+            // System.out.println("Food move " + get_x() + "," + get_y());
             set_y(get_y() + get_speed());
 
             // change label position
