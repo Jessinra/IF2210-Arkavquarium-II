@@ -26,6 +26,7 @@ public class Coin extends Object implements Moveable {
 
     /**
      * constructor with parameter
+     *
      * @param x
      * @param y
      * @param coin_value
@@ -42,7 +43,7 @@ public class Coin extends Object implements Moveable {
 
         // set label image
         this.set_image(ImageCollection.coin);
-        
+
         this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
     }

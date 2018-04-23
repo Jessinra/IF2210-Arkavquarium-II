@@ -12,22 +12,23 @@ public abstract class Fish extends Object {
     private int time_move;
     private int x_move;
     private int y_move;
-    private double max_hunger = Constants.FISH_MAX_HUNGER; 
+    private double max_hunger = Constants.FISH_MAX_HUNGER;
 
     /**
      * constructor with parameter
+     *
      * @param price
      * @param cvalue
      */
     Fish(int price, int cvalue) {
-        
+
         Random rand = new Random();
         // set position
         double random_x = rand.nextDouble() * 200;
         double random_y = rand.nextDouble() * 200;
 
-        set_x(Constants.SCREEN_RIGHT/2 + random_x);
-        set_y(Constants.SCREEN_BOTTOM/2 + random_y);
+        set_x(Constants.SCREEN_RIGHT / 2 + random_x);
+        set_y(Constants.SCREEN_BOTTOM / 2 + random_y);
 
         fish_count++;
 
@@ -164,11 +165,10 @@ public abstract class Fish extends Object {
 
     public boolean isHungry() {
         // check if fish hunger is below certain point
-        if (get_hunger() <=  Constants.FISH_HUNGRY_BORDERLINE) {
+        if (get_hunger() <= Constants.FISH_HUNGRY_BORDERLINE) {
             set_hungry(true);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -177,10 +177,9 @@ public abstract class Fish extends Object {
         // check if fish hunger is below or equal zero
         if (get_hunger() <= 0) {
             return true;
-        }
-        else {
+        } else {
             return false;
-        } 
+        }
     }
 
     public void setRandomDirection() {
@@ -190,21 +189,17 @@ public abstract class Fish extends Object {
         if (x == 1) {
             x = -1;
             set_dir("Left");
-        }
-        else if (x == 2) {
+        } else if (x == 2) {
             x = 0;
-        }
-        else {
+        } else {
             x = 1;
             set_dir("Right");
         }
         if (y == 1) {
             y = -1;
-        }
-        else if (y == 2) {
+        } else if (y == 2) {
             y = 0;
-        }
-        else {
+        } else {
             y = 1;
         }
         set_x_move(x);

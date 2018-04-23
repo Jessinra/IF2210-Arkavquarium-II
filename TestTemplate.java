@@ -26,13 +26,13 @@ void assertArrayEquals(expectedArray, resultArray);
 import junit.framework.TestCase;
 import org.junit.*;
 
-public class TestTemplate{
+public class TestTemplate {
 
     /**
      * Create preparation that will be runned BEFORE every @Test
      */
     @Before
-    public void setUp(){
+    public void setUp() {
 
     }
 
@@ -40,7 +40,7 @@ public class TestTemplate{
      * Test method to test ....
      */
     @Test
-    public void testDummy_1(){
+    public void testDummy_1() {
 
     }
 
@@ -48,7 +48,7 @@ public class TestTemplate{
      * Test method to test ....
      */
     @Test
-    public void testDummy_2(){
+    public void testDummy_2() {
 
     }
 
@@ -56,7 +56,7 @@ public class TestTemplate{
      * Test method to test ....
      */
     @Test
-    public void testDummy_3(){
+    public void testDummy_3() {
 
     }
 
@@ -76,7 +76,6 @@ public class TestTemplate{
 
     //     //assertNull(specimen.get_image());
 
-        
 
     //     assertNotNull(specimen.get_image());
     // }

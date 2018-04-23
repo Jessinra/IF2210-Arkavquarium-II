@@ -1,8 +1,10 @@
-/** kelas generik LinkedList 
-indeks dimulai dari 1 */ 
+/**
+ * kelas generik LinkedList
+ * indeks dimulai dari 1
+ */
 
 public class LinkedList<T> {
-    
+
     private Node<T> head;
 
     // public Node<T> getHead(){
@@ -13,11 +15,11 @@ public class LinkedList<T> {
     //     this.head = node;
     // }
 
-	public LinkedList(){
+    public LinkedList() {
         this.head = null;
     }
 
-	public LinkedList(LinkedList<T> L){
+    public LinkedList(LinkedList<T> L) {
 
         // set head
         this.head = new Node<T>();
@@ -28,7 +30,7 @@ public class LinkedList<T> {
 
         Node<T> prec = this.head;
         Node<T> n1 = L.head;
-        
+
         while (n1.getNext() != null) {
             n1 = n1.getNext();
             Node<T> n = new Node<T>();
@@ -38,8 +40,8 @@ public class LinkedList<T> {
         }
     }
 
-	public LinkedList<T> assign(LinkedList<T> L){
-        
+    public LinkedList<T> assign(LinkedList<T> L) {
+
         // set head
         this.head = new Node<T>();
 
@@ -49,7 +51,7 @@ public class LinkedList<T> {
 
         Node<T> prec = this.head;
         Node<T> n1 = L.head;
-        
+
         while (n1.getNext() != null) {
             n1 = n1.getNext();
             Node<T> n = new Node<T>();
@@ -61,43 +63,41 @@ public class LinkedList<T> {
         return this;
     }
 
-	public Boolean isEmpty(){
+    public Boolean isEmpty() {
         return this.head == null;
     }
 
-	public void add(T element){
-        if (!isEmpty()) {	
+    public void add(T element) {
+        if (!isEmpty()) {
             Node<T> i = this.head;
-    
+
             while (i.getNext() != null) {
                 i = i.getNext();
             }
-    
+
             Node<T> n = new Node<T>();
             n.setValue(element);
             n.setNext(null);
-    
+
             i.setNext(n);
-        }
-        else {
+        } else {
             Node<T> n = new Node<T>();
             n.setValue(element);
             n.setNext(null);
-            
+
             this.head = n;
         }
     }
 
-	public void remove(T element){	
-    /** menghapus element dengan identitas demikian yang paling pertama
-    */
+    public void remove(T element) {
+        /** menghapus element dengan identitas demikian yang paling pertama
+         */
 
         if (head.getValue() == element) {
             Node<T> temp = this.head;
             this.head = temp.getNext();
 
-        }
-        else {
+        } else {
             Node<T> prec = this.head;
             Node<T> del = head.getNext();
 
@@ -111,9 +111,9 @@ public class LinkedList<T> {
     }
 
 
-	public int find(T element){
-    /** mengembalikan indeks element dengan identitas demikian yang paling pertama. bila tidak ada return -1
-    */
+    public int find(T element) {
+        /** mengembalikan indeks element dengan identitas demikian yang paling pertama. bila tidak ada return -1
+         */
         if (!this.isEmpty()) {
             Node<T> del = this.head;
             int idx = 1;
@@ -131,9 +131,9 @@ public class LinkedList<T> {
         return -1;
     }
 
-	public T get(int idx){
-    /** dipastikan ada
-    */
+    public T get(int idx) {
+        /** dipastikan ada
+         */
         if (!this.isEmpty()) {
             int i = 1;
             Node<T> n = this.head;
@@ -149,29 +149,28 @@ public class LinkedList<T> {
         }
 
         return null;
-    }			
+    }
 
-	public void printList(){		
-    /** print isi list dengan format [1,2,...,n]
-    */
+    public void printList() {
+        /** print isi list dengan format [1,2,...,n]
+         */
         if (!this.isEmpty()) {
             System.out.print('[');
             Node<T> list = this.head;
             System.out.print(list.getValue());
-    
+
             while (list.getNext() != null) {
                 list = list.getNext();
                 System.out.print("," + list.getValue());
             }
             System.out.print(']');
-        }
-        else {
+        } else {
             System.out.print("[]");
         }
     }
 
-	public int getNBelmt(){
-    // get number of element in list
+    public int getNBelmt() {
+        // get number of element in list
         if (!this.isEmpty()) {
             int i = 1;
             Node<T> list = this.head;
@@ -180,9 +179,8 @@ public class LinkedList<T> {
                 i++;
             }
             return i;
-        }
-        else {
+        } else {
             return 0;
         }
-    }			
+    }
 }

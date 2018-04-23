@@ -1,5 +1,5 @@
 
-public interface Moveable{
+public interface Moveable {
 
-	public void move();
+    public void move();
 }

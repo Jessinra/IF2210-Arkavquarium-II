@@ -12,8 +12,8 @@ public class Siput extends Pet {
         distance_to_coin = 0;
         set_speed(Constants.SIPUT_MOVEMENT_SPD);
         set_dir("Right");
-        set_x(Constants.SCREEN_WIDTH/2);
-        set_y(Constants.SCREEN_BOTTOM-30);
+        set_x(Constants.SCREEN_WIDTH / 2);
+        set_y(Constants.SCREEN_BOTTOM - 30);
 
         // set label image
         this.set_image(ImageCollection.siput_right);
@@ -46,14 +46,14 @@ public class Siput extends Pet {
 
                 } else {
                     set_x(get_x() - get_speed());
-                    
+
                     set_dir("Left");
                     set_image(ImageCollection.siput_left);
                 }
             }
 
             change_position(get_x(), get_y());
-        }   
+        }
     }
 
     // public double euclidean() {}
@@ -79,13 +79,13 @@ public class Siput extends Pet {
         boolean find = false;
 
         if (find_coin(C)) {
-            for (idx=1; idx<=C.getNBelmt(); idx++) {
+            for (idx = 1; idx <= C.getNBelmt(); idx++) {
                 if (C.get(idx).get_y() == Constants.SCREEN_BOTTOM) {
                     break;
                 }
             }
             nearest = (int) abs(C.get(idx).get_x() - get_x());
-            while (idx+1 < C.getNBelmt()) {
+            while (idx + 1 < C.getNBelmt()) {
                 if (C.get(idx).get_y() == Constants.SCREEN_BOTTOM) {
                     if (abs(C.get(idx).get_x() - get_x()) < nearest) {
                         nearest = (int) abs(C.get(idx).get_x() - get_x());
@@ -99,7 +99,7 @@ public class Siput extends Pet {
             }
         } else {
             nearest = (int) C.get(idx).get_y();
-            for (idx=2; idx<=C.getNBelmt(); idx++) {
+            for (idx = 2; idx <= C.getNBelmt(); idx++) {
                 if (C.get(idx).get_y() > nearest) {
                     radius = idx;
                 }
@@ -118,7 +118,7 @@ public class Siput extends Pet {
                 int value = current_coin.get_value();
                 C.remove(current_coin);
                 return value;
-                
+
             } else {
                 return 0;
             }

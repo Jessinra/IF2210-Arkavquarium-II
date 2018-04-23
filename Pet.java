@@ -7,7 +7,7 @@ public class Pet extends Object {
         pet_id = pet_count++;
     }
 
-    public int get_id() { 
-        return pet_id; 
+    public int get_id() {
+        return pet_id;
     }
 }

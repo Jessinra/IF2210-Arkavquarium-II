@@ -1,4 +1,4 @@
-public class Node<T>{
+public class Node<T> {
     private T value;
     private Node<T> next;
 
@@ -7,19 +7,19 @@ public class Node<T>{
         this.next = null;
     }
 
-    public T getValue(){
+    public T getValue() {
         return this.value;
     }
 
-    public void setValue(T val){
+    public void setValue(T val) {
         this.value = val;
     }
 
-    public Node<T> getNext(){
+    public Node<T> getNext() {
         return this.next;
     }
 
-    public void setNext(Node<T> next){
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 }

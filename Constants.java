@@ -15,11 +15,11 @@ public final class Constants {
     public static final int SIPUT_PRICE = 1250;
 
     public static final int GUPPY_COIN_VAL_01 = 5;
-    public static final int GUPPY_COIN_VAL_02 = 15; 
+    public static final int GUPPY_COIN_VAL_02 = 15;
     public static final int GUPPY_COIN_VAL_03 = 25;
     public static final int GUPPY_COIN_VAL_INCREASE_RATE = 10;
 
-    public static final int PIRANHA_COIN_VAL = GUPPY_PRICE;	 // harga ikan
+    public static final int PIRANHA_COIN_VAL = GUPPY_PRICE;     // harga ikan
 
     public static final double GUPPY_DROP_COIN_TIME = 150;
 
@@ -30,7 +30,7 @@ public final class Constants {
     public static final int FISH_MAX_TIMER = 30;
 
     public static final int GUPPY_MAX_LV = 3;
-    public static final int GUPPY_REQ_FOOD_COUNT = 5;		// how many food needed to lvl up
+    public static final int GUPPY_REQ_FOOD_COUNT = 5;        // how many food needed to lvl up
     public static final int GUPPY_HUNGER_INCREASE_RATE = 10;
 
     public static final int GUPPY_MOVEMENT_SPD = 2;

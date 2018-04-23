@@ -3,12 +3,12 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public final class ImageCollection{
+public final class ImageCollection {
 
     public static BufferedImage aquarium;
     public static BufferedImage coin;
     public static BufferedImage food;
-
+.
     public static BufferedImage guppy_01_L;
     public static BufferedImage guppy_01_R;
     public static BufferedImage guppy_01_L_H;
@@ -36,7 +36,7 @@ public final class ImageCollection{
     public static BufferedImage win;
     public static BufferedImage lose;
     public static BufferedImage credit;
-    
+
 
     // pathNAME SECTION
 
@@ -108,38 +108,38 @@ public final class ImageCollection{
     private static final File file_credit = new File(ImageCollection.path_credit);
 
 
-    private ImageCollection(){
+    private ImageCollection() {
         // restrict instantiation
     }
 
-    public static void init_image(){
+    public static void init_image() {
 
         try {
 
             ImageCollection.aquarium = ImageIO.read(ImageCollection.file_aquarium);
             ImageCollection.coin = ImageIO.read(ImageCollection.file_coin);
             ImageCollection.food = ImageIO.read(ImageCollection.file_food);
-        
+
             ImageCollection.guppy_01_L = ImageIO.read(ImageCollection.file_guppy_01_L);
             ImageCollection.guppy_01_R = ImageIO.read(ImageCollection.file_guppy_01_R);
             ImageCollection.guppy_01_L_H = ImageIO.read(ImageCollection.file_guppy_01_L_H);
             ImageCollection.guppy_01_R_H = ImageIO.read(ImageCollection.file_guppy_01_R_H);
-        
+
             ImageCollection.guppy_02_L = ImageIO.read(ImageCollection.file_guppy_02_L);
             ImageCollection.guppy_02_R = ImageIO.read(ImageCollection.file_guppy_02_R);
             ImageCollection.guppy_02_L_H = ImageIO.read(ImageCollection.file_guppy_02_L_H);
             ImageCollection.guppy_02_R_H = ImageIO.read(ImageCollection.file_guppy_02_R_H);
-        
+
             ImageCollection.guppy_03_L = ImageIO.read(ImageCollection.file_guppy_03_L);
             ImageCollection.guppy_03_R = ImageIO.read(ImageCollection.file_guppy_03_R);
             ImageCollection.guppy_03_L_H = ImageIO.read(ImageCollection.file_guppy_03_L_H);
             ImageCollection.guppy_03_R_H = ImageIO.read(ImageCollection.file_guppy_03_R_H);
-        
+
             ImageCollection.piranha_L = ImageIO.read(ImageCollection.file_piranha_L);
             ImageCollection.piranha_R = ImageIO.read(ImageCollection.file_piranha_R);
             ImageCollection.piranha_L_H = ImageIO.read(ImageCollection.file_piranha_L_H);
             ImageCollection.piranha_R_H = ImageIO.read(ImageCollection.file_piranha_R_H);
-        
+
             ImageCollection.siput_left = ImageIO.read(ImageCollection.file_siput_left);
             ImageCollection.siput_right = ImageIO.read(ImageCollection.file_siput_right);
 
@@ -147,7 +147,7 @@ public final class ImageCollection{
             ImageCollection.win = ImageIO.read(ImageCollection.file_win);
             ImageCollection.lose = ImageIO.read(ImageCollection.file_lose);
             ImageCollection.credit = ImageIO.read(ImageCollection.file_credit);
-        
+
 
         } catch (IOException e) {
             System.out.println("Error occured when loading image");
