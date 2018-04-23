@@ -30,7 +30,7 @@ public class Coin extends Object implements Moveable {
      * @param y
      * @param coin_value
      */
-    public Coin(int x, int y, int coin_value) {
+    public Coin(double x, double y, int coin_value) {
         set_x(x);
         set_y(y);
 
@@ -74,15 +74,12 @@ public class Coin extends Object implements Moveable {
         this.coin_speed = coin_speed;
     }
 
-    public void move(double sec_since_last) {
+    public void move() {
         // if coin is not on buttom yet
-        if (get_y() <= Constants.SCREEN_BOTTOM) {
-
+        if (get_y() < Constants.SCREEN_BOTTOM) {
             // move coin towards buttom
-            set_y(get_y() + (get_speed() * sec_since_last));
-
+            set_y(get_y() + get_speed());
         } else {
-
             set_y(Constants.SCREEN_BOTTOM);
         }
 

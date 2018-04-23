@@ -9,7 +9,7 @@ public abstract class Fish extends Object {
     private double hunger;
     private int speed;
     private boolean hungry;
-    private double time_move;
+    private int time_move;
     private int x_move;
     private int y_move;
     private double max_hunger = Constants.FISH_MAX_HUNGER; 
@@ -111,11 +111,11 @@ public abstract class Fish extends Object {
     /**
      * @return time_move
      */
-    public double get_time_move() {
+    public int get_time_move() {
         return time_move;
     }
 
-    public void set_time_move(double t) {
+    public void set_time_move(int t) {
         time_move = t;
     }
 

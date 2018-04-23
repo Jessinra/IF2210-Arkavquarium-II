@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Piranha extends Fish implements able_to_search<Guppy> {
+public class Piranha extends Fish {
     
     /**
      * default constructor
@@ -86,7 +86,7 @@ public class Piranha extends Fish implements able_to_search<Guppy> {
                 setRandomDirection();
             }
             else {
-                set_time_move(get_time_move());
+                set_time_move(get_time_move() - Constants.FISH_TIMER_DEC);
             }
 
             //kalau sampai ujung

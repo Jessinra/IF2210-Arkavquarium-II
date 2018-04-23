@@ -4,7 +4,7 @@ import com.sun.prism.Image;
 
 import static java.lang.Math.abs;
 
-public class Siput extends Pet{
+public class Siput extends Pet {
     private double distance_to_coin;
     private int speed;
 
@@ -13,7 +13,7 @@ public class Siput extends Pet{
         set_speed(Constants.SIPUT_MOVEMENT_SPD);
         set_dir("Right");
         set_x(Constants.SCREEN_WIDTH/2);
-        set_y(Constants.SCREEN_BOTTOM);
+        set_y(Constants.SCREEN_BOTTOM-30);
 
         // set label image
         this.set_image(ImageCollection.siput_right);
@@ -30,24 +30,22 @@ public class Siput extends Pet{
         this.speed = speed;
     }
 
-    public void move(double sec_since_last, LinkedList<Coin> C) {
+    public void move(LinkedList<Coin> C) {
         double x_coin;
 
         if (C.getNBelmt() > 0) {
             int radius = inRadius(C);
 
-            System.out.println("Siput move " + get_x() + "," + get_y());
-
             x_coin = C.get(radius).get_x();
             if (abs(x_coin - get_x()) > 30) {
                 if (x_coin - get_x() > 0) {
-                    set_x(get_x() + sec_since_last * get_speed());
+                    set_x(get_x() + get_speed());
 
                     set_dir("Right");
                     set_image(ImageCollection.siput_right);
 
                 } else {
-                    set_x(get_x() - sec_since_last * get_speed());
+                    set_x(get_x() - get_speed());
                     
                     set_dir("Left");
                     set_image(ImageCollection.siput_left);

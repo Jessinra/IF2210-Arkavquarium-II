@@ -1,5 +1,5 @@
 
 public interface Moveable{
 
-	public void move(double sec_since_last);
+	public void move();
 }

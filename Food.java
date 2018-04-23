@@ -5,9 +5,7 @@ public class Food extends Object {
     private int food_id;
     private int food_speed;
 
-   
     public Food() {
-
         set_y(Constants.SCREEN_TOP);
         Random rand = new Random();
         int a = rand.nextInt(Constants.SCREEN_WIDTH + 1);

@@ -2,7 +2,7 @@ import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 
-public abstract class Object{
+public class Object{
 
     protected double position_x;
 	protected double position_y;
@@ -41,7 +41,6 @@ public abstract class Object{
     }
     
     public void set_image(BufferedImage image){
-
         this.image = image;
     }
 

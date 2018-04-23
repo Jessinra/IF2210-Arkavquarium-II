@@ -1,5 +1,5 @@
-import javax.swing.JPanel;
-import javax.swing.JFrame;
+import static java.lang.Math.pow;
+import static java.lang.StrictMath.sqrt;
 
 public class Aquarium extends Object{
 
@@ -11,10 +11,8 @@ public class Aquarium extends Object{
 	private LinkedList<Siput> list_siput = new LinkedList<>();
 	private LinkedList<Food> list_food = new LinkedList<>();
     private LinkedList<Coin> list_coin = new LinkedList<>();
-    
-    private JPanel panel;
 
-    public Aquarium(JFrame frame){
+    public Aquarium() {
         // frame : where to put the aquarium
         
         ImageCollection.init_image(); // initialize all BufferedImage object
@@ -58,85 +56,45 @@ public class Aquarium extends Object{
     public LinkedList<Coin> get_list_coin(){
         return list_coin;
     }
-
-    // public void draw(){
-    //     might get changed due to using different class for GUI
-
-    //     draw_image(FILE_aquarium, SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-	
-    //     for (int i = 1; i <= list_guppy.getNBelmt(); i++){
-    //         list_guppy.get(i).draw();
-    //     }
-
-    //     for (int i = 1; i <= list_piranha.getNBelmt(); i++){
-    //         list_piranha.get(i).draw();
-    //     }
-
-    //     for (int i = 1; i <= list_siput.getNBelmt(); i++){
-    //         list_siput.get(i).draw();
-    //     }
-
-    //     for (int i = 1; i <= list_food.getNBelmt(); i++){
-    //         list_food.get(i).draw();
-    //     }
-
-    //     for (int i = 1; i <= list_coin.getNBelmt(); i++){
-    //         list_coin.get(i).draw();
-    //     }
-    // }
     
-    private void add_guppy(Guppy guppy) {
+    public void add_guppy(Guppy guppy) {
         list_guppy.add(guppy);
-        this.panel.add(guppy.get_label());
     }
- 
-    private void remove_guppy(Guppy guppy) {
+
+    public void remove_guppy(Guppy guppy) {
         list_guppy.remove(guppy);
-        this.panel.remove(guppy.get_label());
     }
-    
-    private void add_piranha(Piranha piranha) {
+
+    public void add_piranha(Piranha piranha) {
         list_piranha.add(piranha);
-        this.panel.add(piranha.get_label());
     }
 
-    private void remove_piranha(Piranha piranha) {
+    public void remove_piranha(Piranha piranha) {
         list_piranha.remove(piranha);
-        this.panel.remove(piranha.get_label());
     }
-    
-    private void add_siput(Siput siput){
+
+    public void add_siput(Siput siput){
         list_siput.add(siput);
-        this.panel.add(siput.get_label());
     }
-    
-    private void remove_siput(Siput siput){
+
+    public void remove_siput(Siput siput){
         list_siput.remove(siput);
-        this.panel.remove(siput.get_label());
     }
-    
-    private void add_food(Food food){
+
+    public void add_food(Food food){
         list_food.add(food);
-        this.panel.add(food.get_label());
     }
 
-    private void remove_food(Food food){
+    public void remove_food(Food food){
         list_food.remove(food);
-        this.panel.remove(food.get_label());
     }
 
-    private void add_coin(Coin coin){
+    public void add_coin(Coin coin){
         list_coin.add(coin);
-        this.panel.add(coin.get_label());
     }
 
-    private void remove_coin(Coin coin){
+    public void remove_coin(Coin coin){
         list_coin.remove(coin);
-        this.panel.remove(coin.get_label());
-    }
-
-    public JPanel get_panel(){
-        return this.panel;
     }
 
     public void buy_guppy(){
@@ -158,7 +116,7 @@ public class Aquarium extends Object{
         }
     }
 
-    public void buy_piranha(){
+    public void buy_piranha() {
     
         // Money sufficient 
         if (Aquarium.money >= Constants.PIRANHA_PRICE){
@@ -240,6 +198,53 @@ public class Aquarium extends Object{
         // unsufficient money
         else{
             // System.out.println("money not enough");
+        }
+    }
+
+    public double euclidean(double x, double y, Coin c) {
+        // get euclidean distance to coin
+
+        double x_coin = c.get_x();
+        double y_coin = c.get_y();
+
+        return (sqrt(pow(x-x_coin, 2)) + (pow(y-y_coin, 2)));
+    }
+
+
+    public int inRadius(double x, double y) {
+
+        int idx = 1;
+        double nearest;
+        int radius = 1;
+
+        nearest = get_list_coin().get(idx).get_x();
+        while (idx+1 < get_list_coin().getNBelmt()) {
+            if (euclidean(x,y,get_list_coin().get(idx)) < nearest) {
+                nearest = euclidean(x,y,get_list_coin().get(idx));
+                radius = idx;
+            }
+            else {
+                idx++;
+            }
+        }
+
+        // return id coin yg di dalam radius
+        return radius;
+    }
+
+    public int click_coin(double x, double y) {
+        //find coin in radius
+        if (get_list_coin().getNBelmt() > 0) {
+            int idx = inRadius(x,y);
+            if (get_list_coin().get(idx).get_x() >= x - 30 && get_list_coin().get(idx).get_x() <= x + 30 && get_list_coin().get(idx).get_y() >= y-30 && get_list_coin().get(idx).get_y() <= y+30) {
+                int value = get_list_coin().get(idx).get_value();
+                get_list_coin().remove(get_list_coin().get(idx));
+                return value;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
         }
     }
 }

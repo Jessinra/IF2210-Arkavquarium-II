@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Guppy extends Fish implements able_to_search<Food> {
+public class Guppy extends Fish {
     
     private int number_eat;
     private int level_grow;
@@ -139,7 +139,7 @@ public class Guppy extends Fish implements able_to_search<Food> {
         }
         else{
             // reduce drop coin time 
-            set_timer(get_timer()-Constants.FISH_TIMER_DEC/5);
+            set_timer(get_timer()-Constants.FISH_TIMER_DEC);
             return false;
         }
     }  
@@ -169,7 +169,7 @@ public class Guppy extends Fish implements able_to_search<Food> {
     public void move(LinkedList<Food> F) {
 
         if (isHungry() && F.getNBelmt() > 0) {
-            //mengejar food pakai tips
+            // mengejar food pakai tips
             int idx = findFood(F);
             if (F.get(idx).get_x() < get_x()) {
                 set_dir("Left");
@@ -190,7 +190,7 @@ public class Guppy extends Fish implements able_to_search<Food> {
                 setRandomDirection();
             }
             else {
-                set_time_move(get_time_move());
+                set_time_move(get_time_move() - Constants.FISH_TIMER_DEC);
             }
 
             //kalau sampai ujung
