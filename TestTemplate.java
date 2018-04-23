@@ -26,13 +26,13 @@ void assertArrayEquals(expectedArray, resultArray);
 import junit.framework.TestCase;
 import org.junit.*;
 
-public class test_template{
+public class TestTemplate{
 
     /**
      * Create preparation that will be runned BEFORE every @Test
      */
     @Before
-    public void setup(){
+    public void setUp(){
 
     }
 
