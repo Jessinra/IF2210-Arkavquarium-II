@@ -1,4 +1,3 @@
-import java.io.File;
 import java.util.*;
 
 public class Food extends Object {
@@ -6,8 +5,7 @@ public class Food extends Object {
     private int food_id;
     private int food_speed;
 
-    private static File image = new File(Constants.FILE_food);
-
+   
     public Food() {
 
         set_y(Constants.SCREEN_TOP);
@@ -19,6 +17,8 @@ public class Food extends Object {
         set_id(food_count);
         set_speed(Constants.FOOD_MOVEMENT_SPD);
 
+        this.set_image(ImageCollection.food);
+
         this.change_position(get_x(), get_y());
     }
 
@@ -29,10 +29,10 @@ public class Food extends Object {
         set_id(food_count);
         set_speed(Constants.FOOD_MOVEMENT_SPD);
 
+        this.set_image(ImageCollection.food);
+
         this.change_position(get_x(), get_y());
     }
-
-    public File getImage() {return image; }
 
     public int get_id() {
         return this.food_id;

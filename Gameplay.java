@@ -16,6 +16,9 @@ public class Gameplay extends JPanel implements ActionListener {
     private Food food = new Food(300);
 
     public Gameplay() {
+
+        ImageCollection.init_image();
+
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         timer = new Timer(delay, this);
@@ -27,12 +30,9 @@ public class Gameplay extends JPanel implements ActionListener {
         g.setColor(Color.BLACK);
         g.fillRect(1,1,692,592);
 
-        BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File(Constants.FILE_food));
-        } catch (IOException e) {
+        BufferedImage img = ImageCollection.food;
 
-        }
+        
 
         g.drawImage(img, (int)food.get_x(), (int)food.get_y(), this);
 

@@ -1,13 +1,12 @@
 import java.util.*;
+
+import com.sun.prism.Image;
+
 import static java.lang.Math.abs;
-import javax.swing.ImageIcon;
 
 public class Siput extends Pet{
     private double distance_to_coin;
     private int speed;
-
-    public static final ImageIcon image_siput_left = new ImageIcon(Constants.FILE_siput_left);
-    public static final ImageIcon image_siput_right = new ImageIcon(Constants.FILE_siput_right);
 
     public Siput() {
         distance_to_coin = 0;
@@ -17,7 +16,8 @@ public class Siput extends Pet{
         set_y(Constants.SCREEN_BOTTOM);
 
         // set label image
-        this.change_image(Siput.image_siput_right);
+        this.set_image(ImageCollection.siput_right);
+
         this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
     }
@@ -42,13 +42,15 @@ public class Siput extends Pet{
             if (abs(x_coin - get_x()) > 30) {
                 if (x_coin - get_x() > 0) {
                     set_x(get_x() + sec_since_last * get_speed());
+
                     set_dir("Right");
-                    change_image(Siput.image_siput_right);
+                    set_image(ImageCollection.siput_right);
 
                 } else {
                     set_x(get_x() - sec_since_last * get_speed());
+                    
                     set_dir("Left");
-                    change_image(Siput.image_siput_left);
+                    set_image(ImageCollection.siput_left);
                 }
             }
 

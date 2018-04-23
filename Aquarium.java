@@ -1,4 +1,3 @@
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 
@@ -7,19 +6,19 @@ public class Aquarium extends Object{
     static public int egg = 0;
     static public int money = 20000;
 
-    public static final ImageIcon image_aquarium = new ImageIcon(Constants.FILE_aquarium);
-
-    private LinkedList<Guppy> list_guppy = new LinkedList<>;
-	private LinkedList<Piranha> list_piranha = new LinkedList<>;
-	private LinkedList<Siput> list_siput = new LinkedList<>;
-	private LinkedList<Food> list_food = new LinkedList<>;
-    private LinkedList<Coin> list_coin = new LinkedList<>;
+    private LinkedList<Guppy> list_guppy = new LinkedList<>();
+	private LinkedList<Piranha> list_piranha = new LinkedList<>();
+	private LinkedList<Siput> list_siput = new LinkedList<>();
+	private LinkedList<Food> list_food = new LinkedList<>();
+    private LinkedList<Coin> list_coin = new LinkedList<>();
     
     private JPanel panel;
 
     public Aquarium(JFrame frame){
         // frame : where to put the aquarium
         
+        ImageCollection.init_image(); // initialize all BufferedImage object
+
         Guppy g = new Guppy();
         Guppy g1 = new Guppy();
 
@@ -29,6 +28,7 @@ public class Aquarium extends Object{
         Siput s = new Siput();
         this.add_siput(s);
 
+        set_image(ImageCollection.aquarium);
         // set panel
 //        this.panel = (JPanel) frame.getContentPane();
 //        this.panel.setLayout(null);

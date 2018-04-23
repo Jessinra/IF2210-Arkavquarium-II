@@ -1,5 +1,3 @@
-import javax.swing.ImageIcon;
-import java.io.File;
 import java.util.*;
 
 public class Guppy extends Fish implements able_to_search<Food> {
@@ -9,22 +7,6 @@ public class Guppy extends Fish implements able_to_search<Food> {
     private double timer;
     private static final int max_level = Constants.GUPPY_MAX_LV;
     
-    private static File image_guppy_01_L = new File(Constants.FILE_guppy_01_left);
-    private static File image_guppy_01_R = new File(Constants.FILE_guppy_01_right);
-    private static File image_guppy_01_L_H = new File(Constants.FILE_guppy_01_left_hungry);
-    private static File image_guppy_01_R_H = new File(Constants.FILE_guppy_01_right_hungry);
-
-    private static File image_guppy_02_L = new File(Constants.FILE_guppy_02_left);
-    private static File image_guppy_02_R = new File(Constants.FILE_guppy_02_right);
-    private static File image_guppy_02_L_H = new File(Constants.FILE_guppy_02_left_hungry);
-    private static File image_guppy_02_R_H = new File(Constants.FILE_guppy_02_right_hungry);
-
-    private static File image_guppy_03_L = new File(Constants.FILE_guppy_03_left);
-    private static File image_guppy_03_R = new File(Constants.FILE_guppy_03_right);
-    private static File image_guppy_03_L_H = new File(Constants.FILE_guppy_03_left_hungry);
-    private static File image_guppy_03_R_H = new File(Constants.FILE_guppy_03_right_hungry);
-
-    private File image_guppy;
 
     /**
      * default constructor
@@ -37,9 +19,7 @@ public class Guppy extends Fish implements able_to_search<Food> {
         set_timer(Constants.GUPPY_DROP_COIN_TIME);
         set_level(1);
 
-        // set label image
-        image_guppy = image_guppy_01_R;
-        //this.change_image(image_guppy);
+        this.set_image(ImageCollection.guppy_01_L);
 
         this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
@@ -80,17 +60,6 @@ public class Guppy extends Fish implements able_to_search<Food> {
     }
 
     /**
-     * @return image_guppy
-     */
-    public File get_image() {
-        return image_guppy;
-    }
-
-    public void set_image(File f) {
-        image_guppy = f;
-    }
-
-    /**
      * @return max_level
      */
     public final int get_max_level() {
@@ -107,57 +76,57 @@ public class Guppy extends Fish implements able_to_search<Food> {
 
     public void update_image() {
         if (isHungry()) {
-                if (level_grow == 1) {
-                    if (get_dir() == "Left") {
-                        set_image(image_guppy_01_L_H);
-                    }
-                    else {
-                        set_image(image_guppy_01_R_H);    
-                    }
+            if (level_grow == 1) {
+                if (get_dir() == "Left") {
+                    set_image(ImageCollection.guppy_01_L_H);
                 }
-                 else if (level_grow == 2) {
-                    if (get_dir() == "Left") {
-                       set_image(image_guppy_02_L_H);
-                    }
-                    else {
-                       set_image(image_guppy_02_R_H);    
-                    }
-                 }
-                 else if (level_grow == 3) {
-                    if (get_dir() == "Left") {
-                       set_image(image_guppy_03_L_H);
-                    }
-                    else {
-                       set_image(image_guppy_03_R_H);    
-                    }
+                else {
+                    set_image(ImageCollection.guppy_01_R_H);    
                 }
-         }
-         else {  
-                 if (level_grow == 1) {
-                     if (get_dir() == "Left") {
-                        set_image(image_guppy_01_L);
-                     }
-                     else {
-                        set_image(image_guppy_01_R);    
-                     }
-                 }
-                 else if (level_grow == 2) {
-                     if (get_dir() == "Left") {
-                        set_image(image_guppy_02_L);
-                     }
-                     else {
-                        set_image(image_guppy_02_R);    
-                     }
-                 }
-                 else if (level_grow == 3) {
-                     if (get_dir() == "Left") {
-                        set_image(image_guppy_03_L);
-                     }
-                     else {
-                        set_image(image_guppy_03_R);    
-                     }
-                 }
-         }
+            }
+            else if (level_grow == 2) {
+                if (get_dir() == "Left") {
+                    set_image(ImageCollection.guppy_02_L_H);
+                }
+                else {
+                    set_image(ImageCollection.guppy_02_R_H);    
+                }
+            }
+            else if (level_grow == 3) {
+                if (get_dir() == "Left") {
+                    set_image(ImageCollection.guppy_03_L_H);
+                }
+                else {
+                    set_image(ImageCollection.guppy_03_R_H);    
+                }
+            }
+        }
+        else {  
+            if (level_grow == 1) {
+                if (get_dir() == "Left") {
+                    set_image(ImageCollection.guppy_01_L);
+                }
+                else {
+                    set_image(ImageCollection.guppy_01_R);    
+                }
+            }
+            else if (level_grow == 2) {
+                if (get_dir() == "Left") {
+                    set_image(ImageCollection.guppy_02_L);
+                }
+                else {
+                    set_image(ImageCollection.guppy_02_R);    
+                }
+            }
+            else if (level_grow == 3) {
+                if (get_dir() == "Left") {
+                    set_image(ImageCollection.guppy_03_L);
+                }
+                else {
+                    set_image(ImageCollection.guppy_03_R);    
+                }
+            }
+        }
     }
 
     public boolean produce_coin() {
@@ -245,7 +214,6 @@ public class Guppy extends Fish implements able_to_search<Food> {
         }
 
         update_image();
-        //change_image(image_guppy);
         change_position(get_x(), get_y());
     } 
 

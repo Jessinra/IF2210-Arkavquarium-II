@@ -39,52 +39,6 @@ public final class Constants {
     public static final int SIPUT_MOVEMENT_SPD = 100;
     public static final int FOOD_MOVEMENT_SPD = 1;
 
-    // public static final int SCREEN_TOP = 80;
-    // public static final int SCREEN_BOTTOM = SCREEN_HEIGHT - 80;
-    // public static final int SCREEN_LEFT = 80;
-    // public static final int SCREEN_RIGHT = SCREEN_WIDTH - 80;
-
-    /**** IMAGE ****/
-
-    public static final String FILE_guppy_01_left = "img/guppy_01.png";
-    public static final String FILE_guppy_02_left = "img/guppy_02.png";
-    public static final String FILE_guppy_03_left = "img/guppy_03.png";
-
-    public static final String FILE_guppy_01_right = "img/guppy_01_r.png";
-    public static final String FILE_guppy_02_right = "img/guppy_02_r.png";
-    public static final String FILE_guppy_03_right = "img/guppy_03_r.png";
-
-    public static final String FILE_guppy_01_left_hungry = "img/guppy_01_h.png";
-    public static final String FILE_guppy_02_left_hungry = "img/guppy_02_h.png";
-    public static final String FILE_guppy_03_left_hungry = "img/guppy_03_h.png";
-
-    public static final String FILE_guppy_01_right_hungry = "img/guppy_01_r_h.png";
-    public static final String FILE_guppy_02_right_hungry = "img/guppy_02_r_h.png";
-    public static final String FILE_guppy_03_right_hungry = "img/guppy_03_r_h.png";
-
-    public static final String FILE_piranha_left = "img/piranha.png";
-    public static final String FILE_piranha_right = "img/piranha_r.png";
-
-    public static final String FILE_piranha_left_hungry = "img/piranha_h.png";
-    public static final String FILE_piranha_right_hungry = "img/piranha_r_h.png";
-
-    public static final String FILE_siput_left = "img/snail.png";
-    public static final String FILE_siput_right = "img/snail_r.png";
-
-    public static final String FILE_coin = "img/coin.png";
-
-    public static final String FILE_food = "img/food.png";
-
-    public static final String FILE_aquarium = "img/Aquarium2.jpg";
-
-    public static final String FILE_main_menu = "img/main.jpg";
-
-    public static final String FILE_win = "img/youwin.png";
-
-    public static final String FILE_lose = "img/gameover.png";
-
-    public static final String FILE_credit = "img/credit.jpeg";
-
     private Constants() {
         // restrict instantiation
     }

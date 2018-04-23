@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+import java.awt.image.BufferedImage;
 import javax.swing.*;
 
 public abstract class Object{
@@ -9,6 +10,8 @@ public abstract class Object{
     
     protected JLabel label = new JLabel();
     protected Dimension size;
+
+    protected BufferedImage image = null;
 
     public double get_x(){
         return position_x;
@@ -37,9 +40,13 @@ public abstract class Object{
         return this.label;
     }
     
-    public void change_image(ImageIcon image){
+    public void set_image(BufferedImage image){
 
-        this.label.setIcon(image);
+        this.image = image;
+    }
+
+    public BufferedImage get_image(){
+        return image;
     }
 
     public void change_position(double x, double y){

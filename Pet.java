@@ -1,6 +1,3 @@
-import java.util.*;
-
-
 public class Pet extends Object {
     private int pet_count = 0;
     private int pet_id = pet_count;

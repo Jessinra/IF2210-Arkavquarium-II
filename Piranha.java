@@ -1,15 +1,7 @@
-import javax.swing.ImageIcon;
-import java.io.File;
 import java.util.*;
 
 public class Piranha extends Fish implements able_to_search<Guppy> {
     
-    private static File image_piranha_L = new File(Constants.FILE_piranha_left);
-    private static File image_piranha_R = new File(Constants.FILE_piranha_right);
-    private static File image_piranha_L_H = new File(Constants.FILE_piranha_left_hungry);
-    private static File image_piranha_R_H = new File(Constants.FILE_piranha_right_hungry);
-    private File image_piranha;
-
     /**
      * default constructor
      */
@@ -17,23 +9,11 @@ public class Piranha extends Fish implements able_to_search<Guppy> {
         super(Constants.PIRANHA_PRICE, Constants.PIRANHA_COIN_VAL);
         set_speed(Constants.PIRANHA_MOVEMENT_SPD);
 
-        image_piranha = image_piranha_R;
-        //this.change_image(Piranha.image_piranha_R);
+        this.set_image(ImageCollection.piranha_R);
 
         this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
 
-    }
-
-    /**
-     * @return image_piranha
-     */
-    public File get_image() {
-        return image_piranha;
-    }
-
-    public void set_image(File f) {
-        image_piranha = f;
     }
 
     public boolean isEqual(Piranha p) {
@@ -45,22 +25,22 @@ public class Piranha extends Fish implements able_to_search<Guppy> {
     }
 
     public void update_image() {
-         if (isHungry()) {
-             if (get_dir() == "Left") {
-                 set_image(image_piranha_L_H); 
-             }
-             else {
-                 set_image(image_piranha_R_H);    
-             }
-         }
-         else {
+        if (isHungry()) {
             if (get_dir() == "Left") {
-                set_image(image_piranha_L); 
-             }
-             else {
-                set_image(image_piranha_R);    
-             }
-         }
+                set_image(ImageCollection.piranha_L_H); 
+            }
+            else {
+                set_image(ImageCollection.piranha_R_H);    
+            }
+        }
+        else {
+            if (get_dir() == "Left") {
+                set_image(ImageCollection.piranha_L); 
+            }
+            else {
+                set_image(ImageCollection.piranha_R);    
+            }
+        }
      }
 
     public int findGuppy(LinkedList<Guppy> G) {
@@ -130,7 +110,6 @@ public class Piranha extends Fish implements able_to_search<Guppy> {
         }
 
         update_image();
-        //change_image(image_piranha);
         change_position(get_x(), get_y());
     }
 

@@ -1,5 +1,3 @@
-import javax.swing.ImageIcon;
-
 public class Coin extends Object implements Moveable {
 
     public static int coin_amount = 0;
@@ -7,7 +5,6 @@ public class Coin extends Object implements Moveable {
     private int coin_value;
     private int coin_speed;
 
-    public static final ImageIcon image_coin = new ImageIcon(Constants.FILE_coin);
 
     /**
      * default constructor
@@ -20,7 +17,8 @@ public class Coin extends Object implements Moveable {
         set_speed(0);
 
         // set label image
-        this.change_image(Coin.image_coin);
+        this.set_image(ImageCollection.coin);
+
         this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
     }
@@ -43,7 +41,8 @@ public class Coin extends Object implements Moveable {
         set_speed(Constants.COIN_MOVEMENT_SPD);
 
         // set label image
-        this.change_image(Coin.image_coin);
+        this.set_image(ImageCollection.coin);
+        
         this.change_position(get_x(), get_y());
         this.size = this.label.getPreferredSize();
     }
