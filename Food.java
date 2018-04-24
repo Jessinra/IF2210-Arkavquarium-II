@@ -57,7 +57,7 @@ public class Food extends Object {
      * getter foodSpeed.
      * @return foodSpeed
      */
-    private int getSpeed() {
+    public int getSpeed() {
         return this.foodSpeed;
     }
 
