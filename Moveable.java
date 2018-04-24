@@ -3,8 +3,8 @@
  */
 public interface Moveable {
 
-    /**
-     * method to move object.
-     */
-    public void move();
+  /**
+   * method to move object.
+   */
+  void move();
 }

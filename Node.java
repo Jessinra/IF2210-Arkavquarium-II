@@ -1,44 +1,44 @@
 public class Node<T> {
-    private T value;
-    private Node<T> next;
+  private T value;
+  private Node<T> next;
 
-    /**
-     * default constructor
+  /**
+     * default constructor.
      */
-    public Node() {
-        this.value = null;
-        this.next = null;
-    }
+  public Node() {
+    this.value = null;
+    this.next = null;
+  }
 
-    /**
-     * getter value
+  /**
+     * getter value.
      * @return value
      */
-    public T getValue() {
-        return this.value;
-    }
+  public T getValue() {
+    return this.value;
+  }
 
-    /**
-     * setter value
-     * @param val
+  /**
+     * setter value.
+     * @param val set param val to value
      */
-    public void setValue(T val) {
-        this.value = val;
-    }
+  public void setValue(T val) {
+    this.value = val;
+  }
 
-    /**
-     * getter next
+  /**
+     * getter next.
      * @return next
      */
-    public Node<T> getNext() {
-        return this.next;
-    }
+  public Node<T> getNext() {
+    return this.next;
+  }
 
-    /**
-     * setter next
-     * @param next
+  /**
+     * setter next.
+     * @param next set param next to next
      */
-    public void setNext(Node<T> next) {
-        this.next = next;
-    }
+  public void setNext(Node<T> next) {
+    this.next = next;
+  }
 }
