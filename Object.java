@@ -8,13 +8,12 @@ public class Object {
     protected double position_y;
     protected String direction;
 
-    protected JLabel label = new JLabel();
     protected Dimension size;
 
     protected BufferedImage image = null;
 
     /**
-     * getter position_x
+     * getter position_x.
      * @return position_x
      */
     public double get_x() {
@@ -22,7 +21,7 @@ public class Object {
     }
 
     /**
-     * getter position_y
+     * getter position_y.
      * @return position_y
      */
     public double get_y() {
@@ -30,7 +29,7 @@ public class Object {
     }
 
     /**
-     * getter direction
+     * getter direction.
      * @return direction
      */
     public String get_dir() {
@@ -38,63 +37,42 @@ public class Object {
     }
 
     /**
-     * setter x
-     * @param x
+     * setter x.
+     * @param x x to set
      */
     public void set_x(double x) {
         position_x = x;
     }
 
     /**
-     * setter y
-     * @param y
+     * setter y.
+     * @param y y to set
      */
     public void set_y(double y) {
         position_y = y;
     }
 
     /**
-     * setter direction
-     * @param dir
+     * setter direction.
+     * @param dir direction to set
      */
     public void set_dir(String dir) {
         direction = dir;
     }
 
     /**
-     * getter label
-     * @return label
-     */
-    public JLabel get_label() {
-        return this.label;
-    }
-
-    /**
-     * setter image
-     * @param image
+     * setter image.
+     * @param image image to set
      */
     public void set_image(BufferedImage image) {
         this.image = image;
     }
 
     /**
-     * getter image
+     * getter image.
      * @return image
      */
     public BufferedImage get_image() {
         return image;
     }
-
-    /**
-     * mengganti posisi objek
-     * @param x
-     * @param y
-     */
-    public void change_position(double x, double y) {
-
-        this.size = this.label.getPreferredSize();
-        this.label.setBounds((int) x - this.size.width / 2, (int) y - this.size.height / 2, this.size.width, this.size.height);
-    }
-
-    // public abstract void draw();
 }

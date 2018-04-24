@@ -5,14 +5,12 @@ import com.sun.prism.Image;
 import static java.lang.Math.abs;
 
 public class Siput extends Pet {
-    private double distance_to_coin;
     private int speed;
 
     /**
-     * default constructor
+     * default constructor.
      */
     public Siput() {
-        distance_to_coin = 0;
         set_speed(Constants.SIPUT_MOVEMENT_SPD);
         set_dir("Right");
         set_x(Constants.SCREEN_WIDTH / 2);
@@ -20,13 +18,10 @@ public class Siput extends Pet {
 
         // set label image
         this.set_image(ImageCollection.siput_right);
-
-        this.change_position(get_x(), get_y());
-        this.size = this.label.getPreferredSize();
     }
 
     /**
-     * getter speed
+     * getter speed.
      * @return speed
      */
     public int get_speed() {
@@ -34,16 +29,16 @@ public class Siput extends Pet {
     }
 
     /**
-     * mengubah nilai speed
-     * @param speed
+     * mengubah nilai speed.
+     * @param speed speed to set
      */
     public void set_speed(int speed) {
         this.speed = speed;
     }
 
     /**
-     * memindahkan siput
-     * @param C
+     * memindahkan siput.
+     * @param C list of coin to chase
      */
     public void move(LinkedList<Coin> C) {
         double x_coin;
@@ -66,16 +61,12 @@ public class Siput extends Pet {
                     set_image(ImageCollection.siput_left);
                 }
             }
-
-            change_position(get_x(), get_y());
         }
     }
 
-    // public double euclidean() {}
-
     /**
-     * mencari coin
-     * @param C
+     * mencari coin.
+     * @param C coin to search
      * @return boolean find
      */
     public boolean find_coin(LinkedList<Coin> C) {
@@ -93,8 +84,8 @@ public class Siput extends Pet {
     }
 
     /**
-     * mencari coin yang ada di dalam radius siput
-     * @param C
+     * mencari coin yang ada di dalam radius siput.
+     * @param C list of coin to find
      * @return idx coin dalam radius, 0 jika tidak ada coin dalam radius
      */
     public int inRadius(LinkedList<Coin> C) {
@@ -134,8 +125,8 @@ public class Siput extends Pet {
     }
 
     /**
-     * mengambil coin
-     * @param C
+     * mengambil coin.
+     * @param C coin to take
      * @return idx coin yang diambil
      */
     public int take_coin(LinkedList<Coin> C) {

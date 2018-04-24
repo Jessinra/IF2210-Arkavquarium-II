@@ -3,7 +3,7 @@ public class Pet extends Object {
     private int pet_id = pet_count;
 
     /**
-     * default constructor
+     * default constructor.
      */
     public Pet() {
         pet_count++;
@@ -11,7 +11,7 @@ public class Pet extends Object {
     }
 
     /**
-     * getter pet_id
+     * getter pet_id.
      * @return pet_id
      */
     public int get_id() {
