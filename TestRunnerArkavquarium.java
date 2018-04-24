@@ -13,6 +13,9 @@ public class TestRunnerArkavquarium {
             TestImage.class,
             TestFood.class,
             TestCoin.class,
+            TestSiput.class,
+            TestFish.class,
+
         };
 
         // Test every JUnit class
