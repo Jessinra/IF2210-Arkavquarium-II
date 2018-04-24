@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Food extends Object {
-    private static int foodCount = 0;
+    public static int foodCount = 0;
     private int foodId;
     private int foodSpeed;
 
@@ -12,8 +12,8 @@ public class Food extends Object {
         setY(Constants.SCREEN_TOP);
         Random rand = new Random();
         int a = rand.nextInt(Constants.SCREEN_WIDTH + 1);
-
         setX((double) a);
+
         foodCount += 1;
         setId(foodCount);
         setSpeed(Constants.FOOD_MOVEMENT_SPD);

@@ -9,30 +9,15 @@ import org.junit.*;
 import jdk.nashorn.internal.AssertsEnabled;
 
 public class TestFood extends TestCase{
-
-    private Food dummy = new Food();
-
-    @Before
-    public void setup(){
-
-        try{
-            Food dummy_ = new Food();
-            assertNotNull(dummy);
-
-            System.out.println(this.getName() + " >> success");
-        }
-        catch(Exception e){
-            System.out.println(" >> fail");
-        }
-       
-    }
+    private Food dummy =  new Food();
 
     @Test
     public void testConstructorParam(){
 
-        Food dummy_ = new Food(15);
-        assertNotNull(dummy_);
-        assertEquals(15, dummy_.getX(), 0.01);
+        Food dummy = new Food(15);
+
+        assertNotNull(dummy);
+        assertEquals(15, dummy.getX(), 0.01);
 
         System.out.println(this.getName() + " >> success");
     }
@@ -40,7 +25,7 @@ public class TestFood extends TestCase{
     @Test
     public void testId(){
 
-        assertEquals(1, dummy.getId());
+        assertEquals(4, dummy.getId());
         System.out.println(this.getName() + " >> success");
     }
 
