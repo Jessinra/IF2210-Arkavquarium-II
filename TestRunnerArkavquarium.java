@@ -11,6 +11,7 @@ public class TestRunnerArkavquarium {
         Class[] testClasses = new Class[]{
 
             TestFood.class,
+            TestCoin.class,
         };
 
         // Test every JUnit class
