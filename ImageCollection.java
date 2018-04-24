@@ -8,7 +8,7 @@ public final class ImageCollection {
     public static BufferedImage aquarium;
     public static BufferedImage coin;
     public static BufferedImage food;
-.
+
     public static BufferedImage guppy_01_L;
     public static BufferedImage guppy_01_R;
     public static BufferedImage guppy_01_L_H;

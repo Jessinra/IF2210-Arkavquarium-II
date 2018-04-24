@@ -6,7 +6,7 @@ public class Food extends Object {
     private int food_speed;
 
     /**
-     * default constructor
+     * default constructor.
      */
     public Food() {
         set_y(Constants.SCREEN_TOP);
@@ -24,8 +24,8 @@ public class Food extends Object {
     }
 
     /**
-     * default constructor
-     * @param x
+     * default constructor.
+     * @param x location x
      */
     public Food(double x) {
         set_y(Constants.SCREEN_TOP);
@@ -40,7 +40,7 @@ public class Food extends Object {
     }
 
     /**
-     * getter food_id
+     * getter food_id.
      * @return food_id
      */
     public int get_id() {
@@ -48,31 +48,31 @@ public class Food extends Object {
     }
 
     /**
-     * setter food_id
-     * @param id
+     * setter food_id.
+     * @param id input id
      */
-    public void set_id(int id) {
+    private void set_id(int id) {
         this.food_id = id;
     }
 
     /**
-     * getter food_speed
+     * getter food_speed.
      * @return food_speed
      */
-    public int get_speed() {
+    private int get_speed() {
         return this.food_speed;
     }
 
     /**
-     * setter food_speed
-     * @param spd
+     * setter food_speed.
+     * @param spd input speed
      */
-    public void set_speed(int spd) {
+    private void set_speed(int spd) {
         this.food_speed = spd;
     }
 
     /**
-     * memindahkan food
+     * move food towards screen bottom.
      */
     public void move() {
 

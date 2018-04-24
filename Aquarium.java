@@ -13,7 +13,7 @@ public class Aquarium extends Object {
     private LinkedList<Coin> list_coin = new LinkedList<>();
 
     /**
-     * default constructor
+     * default constructor.
      */
     public Aquarium() {
         // frame : where to put the aquarium
@@ -30,139 +30,131 @@ public class Aquarium extends Object {
         this.add_siput(s);
 
         set_image(ImageCollection.aquarium);
-        // set panel
-//        this.panel = (JPanel) frame.getContentPane();
-//        this.panel.setLayout(null);
-//
-//        this.change_image(Aquarium.image_aquarium);
-//        this.change_position(0, 0);
-//        this.size = this.label.getPreferredSize();
-
     }
 
     /**
-     * getter list guppy
+     * getter list guppy.
      * @return list_guppy
      */
-    public LinkedList<Guppy> get_list_guppy() {
+    public LinkedList<Guppy> getList_guppy() {
         return list_guppy;
     }
 
     /**
-     * getter list piranha
+     * getter list piranha.
      * @return list_piranha
      */
-    public LinkedList<Piranha> get_list_piranha() {
+    public LinkedList<Piranha> getList_piranha() {
         return list_piranha;
     }
 
     /**
-     * getter list siput
+     * getter list siput.
      * @return list_siput
      */
-    public LinkedList<Siput> get_list_siput() {
+    public LinkedList<Siput> getList_siput() {
         return list_siput;
     }
 
     /**
-     * getter list food
+     * getter list food.
      * @return list_food
      */
-    public LinkedList<Food> get_list_food() {
+    public LinkedList<Food> getList_food() {
         return list_food;
     }
 
     /**
-     * getter list coin
+     * getter list coin.
      * @return list_coin
      */
-    public LinkedList<Coin> get_list_coin() {
+    public LinkedList<Coin> getList_coin() {
         return list_coin;
     }
 
     /**
-     * menambahkan guppy ke dalam list guppy
-     * @param guppy
+     * menambahkan guppy ke dalam list guppy.
+     * @param guppy guppy to add
      */
     public void add_guppy(Guppy guppy) {
         list_guppy.add(guppy);
     }
 
     /**
-     * menghapus guppy dari dalam list guppy
-     * @param guppy
+     * menghapus guppy dari dalam list guppy.
+     * @param guppy guppy to remove
      */
     public void remove_guppy(Guppy guppy) {
         list_guppy.remove(guppy);
     }
 
     /**
-     * menambahkan piranha ke dalam list guppy
-     * @param piranha
+     * menambahkan piranha ke dalam list piranha.
+     * @param piranha piranha to add
      */
     public void add_piranha(Piranha piranha) {
         list_piranha.add(piranha);
     }
 
     /**
-     * menghapus piranha dari dalam list guppy
-     * @param piranha
+     * menghapus piranha dari dalam list piranha.
+     * @param piranha piranha to remove
      */
     public void remove_piranha(Piranha piranha) {
         list_piranha.remove(piranha);
     }
 
     /**
-     * menambahkan siput ke dalam list guppy
-     * @param siput
+     * menambahkan siput ke dalam list siput.
+     * @param siput siput to add
      */
     public void add_siput(Siput siput) {
         list_siput.add(siput);
     }
 
     /**
-     * menghapus siput dari dalam list guppy
-     * @param siput
+     * menghapus siput dari dalam list siput.
+     * @param siput siput to remove
      */
     public void remove_siput(Siput siput) {
         list_siput.remove(siput);
     }
 
     /**
-     * menambahkan food ke dalam list guppy
-     * @param food
+     * menambahkan food ke dalam list food.
+     * @param food food to add
      */
     public void add_food(Food food) {
         list_food.add(food);
     }
 
     /**
-     * menghapus food dari dalam list guppy
-     * @param food
+     * menghapus food dari dalam list food.
+     * @param food food to remove
      */
     public void remove_food(Food food) {
         list_food.remove(food);
     }
 
     /**
-     * menambahkan coin ke dalam list guppy
-     * @param coin
+     * menambahkan coin ke dalam list coin.
+     * @param coin coin to add
      */
     public void add_coin(Coin coin) {
         list_coin.add(coin);
     }
 
     /**
-     * menghapus coin dari dalam list guppy
-     * @param coin
+     * menghapus coin dari dalam list coin.
+     * @param coin coin to remove
      */
     public void remove_coin(Coin coin) {
         list_coin.remove(coin);
     }
 
     /**
-     * membeli guppy
-     * menambah guppy ke dalam list guppy dan mengurangi money
+     * membeli guppy.
+     * menambah guppy ke dalam list guppy dan mengurangi money.
      */
     public void buy_guppy() {
 
@@ -176,16 +168,11 @@ public class Aquarium extends Object {
 
 
         }
-
-        // unsufficient money
-        else {
-            // System.out.println("money not enough");
-        }
     }
 
     /**
-     * membeli piranha
-     * menambah piranha ke dalam list piranha dan mengurangi money
+     * membeli piranha.
+     * menambah piranha ke dalam list piranha dan mengurangi money.
      */
     public void buy_piranha() {
 
@@ -198,16 +185,11 @@ public class Aquarium extends Object {
             Aquarium.money -= Constants.PIRANHA_PRICE;
 
         }
-
-        // unsufficient money
-        else {
-            // System.out.println("money not enough");
-        }
     }
 
     /**
-     * membeli food
-     * menambah food ke dalam list food dan mengurangi money
+     * membeli food.
+     * menambah food ke dalam list food dan mengurangi money.
      */
     public void buy_food() {
 
@@ -219,17 +201,12 @@ public class Aquarium extends Object {
 
             Aquarium.money -= Constants.FOOD_PRICE;
         }
-
-        // unsufficient money
-        else {
-            // System.out.println("money not enough");
-        }
     }
 
     /**
-     * membeli food
-     * menambah food ke dalam list food dan mengurangi money
-     * @param x
+     * membeli food dengan lokasi parameter x.
+     * menambah food ke dalam list food dan mengurangi money.
+     * @param x lokasi x food dimunculkan
      */
     public void buy_food(double x) {
         // Money sufficient 
@@ -240,16 +217,11 @@ public class Aquarium extends Object {
 
             Aquarium.money -= Constants.FOOD_PRICE;
         }
-
-        // unsufficient money
-        else {
-            // System.out.println("money not enough");
-        }
     }
 
     /**
-     * membeli egg
-     * menambah egg jumlah nilai variabel egg dan mengurangi money
+     * membeli egg.
+     * menambah egg jumlah nilai variabel egg dan mengurangi money.
      */
     public void buy_egg() {
 
@@ -259,18 +231,11 @@ public class Aquarium extends Object {
             Aquarium.egg++;
             Aquarium.money -= Constants.EGG_PRICE;
         }
-
-        // unsufficient money
-        else {
-            // System.out.println("money not enough");
-        }
-
-
     }
 
     /**
-     * membeli siput
-     * menambah siput ke dalam list siput dan mengurangi money
+     * membeli siput.
+     * menambah siput ke dalam list siput dan mengurangi money.
      */
     public void buy_snail() {
 
@@ -290,10 +255,10 @@ public class Aquarium extends Object {
     }
 
     /**
-     * menghitung euclidean (jarak lurus antar dua titik)
-     * @param x
-     * @param c
-     * @param y
+     * menghitung euclidean (jarak lurus antar dua titik).
+     * @param x lokasi x
+     * @param y lokasi y
+     * @param c coin to search
      */
     public double euclidean(double x, double y, Coin c) {
         // get euclidean distance to coin
@@ -305,9 +270,9 @@ public class Aquarium extends Object {
     }
 
     /**
-     * mengecek elemen di dalam radius
-     * @param x
-     * @param y
+     * mengecek elemen di dalam radius.
+     * @param x lokasi x mouse
+     * @param y lokasi y mouse
      */
     public int inRadius(double x, double y) {
 
@@ -315,10 +280,10 @@ public class Aquarium extends Object {
         double nearest;
         int radius = 1;
 
-        nearest = get_list_coin().get(idx).get_x();
-        while (idx + 1 < get_list_coin().getNBelmt()) {
-            if (euclidean(x, y, get_list_coin().get(idx)) < nearest) {
-                nearest = euclidean(x, y, get_list_coin().get(idx));
+        nearest = getList_coin().get(idx).get_x();
+        while (idx + 1 < getList_coin().getNBelmt()) {
+            if (euclidean(x, y, getList_coin().get(idx)) < nearest) {
+                nearest = euclidean(x, y, getList_coin().get(idx));
                 radius = idx;
             } else {
                 idx++;
@@ -330,17 +295,17 @@ public class Aquarium extends Object {
     }
 
     /**
-     * klik coin menggunakan kursor
-     * @param x
-     * @param y
+     * klik coin menggunakan kursor.
+     * @param x lokasi x kursor
+     * @param y lokasi y kursor
      */
     public int click_coin(double x, double y) {
         //find coin in radius
-        if (get_list_coin().getNBelmt() > 0) {
+        if (getList_coin().getNBelmt() > 0) {
             int idx = inRadius(x, y);
-            if (get_list_coin().get(idx).get_x() >= x - 30 && get_list_coin().get(idx).get_x() <= x + 30 && get_list_coin().get(idx).get_y() >= y - 30 && get_list_coin().get(idx).get_y() <= y + 30) {
-                int value = get_list_coin().get(idx).get_value();
-                get_list_coin().remove(get_list_coin().get(idx));
+            if (getList_coin().get(idx).get_x() >= x - 30 && getList_coin().get(idx).get_x() <= x + 30 && getList_coin().get(idx).get_y() >= y - 30 && getList_coin().get(idx).get_y() <= y + 30) {
+                int value = getList_coin().get(idx).get_value();
+                getList_coin().remove(getList_coin().get(idx));
                 return value;
             } else {
                 return 0;

@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Guppy extends Fish {
 
     private int number_eat;
