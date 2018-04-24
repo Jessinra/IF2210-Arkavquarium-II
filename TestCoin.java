@@ -73,7 +73,7 @@ public class TestCoin extends TestCase{
         dummy.setY(650);
         dummy.setSpeed(1);
         dummy.move();
-        assertEquals(1250, dummy.getY(), 0.01);
+        assertEquals(Constants.SCREEN_BOTTOM, dummy.getY(), 0.01);
 
         System.out.println(this.getName() + " >> success");
     }
