@@ -5,11 +5,10 @@ import com.sun.prism.Image;
 import static java.lang.Math.abs;
 
 public class Siput extends Pet {
-
     private int speed;
 
     /**
-     * default constructor
+     * default constructor.
      */
     public Siput() {
 
@@ -25,7 +24,7 @@ public class Siput extends Pet {
     }
 
     /**
-     * getter speed
+     * getter speed.
      * @return speed
      */
     public int getSpeed() {
@@ -33,16 +32,16 @@ public class Siput extends Pet {
     }
 
     /**
-     * mengubah nilai speed
-     * @param speed
+     * mengubah nilai speed.
+     * @param speed speed to set
      */
     public void setSpeed(int speed) {
         this.speed = speed;
     }
 
     /**
-     * memindahkan siput
-     * @param C
+     * memindahkan siput.
+     * @param C list of coin to chase
      */
     public void move(LinkedList<Coin> C) {
         double xCoin;
@@ -68,11 +67,9 @@ public class Siput extends Pet {
         }
     }
 
-    // public double euclidean() {}
-
     /**
-     * mencari coin
-     * @param C
+     * mencari coin.
+     * @param C coin to search
      * @return boolean find
      */
     public boolean findCoin(LinkedList<Coin> C) {
@@ -90,8 +87,8 @@ public class Siput extends Pet {
     }
 
     /**
-     * mencari coin yang ada di dalam radius siput
-     * @param C
+     * mencari coin yang ada di dalam radius siput.
+     * @param C list of coin to find
      * @return idx coin dalam radius, 0 jika tidak ada coin dalam radius
      */
     public int inRadius(LinkedList<Coin> C) {
@@ -130,8 +127,8 @@ public class Siput extends Pet {
     }
 
     /**
-     * mengambil coin
-     * @param C
+     * mengambil coin.
+     * @param C coin to take
      * @return idx coin yang diambil
      */
     public int takeCoin(LinkedList<Coin> C) {
