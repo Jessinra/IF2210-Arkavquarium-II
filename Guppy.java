@@ -7,7 +7,7 @@ public class Guppy extends Fish {
 
 
     /**
-     * default constructor
+     * default constructor.
      */
     Guppy() {
         super(Constants.GUPPY_PRICE, Constants.GUPPY_COIN_VAL_01);
@@ -18,14 +18,10 @@ public class Guppy extends Fish {
         set_level(1);
 
         this.set_image(ImageCollection.guppy_01_L);
-
-        this.change_position(get_x(), get_y());
-        this.size = this.label.getPreferredSize();
-
     }
 
     /**
-     * getter level_grow
+     * getter level_grow.
      * @return level_grow
      */
     public int get_level() {
@@ -33,15 +29,15 @@ public class Guppy extends Fish {
     }
 
     /**
-     * setter level_grow
-     * @param lv
+     * setter level_grow.
+     * @param lv level to set
      */
     public void set_level(int lv) {
         level_grow = lv;
     }
 
     /**
-     * getter number_eat
+     * getter number_eat.
      * @return number_eat
      */
     public int get_number_eat() {
@@ -49,15 +45,15 @@ public class Guppy extends Fish {
     }
 
     /**
-     * setter number_eat
-     * @param number
+     * setter number_eat.
+     * @param number number of eaten food to set
      */
     public void set_number_eat(int number) {
         number_eat = number;
     }
 
     /**
-     * getter timer
+     * getter timer.
      * @return timer
      */
     public double get_timer() {
@@ -65,41 +61,15 @@ public class Guppy extends Fish {
     }
 
     /**
-     * setter timer
-     * @param time
+     * setter timer.
+     * @param time time to set
      */
     public void set_timer(double time) {
         timer = time;
     }
 
     /**
-     * getter max_level
-     * @return max_level
-     */
-    public final int get_max_level() {
-        return max_level;
-    }
-
-    /**
-     * cek guppy
-     * @param g
-     * @return true jika guppy tersebut sama dengan current guppy
-     */
-    public boolean isEqual(Guppy g) {
-        return get_id() == g.get_id();
-    }
-
-    /**
-     * cek guppy
-     * @param g
-     * @return true jika guppy tersebut berbeda dengan current guppy
-     */
-    public boolean isNotEqual(Guppy g) {
-        return get_id() != g.get_id();
-    }
-
-    /**
-     * update guppy image
+     * update guppy image.
      */
     public void update_image() {
         if (isHungry()) {
@@ -146,7 +116,7 @@ public class Guppy extends Fish {
     }
 
     /**
-     * guppy menghasilkan coin
+     * guppy menghasilkan coin.
      * @return true for success producing coin
      */
     public boolean produce_coin() {
@@ -164,8 +134,8 @@ public class Guppy extends Fish {
     }
 
     /**
-     * mencari food
-     * @param F
+     * mencari food.
+     * @param F list of food to search
      * @return food id in radius
      */
     public int findFood(LinkedList<Food> F) {
@@ -190,8 +160,8 @@ public class Guppy extends Fish {
     }
 
     /**
-     * memindahkan guppy
-     * @param F
+     * memindahkan guppy.
+     * @param F list of food
      */
     public void move(LinkedList<Food> F) {
 
@@ -237,12 +207,11 @@ public class Guppy extends Fish {
         }
 
         update_image();
-        change_position(get_x(), get_y());
     }
 
     /**
-     * euclidean antara food dan guppy
-     * @param m
+     * euclidean antara food dan guppy.
+     * @param m food to count
      * @return nilai euclidean
      */
     public double euclidean(Food m) {
@@ -257,8 +226,8 @@ public class Guppy extends Fish {
     }
 
     /**
-     * mencari food dalam radius guppy
-     * @param F
+     * mencari food dalam radius guppy.
+     * @param F list of food to search
      * @return food id in radius, 0 if there's none
      */
     public int inRadius(LinkedList<Food> F) {
@@ -283,8 +252,8 @@ public class Guppy extends Fish {
     }
 
     /**
-     * guppy makan
-     * @param F
+     * guppy makan.
+     * @param F food to eat
      */
     public void eat(LinkedList<Food> F) {
         //eat gak usah pake validasi laper. yg validasi laper itu move.
@@ -313,7 +282,7 @@ public class Guppy extends Fish {
     }
 
     /**
-     * guppy tumbuh
+     * guppy tumbuh.
      */
     public void grow() {
         if (get_number_eat() == Constants.GUPPY_REQ_FOOD_COUNT && get_level() != Constants.GUPPY_MAX_LV) {
