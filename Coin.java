@@ -7,7 +7,7 @@ public class Coin extends Object implements Moveable {
 
 
     /**
-     * default constructor
+     * default constructor.
      */
     public Coin() {
         set_x(0);
@@ -18,18 +18,14 @@ public class Coin extends Object implements Moveable {
 
         // set label image
         this.set_image(ImageCollection.coin);
-
-        this.change_position(get_x(), get_y());
-        this.size = this.label.getPreferredSize();
     }
 
 
     /**
-     * constructor with parameter
-     *
-     * @param x
-     * @param y
-     * @param coin_value
+     * constructor with parameter.
+     * @param x location x
+     * @param y location y
+     * @param coin_value value of coin
      */
     public Coin(double x, double y, int coin_value) {
         set_x(x);
@@ -43,13 +39,10 @@ public class Coin extends Object implements Moveable {
 
         // set label image
         this.set_image(ImageCollection.coin);
-
-        this.change_position(get_x(), get_y());
-        this.size = this.label.getPreferredSize();
     }
 
     /**
-     * getter coin_id
+     * getter coin_id.
      * @return coin_id
      */
     public int get_id() {
@@ -57,15 +50,15 @@ public class Coin extends Object implements Moveable {
     }
 
     /**
-     * setter coin_id
-     * @param coin_id
+     * setter coin_id.
+     * @param coin_id id to set
      */
     public void set_id(int coin_id) {
         this.coin_id = coin_id;
     }
 
     /**
-     * getter coin_value
+     * getter coin_value.
      * @return coin_value
      */
     public int get_value() {
@@ -73,15 +66,15 @@ public class Coin extends Object implements Moveable {
     }
 
     /**
-     * setter set_value
-     * @param coin_value
+     * setter set_value.
+     * @param coin_value coin value to set
      */
     public void set_value(int coin_value) {
         this.coin_value = coin_value;
     }
 
     /**
-     * getter coin_speed
+     * getter coin_speed.
      * @return coin_speed
      */
     public int get_speed() {
@@ -89,15 +82,15 @@ public class Coin extends Object implements Moveable {
     }
 
     /**
-     * setter coin_speed
-     * @param coin_speed
+     * setter coin_speed.
+     * @param coin_speed coin speed to set
      */
     public void set_speed(int coin_speed) {
         this.coin_speed = coin_speed;
     }
 
     /**
-     * memindahkan coin
+     * memindahkan coin.
      */
     public void move() {
         // if coin is not on buttom yet
@@ -107,8 +100,5 @@ public class Coin extends Object implements Moveable {
         } else {
             set_y(Constants.SCREEN_BOTTOM);
         }
-
-        // change label position
-        change_position(get_x(), get_y());
     }
 }
