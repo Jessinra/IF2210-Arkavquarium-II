@@ -17,7 +17,7 @@ public class Object {
      * getter position_x
      * @return position_x
      */
-    public double get_x() {
+    public double getX() {
         return position_x;
     }
 
@@ -25,7 +25,7 @@ public class Object {
      * getter position_y
      * @return position_y
      */
-    public double get_y() {
+    public double getY() {
         return position_y;
     }
 
@@ -41,7 +41,7 @@ public class Object {
      * setter x
      * @param x
      */
-    public void set_x(double x) {
+    public void setX(double x) {
         position_x = x;
     }
 
@@ -49,7 +49,7 @@ public class Object {
      * setter y
      * @param y
      */
-    public void set_y(double y) {
+    public void setY(double y) {
         position_y = y;
     }
 

@@ -1,26 +1,26 @@
 import java.util.*;
 
 public class Food extends Object {
-    private static int food_count = 0;
-    private int food_id;
-    private int food_speed;
+    private static int foodCount = 0;
+    private int foodId;
+    private int foodSpeed;
 
     /**
      * default constructor.
      */
     public Food() {
-        set_y(Constants.SCREEN_TOP);
+        setY(Constants.SCREEN_TOP);
         Random rand = new Random();
         int a = rand.nextInt(Constants.SCREEN_WIDTH + 1);
 
-        set_x((double) a);
-        food_count += 1;
-        set_id(food_count);
-        set_speed(Constants.FOOD_MOVEMENT_SPD);
+        setX((double) a);
+        foodCount += 1;
+        setId(foodCount);
+        setSpeed(Constants.FOOD_MOVEMENT_SPD);
 
         this.set_image(ImageCollection.food);
 
-        this.change_position(get_x(), get_y());
+        this.change_position(getX(), getY());
     }
 
     /**
@@ -28,47 +28,47 @@ public class Food extends Object {
      * @param x location x
      */
     public Food(double x) {
-        set_y(Constants.SCREEN_TOP);
-        set_x(x);
-        food_count += 1;
-        set_id(food_count);
-        set_speed(Constants.FOOD_MOVEMENT_SPD);
+        setY(Constants.SCREEN_TOP);
+        setX(x);
+        foodCount += 1;
+        setId(foodCount);
+        setSpeed(Constants.FOOD_MOVEMENT_SPD);
 
         this.set_image(ImageCollection.food);
 
-        this.change_position(get_x(), get_y());
+        this.change_position(getX(), getY());
     }
 
     /**
-     * getter food_id.
-     * @return food_id
+     * getter foodId.
+     * @return foodId
      */
-    public int get_id() {
-        return this.food_id;
+    public int getId() {
+        return this.foodId;
     }
 
     /**
-     * setter food_id.
+     * setter foodId.
      * @param id input id
      */
-    private void set_id(int id) {
-        this.food_id = id;
+    private void setId(int id) {
+        this.foodId = id;
     }
 
     /**
-     * getter food_speed.
-     * @return food_speed
+     * getter foodSpeed.
+     * @return foodSpeed
      */
-    private int get_speed() {
-        return this.food_speed;
+    private int getSpeed() {
+        return this.foodSpeed;
     }
 
     /**
-     * setter food_speed.
+     * setter foodSpeed.
      * @param spd input speed
      */
-    private void set_speed(int spd) {
-        this.food_speed = spd;
+    private void setSpeed(int spd) {
+        this.foodSpeed = spd;
     }
 
     /**
@@ -76,12 +76,12 @@ public class Food extends Object {
      */
     public void move() {
 
-        if (get_y() <= Constants.SCREEN_BOTTOM) {
+        if (getY() <= Constants.SCREEN_BOTTOM) {
             // System.out.println("Food move " + get_x() + "," + get_y());
-            set_y(get_y() + get_speed());
+            setY(getY() + getSpeed());
 
             // change label position
-            change_position(get_x(), get_y());
+            change_position(getX(), getY());
         }
     }
 }
