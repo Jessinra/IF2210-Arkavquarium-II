@@ -3,7 +3,7 @@ import java.util.*;
 public class Piranha extends Fish {
 
     /**
-     * default constructor
+     * default constructor.
      */
     public Piranha() {
         super(Constants.PIRANHA_PRICE, Constants.PIRANHA_COIN_VAL);
@@ -13,25 +13,7 @@ public class Piranha extends Fish {
     }
 
     /**
-     * cek piranha
-     * @param p
-     * @return true jika piranha tersebut sama dengan current piranha
-     */
-    public boolean isEqual(Piranha p) {
-        return getId() == p.getId();
-    }
-
-    /**
-     * check piranha
-     * @param p
-     * @return true jika piranha tersebut berbeda dengan current piranha
-     */
-    public boolean isNotEqual(Piranha p) {
-        return getId() != p.getId();
-    }
-
-    /**
-     * update piranha image
+     * change image of piranha.
      */
     public void updateImage() {
         if (isHungry()) {
@@ -50,8 +32,8 @@ public class Piranha extends Fish {
     }
 
     /**
-     * mencari guppy dalam radius piranha
-     * @param G
+     * mencari guppy dalam radius piranha.
+     * @param G list of guppy to find
      * @return guppy id yang ada di dalam radius, 1 by default
      */
     public int findGuppy(LinkedList<Guppy> G) {
@@ -75,8 +57,8 @@ public class Piranha extends Fish {
     }
 
     /**
-     * memindahkan piranha
-     * @param G
+     * memindahkan piranha.
+     * @param G list of guppy
      */
     public void move(LinkedList<Guppy> G) {
 
@@ -123,8 +105,8 @@ public class Piranha extends Fish {
     }
 
     /**
-     * euclidean antara piranha dan guppy
-     * @param g
+     * euclidean antara piranha dan guppy.
+     * @param g guppy to count
      * @return nilai euclidean
      */
     public double euclidean(Guppy g) {
@@ -138,8 +120,8 @@ public class Piranha extends Fish {
     }
 
     /**
-     * mencari guppy yang ada di dalam radius piranha
-     * @param G
+     * mencari guppy yang ada di dalam radius piranha.
+     * @param G list of guppy to find
      * @return guppy id dalam radius piranha, -999 jika tidak ada guppy dalam radius
      */
     public int inRadius(LinkedList<Guppy> G) {
@@ -164,8 +146,8 @@ public class Piranha extends Fish {
     }
 
     /**
-     * piranha makan
-     * @param G
+     * piranha makan.
+     * @param G guppy to eat
      * @return guppy id yang dimakan
      */
     public int eat(LinkedList<Guppy> G) {

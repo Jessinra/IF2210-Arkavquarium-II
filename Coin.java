@@ -7,7 +7,7 @@ public class Coin extends Object implements Moveable {
 
 
     /**
-     * default constructor
+     * default constructor.
      */
     public Coin() {
         setX(0);
@@ -19,15 +19,13 @@ public class Coin extends Object implements Moveable {
 
         // set label image
         this.setImage(ImageCollection.coin);
-
     }
 
     /**
-     * constructor with parameter
-     *
-     * @param x
-     * @param y
-     * @param coinValue
+     * constructor with parameter.
+     * @param x location x
+     * @param y location y
+     * @param coinValue value of coin
      */
     public Coin(double x, double y, int coinValue) {
         setX(x);
@@ -44,7 +42,7 @@ public class Coin extends Object implements Moveable {
     }
 
     /**
-     * getter coin_id
+     * getter coin_id.
      * @return coin_id
      */
     public int getId() {
@@ -60,7 +58,7 @@ public class Coin extends Object implements Moveable {
     }
 
     /**
-     * getter coin_value
+     * getter coin_value.
      * @return coin_value
      */
     public int getValue() {
@@ -76,7 +74,7 @@ public class Coin extends Object implements Moveable {
     }
 
     /**
-     * getter coin_speed
+     * getter coin_speed.
      * @return coin_speed
      */
     public int getSpeed() {
@@ -92,7 +90,7 @@ public class Coin extends Object implements Moveable {
     }
 
     /**
-     * memindahkan coin
+     * memindahkan coin.
      */
     public void move() {
         // if coin is not on buttom yet

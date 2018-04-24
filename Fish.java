@@ -15,10 +15,9 @@ public abstract class Fish extends Object {
     private double maxHunger = Constants.FISH_MAX_HUNGER;
 
     /**
-     * constructor with parameter
-     *
-     * @param price
-     * @param cvalue
+     * constructor with parameter.
+     * @param price fish price
+     * @param cvalue fish coin value
      */
     Fish(int price, int cvalue) {
 
@@ -44,7 +43,7 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * getter fish_id
+     * getter fish_id.
      * @return fish_id
      */
     public int getId() {
@@ -52,31 +51,31 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * setter fish_id
-     * @param id
+     * setter fish_id.
+     * @param id id to set
      */
     public void setId(int id) {
         fishId = id;
     }
 
     /**
-     * getter fish_price
-     * @return fish_price
+     * getter fish_price.
+     * @return fish_price.
      */
     public int getPrice() {
         return fishPrice;
     }
 
     /**
-     * setter fish_price
-     * @param price
+     * setter fish_price.
+     * @param price price to set
      */
     public void setPrice(int price) {
         fishPrice = price;
     }
 
     /**
-     * getter coin_value
+     * getter coin_value.
      * @return coin_value
      */
     public int getCoinValue() {
@@ -84,15 +83,15 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * setter coin_value
-     * @param cvalue
+     * setter coin_value.
+     * @param cvalue coin value to set
      */
     public void setCoinValue(int cvalue) {
         coinValue = cvalue;
     }
 
     /**
-     * getter hunger
+     * getter hunger.
      * @return hunger
      */
     public double getHunger() {
@@ -100,15 +99,15 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * setter hunger
-     * @param hunger
+     * setter hunger.
+     * @param hunger hunger to set
      */
     public void setHunger(double hunger) {
         this.hunger = hunger;
     }
 
     /**
-     * getter speed
+     * getter speed.
      * @return speed
      */
     public int getSpeed() {
@@ -116,15 +115,15 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * setter speed
-     * @param spd
+     * setter speed.
+     * @param spd speed to set
      */
     public void setSpeed(int spd) {
         speed = spd;
     }
 
     /**
-     * getter hungry
+     * getter hungry.
      * @return hungry
      */
     public boolean getHungry() {
@@ -132,15 +131,15 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * setter hungry
-     * @param status
+     * setter hungry.
+     * @param status status hungry to set
      */
     public void setHungry(boolean status) {
         hungry = status;
     }
 
     /**
-     * getter time_move
+     * getter time_move.
      * @return time_move
      */
     public int getTimeMove() {
@@ -148,15 +147,15 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * setter time_move
-     * @param t
+     * setter time_move.
+     * @param t time to set
      */
     public void setTimeMove(int t) {
         timeMove = t;
     }
 
     /**
-     * getter x_move
+     * getter x_move.
      * @return x_move
      */
     public int getXMove() {
@@ -164,15 +163,15 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * setter x_move
-     * @param x
+     * setter x_move.
+     * @param x x to set
      */
     public void setXMove(int x) {
         xMove = x;
     }
 
     /**
-     * getter y_move
+     * getter y_move.
      * @return y_move
      */
     public int getYMove() {
@@ -180,15 +179,15 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * setter y_move
-     * @param y
+     * setter y_move.
+     * @param y y to set
      */
     public void setYMove(int y) {
         yMove = y;
     }
 
     /**
-     * getter max_hunger
+     * getter max_hunger.
      * @return max_hunger
      */
     public double getMaxHunger() {
@@ -196,29 +195,29 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * setter max_hunger
-     * @param h
+     * setter max_hunger.
+     * @param h max hunger to set
      */
     public void setMaxHunger(double h) {
         maxHunger = h;
     }
 
     /**
-     * set hunger to max value
+     * set hunger to max value.
      */
     public void fullHunger() {
         setHunger(getMaxHunger());
     }
 
     /**
-     * membuat fish lapar secara periodik
+     * membuat fish lapar secara periodik.
      */
     public void makeHunger() {
         setHunger(getHunger() - Constants.FISH_HUNGER_DECREASE_RATE);
     }
 
     /**
-     * cek tingkat kelaparan fish
+     * cek tingkat kelaparan fish.
      * @return boolean hungry
      */
     public boolean isHungry() {
@@ -232,7 +231,7 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * cek status fish
+     * cek status fish.
      * @return boolean dead
      */
     public boolean isDead() {
@@ -245,7 +244,7 @@ public abstract class Fish extends Object {
     }
 
     /**
-     * mengatur arah perpindahan fish
+     * mengatur arah perpindahan fish.
      */
     public void setRandomDirection() {
         Random rand = new Random();
