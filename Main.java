@@ -1,6 +1,10 @@
 import javax.swing.JFrame;
 
 public class Main {
+    /**
+     * main program.
+     * @param args sys args
+     */
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         Gameplay gameplay = new Gameplay();

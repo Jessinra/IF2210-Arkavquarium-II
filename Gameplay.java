@@ -12,6 +12,9 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
     private Aquarium aquarium;
     private Timer timer;
 
+    /**
+     * default constructor.
+     */
     public Gameplay() {
 
         ImageCollection.init_image();
@@ -26,6 +29,10 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
         timer.start();
     }
 
+    /**
+     * paint graphic on screen
+     * @param g graphics
+     */
     public void paint(Graphics g) {
 
         g.setColor(Color.BLACK);
