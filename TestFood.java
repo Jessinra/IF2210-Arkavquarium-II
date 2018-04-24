@@ -24,8 +24,8 @@ public class TestFood extends TestCase{
     @Test
     public void testGetSet(){
         
-        dummy.set_x(10);
-        assertEquals(30, dummy.get_x(), 0.1);
+        dummy.setX(10);
+        assertEquals(30, dummy.getX(), 0.1);
 
         System.out.println(this.getName() + " >> success");
     }
@@ -33,8 +33,8 @@ public class TestFood extends TestCase{
     @Test
     public void testGetSet2(){
         
-        dummy.set_x(10);
-        assertEquals(10, dummy.get_x(), 0.1);
+        dummy.setX(10);
+        assertEquals(10, dummy.getX(), 0.1);
 
         System.out.println(this.getName() + " >> success");
     }
@@ -42,8 +42,8 @@ public class TestFood extends TestCase{
     @Test
     public void testGetSet3(){
         
-        dummy.set_x(10);
-        assertEquals(30, dummy.get_x(), 0.1);
+        dummy.setX(10);
+        assertEquals(30, dummy.getX(), 0.1);
 
         System.out.println(this.getName() + " >> success");
     }

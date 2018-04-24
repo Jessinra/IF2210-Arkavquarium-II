@@ -14,7 +14,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
 
     public Gameplay() {
 
-        ImageCollection.init_image();
+        ImageCollection.initImage();
         aquarium = new Aquarium();
 
         addMouseListener(this);
@@ -29,7 +29,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
     public void paint(Graphics g) {
 
         g.setColor(Color.BLACK);
-        g.drawImage(aquarium.get_image(), 0, 0, this);
+        g.drawImage(aquarium.getImage(), 0, 0, this);
 
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
         String money = "Money:  " + Aquarium.money;
@@ -45,42 +45,42 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
         }
 
         // iterate list guppy
-        LinkedList<Guppy> guppyList = aquarium.getList_guppy();
+        LinkedList<Guppy> guppyList = aquarium.getListGuppy();
         for (int i = 1; i <= guppyList.getNBelmt(); i++) {
 
             Guppy currentGuppy = guppyList.get(i);
-            g.drawImage(currentGuppy.get_image(), (int) currentGuppy.get_x(), (int) currentGuppy.get_y(), this);
+            g.drawImage(currentGuppy.getImage(), (int) currentGuppy.getX(), (int) currentGuppy.getY(), this);
         }
 
         // iterate list piranha
-        LinkedList<Piranha> piranhaList = aquarium.getList_piranha();
+        LinkedList<Piranha> piranhaList = aquarium.getListPiranha();
         for (int i = 1; i <= piranhaList.getNBelmt(); i++) {
 
             Piranha currentPiranha = piranhaList.get(i);
-            g.drawImage(currentPiranha.get_image(), (int) currentPiranha.get_x(), (int) currentPiranha.get_y(), this);
+            g.drawImage(currentPiranha.getImage(), (int) currentPiranha.getX(), (int) currentPiranha.getY(), this);
         }
 
         // iterate list siput
-        LinkedList<Siput> siputList = aquarium.getList_siput();
+        LinkedList<Siput> siputList = aquarium.getListSiput();
         for (int i = 1; i <= siputList.getNBelmt(); i++) {
 
             Siput currentSiput = siputList.get(i);
-            g.drawImage(currentSiput.get_image(), (int) currentSiput.get_x(), (int) currentSiput.get_y(), this);
+            g.drawImage(currentSiput.getImage(), (int) currentSiput.getX(), (int) currentSiput.getY(), this);
         }
 
         // iterate list food
-        LinkedList<Food> foodList = aquarium.getList_food();
+        LinkedList<Food> foodList = aquarium.getListFood();
         for (int i = 1; i <= foodList.getNBelmt(); i++) {
             Food currentFood = foodList.get(i);
-            g.drawImage(currentFood.get_image(), (int) currentFood.get_x(), (int) currentFood.get_y(), this);
+            g.drawImage(currentFood.getImage(), (int) currentFood.getX(), (int) currentFood.getY(), this);
         }
 
         // iterate list coin
-        LinkedList<Coin> coinList = aquarium.getList_coin();
+        LinkedList<Coin> coinList = aquarium.getListCoin();
         for (int i = 1; i <= coinList.getNBelmt(); i++) {
 
             Coin currentCoin = coinList.get(i);
-            g.drawImage(currentCoin.get_image(), (int) currentCoin.get_x(), (int) currentCoin.get_y(), this);
+            g.drawImage(currentCoin.getImage(), (int) currentCoin.getX(), (int) currentCoin.getY(), this);
         }
 
         g.dispose();
@@ -90,7 +90,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
     public void actionPerformed(ActionEvent e) {
         timer.start();
         // check jumlah ikan untuk lose state
-        if (aquarium.getList_guppy().getNBelmt() == 0 && aquarium.getList_piranha().getNBelmt() == 0 && Aquarium.money < Constants.GUPPY_PRICE) {
+        if (aquarium.getListGuppy().getNBelmt() == 0 && aquarium.getListPiranha().getNBelmt() == 0 && Aquarium.money < Constants.GUPPY_PRICE) {
             play = false;
             win = -1;
         } else if (Aquarium.egg == 3) {
@@ -101,80 +101,80 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
         if (play) {
 
             // iterate list of guppy
-            for (int i = 1; i <= aquarium.getList_guppy().getNBelmt(); i++) {
+            for (int i = 1; i <= aquarium.getListGuppy().getNBelmt(); i++) {
                 // cek mati
-                Guppy current_guppy = aquarium.getList_guppy().get(i);
-                if (current_guppy.get_hunger() < 0) {
-                    aquarium.remove_guppy(current_guppy);
+                Guppy currentGuppy = aquarium.getListGuppy().get(i);
+                if (currentGuppy.getHunger() < 0) {
+                    aquarium.removeGuppy(currentGuppy);
                     i--;
                 } else {
                     // move
-                    current_guppy.move(aquarium.getList_food());
+                    currentGuppy.move(aquarium.getListFood());
                     // cek drop coin
-                    if (current_guppy.produce_coin()) {
+                    if (currentGuppy.produceCoin()) {
 
-                        Coin c = new Coin(current_guppy.get_x(), current_guppy.get_y(), current_guppy.get_coin_value());
-                        aquarium.add_coin(c);
+                        Coin c = new Coin(currentGuppy.getX(), currentGuppy.getY(), currentGuppy.getCoinValue());
+                        aquarium.addCoin(c);
                     }
                     // makan
-                    current_guppy.eat(aquarium.getList_food());
+                    currentGuppy.eat(aquarium.getListFood());
                     // mengurangi hunger
-                    current_guppy.makeHunger();
+                    currentGuppy.makeHunger();
                 }
             }
 
             // iterasi list piranha
-            for (int i = 1; i <= aquarium.getList_piranha().getNBelmt(); i++) {
-                Piranha current_piranha = aquarium.getList_piranha().get(i);
+            for (int i = 1; i <= aquarium.getListPiranha().getNBelmt(); i++) {
+                Piranha currentPiranha = aquarium.getListPiranha().get(i);
 
                 // cek mati
-                if (current_piranha.get_hunger() < 0) {
-                    aquarium.remove_piranha(current_piranha);
+                if (currentPiranha.getHunger() < 0) {
+                    aquarium.removePiranha(currentPiranha);
                     i--;
                 } else {    // masih hidup
                     // move piranha
-                    current_piranha.move(aquarium.getList_guppy());
+                    currentPiranha.move(aquarium.getListGuppy());
                     // cek untuk makan
-                    int eaten_lv = current_piranha.eat(aquarium.getList_guppy());
+                    int eatenLv = currentPiranha.eat(aquarium.getListGuppy());
 
                     // check drop coin
-                    if (eaten_lv > 0) {
-                        int coin_val = current_piranha.get_coin_value();
-                        Coin c = new Coin(current_piranha.get_x(), current_piranha.get_y(), coin_val);
-                        aquarium.add_coin(c);
+                    if (eatenLv > 0) {
+                        int coinVal = currentPiranha.getCoinValue();
+                        Coin c = new Coin(currentPiranha.getX(), currentPiranha.getY(), coinVal);
+                        aquarium.addCoin(c);
                     }
 
                     // mengurangi hunger
-                    current_piranha.makeHunger();
+                    currentPiranha.makeHunger();
                 }
             }
 
             // iterasi list siput
-            for (int i = 1; i <= aquarium.getList_siput().getNBelmt(); i++) {
-                Siput current_siput = aquarium.getList_siput().get(i);
+            for (int i = 1; i <= aquarium.getListSiput().getNBelmt(); i++) {
+                Siput currentSiput = aquarium.getListSiput().get(i);
                 // move siput
-                current_siput.move(aquarium.getList_coin());
+                currentSiput.move(aquarium.getListCoin());
                 // get coin
-                Aquarium.money += current_siput.take_coin(aquarium.getList_coin());
+                Aquarium.money += currentSiput.takeCoin(aquarium.getListCoin());
             }
 
             // iterasi list food
-            for (int i = 1; i <= aquarium.getList_food().getNBelmt(); i++) {
-                Food current_food = aquarium.getList_food().get(i);
+            for (int i = 1; i <= aquarium.getListFood().getNBelmt(); i++) {
+                Food currentFood = aquarium.getListFood().get(i);
 
                 // remove food that touch the bottom
-                if (current_food.get_y() >= Constants.SCREEN_BOTTOM) {
-                    aquarium.remove_food(current_food);
+                if (currentFood.getY() >= Constants.SCREEN_BOTTOM) {
+                    aquarium.removeFood(currentFood);
                     i--;
                 }
 
                 // move food
-                current_food.move();
+                currentFood.move();
             }
 
             // iterasi list coin
-            for (int i = 1; i <= aquarium.getList_coin().getNBelmt(); i++) {
-                aquarium.getList_coin().get(i).move();
+            for (int i = 1; i <= aquarium.getListCoin().getNBelmt(); i++) {
+                aquarium.getListCoin().get(i).move();
             }
         }
         repaint();
@@ -188,15 +188,15 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_F) {                // buy food
-            aquarium.buy_food();
+            aquarium.buyFood();
         } else if (e.getKeyCode() == KeyEvent.VK_G) {        // buy guppy
-            aquarium.buy_guppy();
+            aquarium.buyGuppy();
         } else if (e.getKeyCode() == KeyEvent.VK_P) {      // buy piranha
-            aquarium.buy_piranha();
+            aquarium.buyPiranha();
         } else if (e.getKeyCode() == KeyEvent.VK_S) {        // buy siput
-            aquarium.buy_snail();
+            aquarium.buySnail();
         } else if (e.getKeyCode() == KeyEvent.VK_E) {          // buy egg
-            aquarium.buy_egg();
+            aquarium.buyEgg();
         }
     }
 
@@ -213,11 +213,11 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener, Mou
         int x = (int) b.getX();
         int y = (int) b.getY();
 
-        int c_value = aquarium.click_coin(x, y);
-        if (c_value > 0) {
-            Aquarium.money += c_value;
+        int cValue = aquarium.clickCoin(x, y);
+        if (cValue > 0) {
+            Aquarium.money += cValue;
         } else {
-            aquarium.buy_food(x);
+            aquarium.buyFood(x);
         }
     }
 

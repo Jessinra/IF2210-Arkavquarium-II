@@ -18,9 +18,7 @@ public class Food extends Object {
         setId(foodCount);
         setSpeed(Constants.FOOD_MOVEMENT_SPD);
 
-        this.set_image(ImageCollection.food);
-
-        this.change_position(getX(), getY());
+        this.setImage(ImageCollection.food);
     }
 
     /**
@@ -28,15 +26,15 @@ public class Food extends Object {
      * @param x location x
      */
     public Food(double x) {
+
         setY(Constants.SCREEN_TOP);
         setX(x);
+        
         foodCount += 1;
         setId(foodCount);
         setSpeed(Constants.FOOD_MOVEMENT_SPD);
 
-        this.set_image(ImageCollection.food);
-
-        this.change_position(getX(), getY());
+        this.setImage(ImageCollection.food);
     }
 
     /**
@@ -80,8 +78,6 @@ public class Food extends Object {
             // System.out.println("Food move " + get_x() + "," + get_y());
             setY(getY() + getSpeed());
 
-            // change label position
-            change_position(getX(), getY());
         }
     }
 }

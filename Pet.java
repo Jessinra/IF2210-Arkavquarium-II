@@ -1,20 +1,20 @@
 public class Pet extends Object {
-    private int pet_count = 0;
-    private int pet_id = pet_count;
+    private int petCount = 0;
+    private int petId = petCount;
 
     /**
      * default constructor.
      */
     public Pet() {
-        pet_count++;
-        pet_id = pet_count++;
+        petCount++;
+        petId = petCount++;
     }
 
     /**
      * getter pet_id.
      * @return pet_id
      */
-    public int get_id() {
-        return pet_id;
+    public int getId() {
+        return petId;
     }
 }

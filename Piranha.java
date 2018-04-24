@@ -7,13 +7,9 @@ public class Piranha extends Fish {
      */
     public Piranha() {
         super(Constants.PIRANHA_PRICE, Constants.PIRANHA_COIN_VAL);
-        set_speed(Constants.PIRANHA_MOVEMENT_SPD);
+        setSpeed(Constants.PIRANHA_MOVEMENT_SPD);
 
-        this.set_image(ImageCollection.piranha_R);
-
-        this.change_position(get_x(), get_y());
-        this.size = this.label.getPreferredSize();
-
+        this.setImage(ImageCollection.piranhaR);
     }
 
     /**
@@ -22,7 +18,7 @@ public class Piranha extends Fish {
      * @return true jika piranha tersebut sama dengan current piranha
      */
     public boolean isEqual(Piranha p) {
-        return get_id() == p.get_id();
+        return getId() == p.getId();
     }
 
     /**
@@ -31,24 +27,24 @@ public class Piranha extends Fish {
      * @return true jika piranha tersebut berbeda dengan current piranha
      */
     public boolean isNotEqual(Piranha p) {
-        return get_id() != p.get_id();
+        return getId() != p.getId();
     }
 
     /**
      * update piranha image
      */
-    public void update_image() {
+    public void updateImage() {
         if (isHungry()) {
-            if (get_dir() == "Left") {
-                set_image(ImageCollection.piranha_L_H);
+            if (getDir() == "Left") {
+                setImage(ImageCollection.piranhaLH);
             } else {
-                set_image(ImageCollection.piranha_R_H);
+                setImage(ImageCollection.piranhaRH);
             }
         } else {
-            if (get_dir() == "Left") {
-                set_image(ImageCollection.piranha_L);
+            if (getDir() == "Left") {
+                setImage(ImageCollection.piranhaL);
             } else {
-                set_image(ImageCollection.piranha_R);
+                setImage(ImageCollection.piranhaR);
             }
         }
     }
@@ -64,12 +60,12 @@ public class Piranha extends Fish {
         int i = 2; //indeks perbandingan mulai dari 2
 
         while (i <= G.getNBelmt()) {
-            Guppy current_guppy = G.get(i);
-            if (current_guppy.get_x() > Constants.SCREEN_TOP &&
-                    current_guppy.get_x() < Constants.SCREEN_BOTTOM &&
-                    current_guppy.get_x() > Constants.SCREEN_LEFT &&
-                    current_guppy.get_x() < Constants.SCREEN_RIGHT &&
-                    euclidean(G.get(idx)) > euclidean(current_guppy)) {
+            Guppy currentGuppy = G.get(i);
+            if (currentGuppy.getX() > Constants.SCREEN_TOP &&
+                    currentGuppy.getX() < Constants.SCREEN_BOTTOM &&
+                    currentGuppy.getX() > Constants.SCREEN_LEFT &&
+                    currentGuppy.getX() < Constants.SCREEN_RIGHT &&
+                    euclidean(G.get(idx)) > euclidean(currentGuppy)) {
                 idx = i;
             } else {
                 i++;
@@ -87,44 +83,43 @@ public class Piranha extends Fish {
         if (isHungry() && G.getNBelmt() > 0) {
             //mengejar food pakai tips
             int idx = findGuppy(G);
-            if (G.get(idx).get_x() < get_x()) {
-                set_dir("Left");
+            if (G.get(idx).getX() < getX()) {
+                setDir("Left");
             } else {
-                set_dir("Right");
+                setDir("Right");
             }
-            double a = Math.atan2(G.get(idx).get_y() - get_y(), G.get(idx).get_x() - get_x());
-            set_x(get_x() + (get_speed() * Math.cos(a) * 1.5));
-            set_y(get_y() + (get_speed() * Math.sin(a) * 1.5));
+            double a = Math.atan2(G.get(idx).getY() - getY(), G.get(idx).getX() - getX());
+            setX(getX() + (getSpeed() * Math.cos(a) * 1.5));
+            setY(getY() + (getSpeed() * Math.sin(a) * 1.5));
         } else {
             //random arahnya
-            if (get_time_move() <= 0) {
-                set_time_move(Constants.FISH_MAX_TIMER);
+            if (getTimeMove() <= 0) {
+                setTimeMove(Constants.FISH_MAX_TIMER);
                 setRandomDirection();
             } else {
-                set_time_move(get_time_move() - Constants.FISH_TIMER_DEC);
+                setTimeMove(getTimeMove() - Constants.FISH_TIMER_DEC);
             }
 
             //kalau sampai ujung
-            if (get_x() >= Constants.SCREEN_RIGHT || get_x() <= Constants.SCREEN_LEFT) {
-                set_x_move(get_x_move() * (-1));
+            if (getX() >= Constants.SCREEN_RIGHT || getX() <= Constants.SCREEN_LEFT) {
+                setXMove(getXMove() * (-1));
             }
-            if (get_y() <= Constants.SCREEN_TOP || get_y() >= Constants.SCREEN_BOTTOM) {
-                set_y_move(get_y_move() * (-1));
+            if (getY() <= Constants.SCREEN_TOP || getY() >= Constants.SCREEN_BOTTOM) {
+                setYMove(getYMove() * (-1));
             }
 
-            if (get_x() + get_speed() * get_x_move() < get_x()) {
-                set_dir("Left");
-            } else if (get_x() + get_speed() * get_x_move() >= get_x()) {
-                set_dir("Right");
+            if (getX() + getSpeed() * getXMove() < getX()) {
+                setDir("Left");
+            } else if (getX() + getSpeed() * getXMove() >= getX()) {
+                setDir("Right");
             }
 
             //pindahkan ikan
-            set_x(get_x() + get_speed() * get_x_move());
-            set_y(get_y() + get_speed() * get_y_move());
+            setX(getX() + getSpeed() * getXMove());
+            setY(getY() + getSpeed() * getYMove());
         }
 
-        update_image();
-        change_position(get_x(), get_y());
+        updateImage();
     }
 
     /**
@@ -134,12 +129,12 @@ public class Piranha extends Fish {
      */
     public double euclidean(Guppy g) {
 
-        double x_piranha = get_x();
-        double y_piranha = get_y();
-        double x_guppy = g.get_x();
-        double y_guppy = g.get_y();
+        double XPiranha = getX();
+        double YPiranha = getY();
+        double XGuppy = g.getX();
+        double YGuppy = g.getY();
 
-        return (Math.sqrt(Math.pow(x_piranha - x_guppy, 2)) + (Math.pow(y_piranha - y_guppy, 2)));
+        return (Math.sqrt(Math.pow(XPiranha - XGuppy, 2)) + (Math.pow(YPiranha - YGuppy, 2)));
     }
 
     /**
@@ -154,7 +149,7 @@ public class Piranha extends Fish {
         boolean find = false;
         if (G.getNBelmt() > 0) {
             while (!find && idx <= G.getNBelmt()) {
-                if ((radius > Math.abs(get_x() - G.get(idx).get_x())) && (radius > Math.abs(get_y() - G.get(idx).get_y()))) {
+                if ((radius > Math.abs(getX() - G.get(idx).getX())) && (radius > Math.abs(getY() - G.get(idx).getY()))) {
                     find = true;
                 } else {
                     idx++;
@@ -178,13 +173,13 @@ public class Piranha extends Fish {
         // found
         if (idx != -999 && isHungry()) {
             // get eaten guppy lvl
-            int guppy_lv = G.get(idx).get_level();
+            int guppyLv = G.get(idx).getLevel();
             // remove guppy from list
             G.remove(G.get(idx));
             // set hunger to max and state is hungry to false
             fullHunger();
-            set_hungry(false);
-            return guppy_lv;
+            setHungry(false);
+            return guppyLv;
         }
         // not eating anything
         else {

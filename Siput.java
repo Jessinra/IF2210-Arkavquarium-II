@@ -19,7 +19,7 @@ public class Siput extends Pet {
         setY(Constants.SCREEN_BOTTOM - 30);
 
         // set label image
-        this.setImage(ImageCollection.siput_right);
+        this.setImage(ImageCollection.siputR);
 
     }
 
@@ -55,13 +55,13 @@ public class Siput extends Pet {
                     setX(getX() + getSpeed());
 
                     setDir("Right");
-                    setImage(ImageCollection.siput_right);
+                    setImage(ImageCollection.siputR);
 
                 } else {
                     setX(getX() - getSpeed());
 
                     setDir("Left");
-                    setImage(ImageCollection.siput_left);
+                    setImage(ImageCollection.siputL);
                 }
             }
         }

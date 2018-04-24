@@ -2,17 +2,17 @@ import java.util.Random;
 
 public abstract class Fish extends Object {
 
-    private static int fish_count = 0;
-    private int fish_id;
-    private int fish_price;
-    private int coin_value;
+    private static int fishCount = 0;
+    private int fishId;
+    private int fishPrice;
+    private int coinValue;
     private double hunger;
     private int speed;
     private boolean hungry;
-    private int time_move;
-    private int x_move;
-    private int y_move;
-    private double max_hunger = Constants.FISH_MAX_HUNGER;
+    private int timeMove;
+    private int xMove;
+    private int yMove;
+    private double maxHunger = Constants.FISH_MAX_HUNGER;
 
     /**
      * constructor with parameter
@@ -24,78 +24,78 @@ public abstract class Fish extends Object {
 
         Random rand = new Random();
         // set position
-        double random_x = rand.nextDouble() * 200;
-        double random_y = rand.nextDouble() * 200;
+        double randomX = rand.nextDouble() * 200;
+        double randomY = rand.nextDouble() * 200;
 
-        set_x(Constants.SCREEN_RIGHT / 2 + random_x);
-        set_y(Constants.SCREEN_BOTTOM / 2 + random_y);
+        setX(Constants.SCREEN_RIGHT / 2 + randomX);
+        setY(Constants.SCREEN_BOTTOM / 2 + randomY);
 
-        fish_count++;
+        fishCount++;
 
-        set_id(fish_count);
-        set_price(price);
-        set_coin_value(cvalue);
+        setId(fishCount);
+        setPrice(price);
+        setCoinValue(cvalue);
         fullHunger();   //set hunger to max value
-        set_hungry(false);
-        set_dir("Right");
-        time_move = Constants.FISH_MAX_TIMER;
-        x_move = 1;
-        y_move = 1;
+        setHungry(false);
+        setDir("Right");
+        timeMove = Constants.FISH_MAX_TIMER;
+        xMove = 1;
+        yMove = 1;
     }
 
     /**
      * getter fish_id
      * @return fish_id
      */
-    public int get_id() {
-        return fish_id;
+    public int getId() {
+        return fishId;
     }
 
     /**
      * setter fish_id
      * @param id
      */
-    public void set_id(int id) {
-        fish_id = id;
+    public void setId(int id) {
+        fishId = id;
     }
 
     /**
      * getter fish_price
      * @return fish_price
      */
-    public int get_price() {
-        return fish_price;
+    public int getPrice() {
+        return fishPrice;
     }
 
     /**
      * setter fish_price
      * @param price
      */
-    public void set_price(int price) {
-        fish_price = price;
+    public void setPrice(int price) {
+        fishPrice = price;
     }
 
     /**
      * getter coin_value
      * @return coin_value
      */
-    public int get_coin_value() {
-        return coin_value;
+    public int getCoinValue() {
+        return coinValue;
     }
 
     /**
      * setter coin_value
      * @param cvalue
      */
-    public void set_coin_value(int cvalue) {
-        coin_value = cvalue;
+    public void setCoinValue(int cvalue) {
+        coinValue = cvalue;
     }
 
     /**
      * getter hunger
      * @return hunger
      */
-    public double get_hunger() {
+    public double getHunger() {
         return hunger;
     }
 
@@ -103,7 +103,7 @@ public abstract class Fish extends Object {
      * setter hunger
      * @param hunger
      */
-    public void set_hunger(double hunger) {
+    public void setHunger(double hunger) {
         this.hunger = hunger;
     }
 
@@ -111,7 +111,7 @@ public abstract class Fish extends Object {
      * getter speed
      * @return speed
      */
-    public int get_speed() {
+    public int getSpeed() {
         return speed;
     }
 
@@ -119,7 +119,7 @@ public abstract class Fish extends Object {
      * setter speed
      * @param spd
      */
-    public void set_speed(int spd) {
+    public void setSpeed(int spd) {
         speed = spd;
     }
 
@@ -127,7 +127,7 @@ public abstract class Fish extends Object {
      * getter hungry
      * @return hungry
      */
-    public boolean get_hungry() {
+    public boolean getHungry() {
         return hungry;
     }
 
@@ -135,7 +135,7 @@ public abstract class Fish extends Object {
      * setter hungry
      * @param status
      */
-    public void set_hungry(boolean status) {
+    public void setHungry(boolean status) {
         hungry = status;
     }
 
@@ -143,78 +143,78 @@ public abstract class Fish extends Object {
      * getter time_move
      * @return time_move
      */
-    public int get_time_move() {
-        return time_move;
+    public int getTimeMove() {
+        return timeMove;
     }
 
     /**
      * setter time_move
      * @param t
      */
-    public void set_time_move(int t) {
-        time_move = t;
+    public void setTimeMove(int t) {
+        timeMove = t;
     }
 
     /**
      * getter x_move
      * @return x_move
      */
-    public int get_x_move() {
-        return x_move;
+    public int getXMove() {
+        return xMove;
     }
 
     /**
      * setter x_move
      * @param x
      */
-    public void set_x_move(int x) {
-        x_move = x;
+    public void setXMove(int x) {
+        xMove = x;
     }
 
     /**
      * getter y_move
      * @return y_move
      */
-    public int get_y_move() {
-        return y_move;
+    public int getYMove() {
+        return yMove;
     }
 
     /**
      * setter y_move
      * @param y
      */
-    public void set_y_move(int y) {
-        y_move = y;
+    public void setYMove(int y) {
+        yMove = y;
     }
 
     /**
      * getter max_hunger
      * @return max_hunger
      */
-    public double get_max_hunger() {
-        return max_hunger;
+    public double getMaxHunger() {
+        return maxHunger;
     }
 
     /**
      * setter max_hunger
      * @param h
      */
-    public void set_max_hunger(double h) {
-        max_hunger = h;
+    public void setMaxHunger(double h) {
+        maxHunger = h;
     }
 
     /**
      * set hunger to max value
      */
     public void fullHunger() {
-        set_hunger(get_max_hunger());
+        setHunger(getMaxHunger());
     }
 
     /**
      * membuat fish lapar secara periodik
      */
     public void makeHunger() {
-        set_hunger(get_hunger() - Constants.FISH_HUNGER_DECREASE_RATE);
+        setHunger(getHunger() - Constants.FISH_HUNGER_DECREASE_RATE);
     }
 
     /**
@@ -223,8 +223,8 @@ public abstract class Fish extends Object {
      */
     public boolean isHungry() {
         // check if fish hunger is below certain point
-        if (get_hunger() <= Constants.FISH_HUNGRY_BORDERLINE) {
-            set_hungry(true);
+        if (getHunger() <= Constants.FISH_HUNGRY_BORDERLINE) {
+            setHungry(true);
             return true;
         } else {
             return false;
@@ -237,7 +237,7 @@ public abstract class Fish extends Object {
      */
     public boolean isDead() {
         // check if fish hunger is below or equal zero
-        if (get_hunger() <= 0) {
+        if (getHunger() <= 0) {
             return true;
         } else {
             return false;
@@ -253,12 +253,12 @@ public abstract class Fish extends Object {
         int y = rand.nextInt(3);
         if (x == 1) {
             x = -1;
-            set_dir("Left");
+            setDir("Left");
         } else if (x == 2) {
             x = 0;
         } else {
             x = 1;
-            set_dir("Right");
+            setDir("Right");
         }
         if (y == 1) {
             y = -1;
@@ -267,7 +267,7 @@ public abstract class Fish extends Object {
         } else {
             y = 1;
         }
-        set_x_move(x);
-        set_y_move(y);
+        setXMove(x);
+        setYMove(y);
     }
 }

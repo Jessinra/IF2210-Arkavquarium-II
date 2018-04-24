@@ -1,9 +1,9 @@
 public class Guppy extends Fish {
 
-    private int number_eat;
-    private int level_grow;
+    private int numberEat;
+    private int levelGrow;
     private double timer;
-    private static final int max_level = Constants.GUPPY_MAX_LV;
+    private static final int maxLevel = Constants.GUPPY_MAX_LV;
 
 
     /**
@@ -12,55 +12,51 @@ public class Guppy extends Fish {
     Guppy() {
         super(Constants.GUPPY_PRICE, Constants.GUPPY_COIN_VAL_01);
         // value from constant.h
-        set_speed(Constants.GUPPY_MOVEMENT_SPD);
-        set_number_eat(0);
-        set_timer(Constants.GUPPY_DROP_COIN_TIME);
-        set_level(1);
+        setSpeed(Constants.GUPPY_MOVEMENT_SPD);
+        setNumberEat(0);
+        setTimer(Constants.GUPPY_DROP_COIN_TIME);
+        setLevel(1);
 
-        this.set_image(ImageCollection.guppy_01_L);
-
-        this.change_position(get_x(), get_y());
-        this.size = this.label.getPreferredSize();
-
+        this.setImage(ImageCollection.guppy01L);
     }
 
     /**
      * getter level_grow
      * @return level_grow
      */
-    public int get_level() {
-        return level_grow;
+    public int getLevel() {
+        return levelGrow;
     }
 
     /**
      * setter level_grow
      * @param lv
      */
-    public void set_level(int lv) {
-        level_grow = lv;
+    public void setLevel(int lv) {
+        levelGrow = lv;
     }
 
     /**
      * getter number_eat
      * @return number_eat
      */
-    public int get_number_eat() {
-        return number_eat;
+    public int getNumberEat() {
+        return numberEat;
     }
 
     /**
      * setter number_eat
      * @param number
      */
-    public void set_number_eat(int number) {
-        number_eat = number;
+    public void setNumberEat(int number) {
+        numberEat = number;
     }
 
     /**
      * getter timer
      * @return timer
      */
-    public double get_timer() {
+    public double getTimer() {
         return timer;
     }
 
@@ -68,7 +64,7 @@ public class Guppy extends Fish {
      * setter timer
      * @param time
      */
-    public void set_timer(double time) {
+    public void setTimer(double time) {
         timer = time;
     }
 
@@ -76,8 +72,8 @@ public class Guppy extends Fish {
      * getter max_level
      * @return max_level
      */
-    public final int get_max_level() {
-        return max_level;
+    public final int getMaxLevel() {
+        return maxLevel;
     }
 
     /**
@@ -86,7 +82,7 @@ public class Guppy extends Fish {
      * @return true jika guppy tersebut sama dengan current guppy
      */
     public boolean isEqual(Guppy g) {
-        return get_id() == g.get_id();
+        return getId() == g.getId();
     }
 
     /**
@@ -95,51 +91,51 @@ public class Guppy extends Fish {
      * @return true jika guppy tersebut berbeda dengan current guppy
      */
     public boolean isNotEqual(Guppy g) {
-        return get_id() != g.get_id();
+        return getId() != g.getId();
     }
 
     /**
      * update guppy image
      */
-    public void update_image() {
+    public void updateImage() {
         if (isHungry()) {
-            if (level_grow == 1) {
-                if (get_dir() == "Left") {
-                    set_image(ImageCollection.guppy_01_L_H);
+            if (levelGrow == 1) {
+                if (getDir() == "Left") {
+                    setImage(ImageCollection.guppy01LH);
                 } else {
-                    set_image(ImageCollection.guppy_01_R_H);
+                    setImage(ImageCollection.guppy01RH);
                 }
-            } else if (level_grow == 2) {
-                if (get_dir() == "Left") {
-                    set_image(ImageCollection.guppy_02_L_H);
+            } else if (levelGrow == 2) {
+                if (getDir() == "Left") {
+                    setImage(ImageCollection.guppy02LH);
                 } else {
-                    set_image(ImageCollection.guppy_02_R_H);
+                    setImage(ImageCollection.guppy02RH);
                 }
-            } else if (level_grow == 3) {
-                if (get_dir() == "Left") {
-                    set_image(ImageCollection.guppy_03_L_H);
+            } else if (levelGrow == 3) {
+                if (getDir() == "Left") {
+                    setImage(ImageCollection.guppy03LH);
                 } else {
-                    set_image(ImageCollection.guppy_03_R_H);
+                    setImage(ImageCollection.guppy03RH);
                 }
             }
         } else {
-            if (level_grow == 1) {
-                if (get_dir() == "Left") {
-                    set_image(ImageCollection.guppy_01_L);
+            if (levelGrow == 1) {
+                if (getDir() == "Left") {
+                    setImage(ImageCollection.guppy01L);
                 } else {
-                    set_image(ImageCollection.guppy_01_R);
+                    setImage(ImageCollection.guppy01R);
                 }
-            } else if (level_grow == 2) {
-                if (get_dir() == "Left") {
-                    set_image(ImageCollection.guppy_02_L);
+            } else if (levelGrow == 2) {
+                if (getDir() == "Left") {
+                    setImage(ImageCollection.guppy02L);
                 } else {
-                    set_image(ImageCollection.guppy_02_R);
+                    setImage(ImageCollection.guppy02R);
                 }
-            } else if (level_grow == 3) {
-                if (get_dir() == "Left") {
-                    set_image(ImageCollection.guppy_03_L);
+            } else if (levelGrow == 3) {
+                if (getDir() == "Left") {
+                    setImage(ImageCollection.guppy03L);
                 } else {
-                    set_image(ImageCollection.guppy_03_R);
+                    setImage(ImageCollection.guppy03R);
                 }
             }
         }
@@ -149,16 +145,16 @@ public class Guppy extends Fish {
      * guppy menghasilkan coin
      * @return true for success producing coin
      */
-    public boolean produce_coin() {
+    public boolean produceCoin() {
         // check if guppy able to drop coin
         // if yes,
-        if (get_timer() <= 0) {
+        if (getTimer() <= 0) {
             // then set timer to max, and return true
-            set_timer(Constants.GUPPY_DROP_COIN_TIME);
+            setTimer(Constants.GUPPY_DROP_COIN_TIME);
             return true;
         } else {
             // reduce drop coin time 
-            set_timer(get_timer() - Constants.FISH_TIMER_DEC);
+            setTimer(getTimer() - Constants.FISH_TIMER_DEC);
             return false;
         }
     }
@@ -175,12 +171,12 @@ public class Guppy extends Fish {
         int i = 2; //indeks perbandingan mulai dari 2
 
         while (i <= F.getNBelmt()) {
-            Food current_food = F.get(i);
-            if (current_food.get_x() > Constants.SCREEN_TOP &&
-                    current_food.get_x() < Constants.SCREEN_BOTTOM &&
-                    current_food.get_x() > Constants.SCREEN_LEFT &&
-                    current_food.get_x() < Constants.SCREEN_RIGHT &&
-                    euclidean(F.get(idx)) > euclidean(current_food)) {
+            Food currentFood = F.get(i);
+            if (currentFood.getX() > Constants.SCREEN_TOP &&
+                    currentFood.getX() < Constants.SCREEN_BOTTOM &&
+                    currentFood.getX() > Constants.SCREEN_LEFT &&
+                    currentFood.getX() < Constants.SCREEN_RIGHT &&
+                    euclidean(F.get(idx)) > euclidean(currentFood)) {
                 idx = i;
             } else {
                 i++;
@@ -198,46 +194,46 @@ public class Guppy extends Fish {
         if (isHungry() && F.getNBelmt() > 0) {
             // mengejar food pakai tips
             int idx = findFood(F);
-            if (F.get(idx).get_x() < get_x()) {
-                set_dir("Left");
+            if (F.get(idx).getX() < getX()) {
+                setDir("Left");
             } else {
-                set_dir("Right");
+                setDir("Right");
             }
 
             //double atan2(double y, double x)
-            double a = Math.atan2(F.get(idx).get_y() - get_y(), F.get(idx).get_x() - get_x());
-            set_x(get_x() + (get_speed() * Math.cos(a) * 1.5));
-            set_y(get_y() + (get_speed() * Math.sin(a) * 1.5));
+            double a = Math.atan2(F.get(idx).getY() - getY(), F.get(idx).getX() - getX());
+            setX(getX() + (getSpeed() * Math.cos(a) * 1.5));
+            setY(getY() + (getSpeed() * Math.sin(a) * 1.5));
+
         } else {
             //random arahnya
-            if (get_time_move() <= 0) {
-                set_time_move(Constants.FISH_MAX_TIMER);
+            if (getTimeMove() <= 0) {
+                setTimeMove(Constants.FISH_MAX_TIMER);
                 setRandomDirection();
             } else {
-                set_time_move(get_time_move() - Constants.FISH_TIMER_DEC);
+                setTimeMove(getTimeMove() - Constants.FISH_TIMER_DEC);
             }
 
             //kalau sampai ujung
-            if (get_x() >= Constants.SCREEN_RIGHT || get_x() <= Constants.SCREEN_LEFT) {
-                set_x_move(get_x_move() * (-1));
+            if (getX() >= Constants.SCREEN_RIGHT || getX() <= Constants.SCREEN_LEFT) {
+                setXMove(getXMove() * (-1));
             }
-            if (get_y() <= Constants.SCREEN_TOP || get_y() >= Constants.SCREEN_BOTTOM) {
-                set_y_move(get_y_move() * (-1));
+            if (getY() <= Constants.SCREEN_TOP || getY() >= Constants.SCREEN_BOTTOM) {
+                setYMove(getYMove() * (-1));
             }
 
-            if (get_x() + get_speed() * get_x_move() < get_x()) {
-                set_dir("Left");
-            } else if (get_x() + get_speed() * get_x_move() >= get_x()) {
-                set_dir("Right");
+            if (getX() + getSpeed() * getXMove() < getX()) {
+                setDir("Left");
+            } else if (getX() + getSpeed() * getXMove() >= getX()) {
+                setDir("Right");
             }
 
             //pindahkan ikan
-            set_x(get_x() + get_speed() * get_x_move());
-            set_y(get_y() + get_speed() * get_y_move());
+            setX(getX() + getSpeed() * getXMove());
+            setY(getY() + getSpeed() * getYMove());
         }
 
-        update_image();
-        change_position(get_x(), get_y());
+        updateImage();
     }
 
     /**
@@ -248,12 +244,12 @@ public class Guppy extends Fish {
     public double euclidean(Food m) {
         // get euclidean distance from guppy to food
 
-        double x_guppy = get_x();
-        double y_guppy = get_y();
-        double x_food = m.get_x();
-        double y_food = m.get_y();
+        double XGupy = getX();
+        double YGuppy = getY();
+        double XFood = m.getX();
+        double YFood = m.getY();
 
-        return (Math.sqrt(Math.pow(x_guppy - x_food, 2)) + (Math.pow(y_guppy - y_food, 2)));
+        return (Math.sqrt(Math.pow(XGupy - XFood, 2)) + (Math.pow(YGuppy - YFood, 2)));
     }
 
     /**
@@ -268,7 +264,7 @@ public class Guppy extends Fish {
         boolean find = false;
         if (F.getNBelmt() > 0) {
             while (!find && idx <= F.getNBelmt()) {
-                if ((radius > Math.abs(get_x() - F.get(idx).get_x())) && (radius > Math.abs(get_y() - F.get(idx).get_y()))) {
+                if ((radius > Math.abs(getX() - F.get(idx).getX())) && (radius > Math.abs(getY() - F.get(idx).getY()))) {
                     find = true;
                 } else {
                     idx++;
@@ -301,10 +297,10 @@ public class Guppy extends Fish {
 
             // set hunger to max and state ishungry to false
             fullHunger();
-            set_hungry(false);
+            setHungry(false);
 
             // increase number of food eaten
-            set_number_eat(get_number_eat() + 1);
+            setNumberEat(getNumberEat() + 1);
 
             // try to check if fish is able to grow
             grow();
@@ -316,19 +312,19 @@ public class Guppy extends Fish {
      * guppy tumbuh
      */
     public void grow() {
-        if (get_number_eat() == Constants.GUPPY_REQ_FOOD_COUNT && get_level() != Constants.GUPPY_MAX_LV) {
+        if (getNumberEat() == Constants.GUPPY_REQ_FOOD_COUNT && getLevel() != Constants.GUPPY_MAX_LV) {
 
             // increase fish lv
-            set_level(get_level() + 1);
+            setLevel(getLevel() + 1);
 
             // increase max hunger 
-            set_max_hunger(get_max_hunger() + Constants.GUPPY_HUNGER_INCREASE_RATE); //tiap naik level tambah bisa nambah laper
+            setMaxHunger(getMaxHunger() + Constants.GUPPY_HUNGER_INCREASE_RATE); //tiap naik level tambah bisa nambah laper
 
             // increase the coin value 
-            set_coin_value(get_coin_value() + Constants.GUPPY_COIN_VAL_INCREASE_RATE); //tiap naik level tambah harga coin nya
+            setCoinValue(getCoinValue() + Constants.GUPPY_COIN_VAL_INCREASE_RATE); //tiap naik level tambah harga coin nya
 
             // reset the number of food eaten
-            set_number_eat(0);
+            setNumberEat(0);
         }
     }
 }

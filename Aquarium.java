@@ -6,11 +6,11 @@ public class Aquarium extends Object {
     static public int egg = 0;
     static public int money = 20000;
 
-    private LinkedList<Guppy> list_guppy = new LinkedList<>();
-    private LinkedList<Piranha> list_piranha = new LinkedList<>();
-    private LinkedList<Siput> list_siput = new LinkedList<>();
-    private LinkedList<Food> list_food = new LinkedList<>();
-    private LinkedList<Coin> list_coin = new LinkedList<>();
+    private LinkedList<Guppy> listGuppy = new LinkedList<>();
+    private LinkedList<Piranha> listPiranha = new LinkedList<>();
+    private LinkedList<Siput> listSiput = new LinkedList<>();
+    private LinkedList<Food> listFood = new LinkedList<>();
+    private LinkedList<Coin> listCoin = new LinkedList<>();
 
     /**
      * default constructor.
@@ -18,151 +18,151 @@ public class Aquarium extends Object {
     public Aquarium() {
         // frame : where to put the aquarium
 
-        ImageCollection.init_image(); // initialize all BufferedImage object
+        ImageCollection.initImage(); // initialize all BufferedImage object
 
         Guppy g = new Guppy();
         Guppy g1 = new Guppy();
 
-        this.add_guppy(g);
-        this.add_guppy(g1);
+        this.addGuppy(g);
+        this.addGuppy(g1);
 
         Siput s = new Siput();
-        this.add_siput(s);
+        this.addSiput(s);
 
-        set_image(ImageCollection.aquarium);
+        setImage(ImageCollection.aquarium);
     }
 
     /**
      * getter list guppy.
      * @return list_guppy
      */
-    public LinkedList<Guppy> getList_guppy() {
-        return list_guppy;
+    public LinkedList<Guppy> getListGuppy() {
+        return listGuppy;
     }
 
     /**
      * getter list piranha.
      * @return list_piranha
      */
-    public LinkedList<Piranha> getList_piranha() {
-        return list_piranha;
+    public LinkedList<Piranha> getListPiranha() {
+        return listPiranha;
     }
 
     /**
      * getter list siput.
      * @return list_siput
      */
-    public LinkedList<Siput> getList_siput() {
-        return list_siput;
+    public LinkedList<Siput> getListSiput() {
+        return listSiput;
     }
 
     /**
      * getter list food.
      * @return list_food
      */
-    public LinkedList<Food> getList_food() {
-        return list_food;
+    public LinkedList<Food> getListFood() {
+        return listFood;
     }
 
     /**
      * getter list coin.
      * @return list_coin
      */
-    public LinkedList<Coin> getList_coin() {
-        return list_coin;
+    public LinkedList<Coin> getListCoin() {
+        return listCoin;
     }
 
     /**
      * menambahkan guppy ke dalam list guppy.
      * @param guppy guppy to add
      */
-    public void add_guppy(Guppy guppy) {
-        list_guppy.add(guppy);
+    public void addGuppy(Guppy guppy) {
+        listGuppy.add(guppy);
     }
 
     /**
      * menghapus guppy dari dalam list guppy.
      * @param guppy guppy to remove
      */
-    public void remove_guppy(Guppy guppy) {
-        list_guppy.remove(guppy);
+    public void removeGuppy(Guppy guppy) {
+        listGuppy.remove(guppy);
     }
 
     /**
      * menambahkan piranha ke dalam list piranha.
      * @param piranha piranha to add
      */
-    public void add_piranha(Piranha piranha) {
-        list_piranha.add(piranha);
+    public void addPiranha(Piranha piranha) {
+        listPiranha.add(piranha);
     }
 
     /**
      * menghapus piranha dari dalam list piranha.
      * @param piranha piranha to remove
      */
-    public void remove_piranha(Piranha piranha) {
-        list_piranha.remove(piranha);
+    public void removePiranha(Piranha piranha) {
+        listPiranha.remove(piranha);
     }
 
     /**
      * menambahkan siput ke dalam list siput.
      * @param siput siput to add
      */
-    public void add_siput(Siput siput) {
-        list_siput.add(siput);
+    public void addSiput(Siput siput) {
+        listSiput.add(siput);
     }
 
     /**
      * menghapus siput dari dalam list siput.
      * @param siput siput to remove
      */
-    public void remove_siput(Siput siput) {
-        list_siput.remove(siput);
+    public void removeSiput(Siput siput) {
+        listSiput.remove(siput);
     }
 
     /**
      * menambahkan food ke dalam list food.
      * @param food food to add
      */
-    public void add_food(Food food) {
-        list_food.add(food);
+    public void addFood(Food food) {
+        listFood.add(food);
     }
 
     /**
      * menghapus food dari dalam list food.
      * @param food food to remove
      */
-    public void remove_food(Food food) {
-        list_food.remove(food);
+    public void removeFood(Food food) {
+        listFood.remove(food);
     }
 
     /**
      * menambahkan coin ke dalam list coin.
      * @param coin coin to add
      */
-    public void add_coin(Coin coin) {
-        list_coin.add(coin);
+    public void addCoin(Coin coin) {
+        listCoin.add(coin);
     }
 
     /**
      * menghapus coin dari dalam list coin.
      * @param coin coin to remove
      */
-    public void remove_coin(Coin coin) {
-        list_coin.remove(coin);
+    public void removeCoin(Coin coin) {
+        listCoin.remove(coin);
     }
 
     /**
      * membeli guppy.
      * menambah guppy ke dalam list guppy dan mengurangi money.
      */
-    public void buy_guppy() {
+    public void buyGuppy() {
 
         // Money sufficient 
         if (Aquarium.money >= Constants.GUPPY_PRICE) {
 
             Guppy g = new Guppy();
-            add_guppy(g);
+            addGuppy(g);
 
             Aquarium.money -= Constants.GUPPY_PRICE;
 
@@ -174,13 +174,13 @@ public class Aquarium extends Object {
      * membeli piranha.
      * menambah piranha ke dalam list piranha dan mengurangi money.
      */
-    public void buy_piranha() {
+    public void buyPiranha() {
 
         // Money sufficient 
         if (Aquarium.money >= Constants.PIRANHA_PRICE) {
 
             Piranha p = new Piranha();
-            add_piranha(p);
+            addPiranha(p);
 
             Aquarium.money -= Constants.PIRANHA_PRICE;
 
@@ -191,13 +191,13 @@ public class Aquarium extends Object {
      * membeli food.
      * menambah food ke dalam list food dan mengurangi money.
      */
-    public void buy_food() {
+    public void buyFood() {
 
         // Money sufficient 
         if (Aquarium.money >= Constants.FOOD_PRICE) {
 
             Food f = new Food();
-            add_food(f);
+            addFood(f);
 
             Aquarium.money -= Constants.FOOD_PRICE;
         }
@@ -208,12 +208,12 @@ public class Aquarium extends Object {
      * menambah food ke dalam list food dan mengurangi money.
      * @param x lokasi x food dimunculkan
      */
-    public void buy_food(double x) {
+    public void buyFood(double x) {
         // Money sufficient 
         if (Aquarium.money >= Constants.FOOD_PRICE) {
 
             Food f = new Food(x);
-            add_food(f);
+            addFood(f);
 
             Aquarium.money -= Constants.FOOD_PRICE;
         }
@@ -223,7 +223,7 @@ public class Aquarium extends Object {
      * membeli egg.
      * menambah egg jumlah nilai variabel egg dan mengurangi money.
      */
-    public void buy_egg() {
+    public void buyEgg() {
 
         // Money sufficient 
         if (Aquarium.money >= Constants.EGG_PRICE) {
@@ -237,13 +237,13 @@ public class Aquarium extends Object {
      * membeli siput.
      * menambah siput ke dalam list siput dan mengurangi money.
      */
-    public void buy_snail() {
+    public void buySnail() {
 
         // Money sufficient 
         if (Aquarium.money >= Constants.SIPUT_PRICE) {
 
             Siput s = new Siput();
-            add_siput(s);
+            addSiput(s);
 
             Aquarium.money -= Constants.SIPUT_PRICE;
         }
@@ -263,10 +263,10 @@ public class Aquarium extends Object {
     public double euclidean(double x, double y, Coin c) {
         // get euclidean distance to coin
 
-        double x_coin = c.get_x();
-        double y_coin = c.get_y();
+        double xCoin = c.getX();
+        double yCoin = c.getY();
 
-        return (sqrt(pow(x - x_coin, 2)) + (pow(y - y_coin, 2)));
+        return (sqrt(pow(x - xCoin, 2)) + (pow(y - yCoin, 2)));
     }
 
     /**
@@ -280,10 +280,11 @@ public class Aquarium extends Object {
         double nearest;
         int radius = 1;
 
-        nearest = getList_coin().get(idx).get_x();
-        while (idx + 1 < getList_coin().getNBelmt()) {
-            if (euclidean(x, y, getList_coin().get(idx)) < nearest) {
-                nearest = euclidean(x, y, getList_coin().get(idx));
+        LinkedList<Coin> listCoin = getListCoin();
+		nearest = listCoin.get(idx).getX();
+        while (idx + 1 < listCoin.getNBelmt()) {
+            if (euclidean(x, y, listCoin.get(idx)) < nearest) {
+                nearest = euclidean(x, y, listCoin.get(idx));
                 radius = idx;
             } else {
                 idx++;
@@ -299,14 +300,22 @@ public class Aquarium extends Object {
      * @param x lokasi x kursor
      * @param y lokasi y kursor
      */
-    public int click_coin(double x, double y) {
+    public int clickCoin(double x, double y) {
         //find coin in radius
-        if (getList_coin().getNBelmt() > 0) {
+        if (getListCoin().getNBelmt() > 0) {
+
             int idx = inRadius(x, y);
-            if (getList_coin().get(idx).get_x() >= x - 30 && getList_coin().get(idx).get_x() <= x + 30 && getList_coin().get(idx).get_y() >= y - 30 && getList_coin().get(idx).get_y() <= y + 30) {
-                int value = getList_coin().get(idx).get_value();
-                getList_coin().remove(getList_coin().get(idx));
+            Coin currentCoin = getListCoin().get(idx);
+            
+            if (currentCoin.getX() >= x - 30 &&
+                currentCoin.getX() <= x + 30 &&
+                currentCoin.getY() >= y - 30 &&
+                currentCoin.getY() <= y + 30) {
+
+                int value = currentCoin.getValue();
+                getListCoin().remove(currentCoin);
                 return value;
+
             } else {
                 return 0;
             }

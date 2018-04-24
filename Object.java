@@ -4,8 +4,8 @@ import javax.swing.*;
 
 public class Object {
 
-    protected double position_x;
-    protected double position_y;
+    protected double positionX;
+    protected double positionY;
     protected String direction;
 
     protected Dimension size;
@@ -17,7 +17,7 @@ public class Object {
      * @return position_x
      */
     public double getX() {
-        return position_x;
+        return positionX;
     }
 
     /**
@@ -25,14 +25,14 @@ public class Object {
      * @return position_y
      */
     public double getY() {
-        return position_y;
+        return positionY;
     }
 
     /**
      * getter direction.
      * @return direction
      */
-    public String get_dir() {
+    public String getDir() {
         return direction;
     }
 
@@ -41,7 +41,7 @@ public class Object {
      * @param x x to set
      */
     public void setX(double x) {
-        position_x = x;
+        positionX = x;
     }
 
     /**
@@ -49,14 +49,14 @@ public class Object {
      * @param y y to set
      */
     public void setY(double y) {
-        position_y = y;
+        positionY = y;
     }
 
     /**
      * setter direction.
      * @param dir direction to set
      */
-    public void set_dir(String dir) {
+    public void setDir(String dir) {
         direction = dir;
     }
 
@@ -64,7 +64,7 @@ public class Object {
      * setter image.
      * @param image image to set
      */
-    public void set_image(BufferedImage image) {
+    public void setImage(BufferedImage image) {
         this.image = image;
     }
 
@@ -72,7 +72,7 @@ public class Object {
      * getter image.
      * @return image
      */
-    public BufferedImage get_image() {
+    public BufferedImage getImage() {
         return image;
     }
 }
