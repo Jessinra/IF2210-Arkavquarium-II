@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 public class Main {
   /**
@@ -13,7 +14,7 @@ public class Main {
     frame.setTitle("Arkavquarium");
     frame.setResizable(false);
     frame.setVisible(true);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     frame.add(gameplay);
   }
 }
