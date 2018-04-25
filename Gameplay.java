@@ -1,6 +1,17 @@
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.PointerInfo;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class Gameplay extends JPanel
         implements ActionListener, KeyListener, MouseListener {
@@ -50,13 +61,13 @@ public class Gameplay extends JPanel
     // win lose state
     if (win == 1) {
       g.drawImage(ImageCollection.win,
-              Constants.SCREEN_WIDTH / 2 - 100,
-              Constants.SCREEN_HEIGHT / 2,
+              Constants.SCREEN_WIDTH / 2 - 405,
+              Constants.SCREEN_HEIGHT / 2 - 220,
               this);
     } else if (win == -1) {
       g.drawImage(ImageCollection.lose,
-              Constants.SCREEN_WIDTH / 2 - 100,
-              Constants.SCREEN_HEIGHT / 2,
+              Constants.SCREEN_WIDTH / 2 - 435,
+              Constants.SCREEN_HEIGHT / 2 - 330,
               this);
     }
 

@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Random;
 
 public class Food extends Object {
   public static int foodCount = 0;
