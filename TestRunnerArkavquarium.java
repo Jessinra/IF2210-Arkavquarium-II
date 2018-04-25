@@ -24,6 +24,9 @@ public class TestRunnerArkavquarium {
         };
 
         // Test every JUnit class
+        int testRunned = 0;
+        int testFail = 0;
+
         for (Class testClass : testClasses) {
 
             // Display header
@@ -34,6 +37,9 @@ public class TestRunnerArkavquarium {
             // Run the JUnit class
             Result result = JUnitCore.runClasses(testClass);
 
+            testRunned += result.getRunCount();
+            testFail += result.getFailureCount(); 
+
             // Show failing test
             for (Failure failure : result.getFailures()) {
                 System.out.println(failure.toString());
@@ -42,5 +48,14 @@ public class TestRunnerArkavquarium {
             // Overall report
             System.out.println("\nOverall test success : " + result.wasSuccessful() + "\n");
        }
+
+       System.out.println("\n\n=============================");
+       System.out.println("\t Final Report");
+       System.out.println("=============================");
+       System.out.println("Testing done     : " + testRunned);
+       System.out.println("Testing success  : " + (testRunned - testFail));
+       System.out.println("Testing fail     : " + testFail);
+       System.out.println("Success rate     : " + ((testRunned-testFail)*100/testRunned) + "%");
+       System.out.println("=============================");
    }
 }
