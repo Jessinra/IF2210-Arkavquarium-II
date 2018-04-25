@@ -17,8 +17,9 @@ public class TestRunnerArkavquarium {
             // TestFish.class,
             // TestGuppy.class,
             // TestPiranha.class,
-            TestLinkedList.class,
-            TestPet.class,
+            // TestLinkedList.class,
+            // TestPet.class,
+            // TestAquarium.class,
 
         };
 
