@@ -1,12 +1,13 @@
 import junit.framework.TestCase;
 import org.junit.*;
+
 public class TestFish extends TestCase{
     private Guppy dummy =  new Guppy();
 
     @Test
     public void testId(){
 
-        assertEquals(4, dummy.getId());
+        assertEquals(3, dummy.getId());
         System.out.println(this.getName() + " >> success");
     }
 
@@ -14,13 +15,6 @@ public class TestFish extends TestCase{
     public void testCoinvalue(){
 
         assertEquals(5, dummy.getCoinValue());
-        System.out.println(this.getName() + " >> success");
-    }
-
-    @Test
-    public void testPrice(){
-
-        assertEquals(50, dummy.getPrice());
         System.out.println(this.getName() + " >> success");
     }
 
@@ -35,14 +29,6 @@ public class TestFish extends TestCase{
     public void testSpeed(){
 
         assertEquals(2, dummy.getSpeed());
-        System.out.println(this.getName() + " >> success");
-    }
-
-    @Test
-    public void testHungry(){
-
-        dummy.setHungry(true);
-        assertTrue(dummy.getHungry());
         System.out.println(this.getName() + " >> success");
     }
 
@@ -69,16 +55,6 @@ public class TestFish extends TestCase{
 
         dummy.setHunger(15);
         assertFalse(dummy.isHungry());
-        System.out.println(this.getName() + " >> success");
-    }
-
-    @Test
-    public void testIsDead(){
-        dummy.setHunger(-5);
-        assertTrue(dummy.isDead());
-
-        dummy.setHunger(15);
-        assertFalse(dummy.isDead());
         System.out.println(this.getName() + " >> success");
     }
 

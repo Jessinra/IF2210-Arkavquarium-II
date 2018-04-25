@@ -2,7 +2,7 @@ import junit.framework.TestCase;
 import org.junit.*;
 
 public class TestCoin extends TestCase{
-    private Coin dummy =  new Coin();
+    private Coin dummy =  new Coin(10, 20, 30);
 
     @Test
     public void testConstructorParam(){
@@ -20,21 +20,21 @@ public class TestCoin extends TestCase{
     @Test
     public void testId(){
 
-        assertEquals(0, dummy.getId());
+        assertEquals(5, dummy.getId());
         System.out.println(this.getName() + " >> success");
     }
 
     @Test
     public void testSpeed(){
 
-        assertEquals(0, dummy.getSpeed());
+        assertEquals(1, dummy.getSpeed());
         System.out.println(this.getName() + " >> success");
     }
 
     @Test
     public void testValue(){
 
-        assertEquals(0, dummy.getValue());
+        assertEquals(30, dummy.getValue());
         System.out.println(this.getName() + " >> success");
     }
 
