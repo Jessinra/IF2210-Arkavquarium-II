@@ -2,6 +2,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.assertEquals;
 
+
 public class TestPet extends TestCase {
 
     Pet p = new Pet();

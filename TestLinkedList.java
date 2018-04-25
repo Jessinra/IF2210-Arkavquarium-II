@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.assertEquals;
 import org.junit.assertNull;
 
+
 public class TestLinkedList extends TestCase {
     LinkedList<int> L = new LinkedList<>();
 

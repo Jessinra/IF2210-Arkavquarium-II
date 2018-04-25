@@ -2,6 +2,7 @@ public class Pet extends Object {
   private static int petCount = 0;
   private int petId;
 
+  
   /**
    * default constructor.
    */
