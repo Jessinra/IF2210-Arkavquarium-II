@@ -8,7 +8,7 @@ public class TestPiranha extends TestCase{
     @Test
     public void testId(){
 
-        assertEquals(5, dummy.getId());
+        assertEquals(35, dummy.getId());
         System.out.println(this.getName() + " >> success");
     }
 
