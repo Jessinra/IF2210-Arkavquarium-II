@@ -1,41 +1,43 @@
 import junit.framework.TestCase;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.assertEquals;
-import org.junit.assertNull;
-
+import org.junit.*;
 
 public class TestLinkedList extends TestCase {
-    LinkedList<int> L = new LinkedList<>();
+    LinkedList<Integer> L = new LinkedList<>();
 
     @Before
-    public testConstructorParam() {
-        LinkedList<int> Ltemp = new LinkedList<>(L);
+    public void testConstructorParam() {
+        LinkedList<Integer> Ltemp = new LinkedList<>();
+
+        assertNotNull(Ltemp);
         System.out.println(this.getName() + " >> success");
     }
 
     @Test
-    public boolean testIsEmpty() {
-        assertNull(L);
+    public void testIsEmpty() {
+        assertEquals(0, L.getNBelmt());
         System.out.println(this.getName() + " >> success");
     }
 
     @Test
     public void testAdd() {
         L.add(5);
-        assertEquals(5, L.get(1));
+        assertEquals(5, L.get(1), 0.01);
         System.out.println(this.getName() + " >> success");
     }
 
     @Test
     public void testRemove() {
+
+        L.add(5);
         L.remove(5);
-        assertNull(L);
+
+        assertEquals(0, L.getNBelmt());
+        assertNotNull(L);
         System.out.println(this.getName() + " >> success");
     }
 
     @Test
-    public int getNBelmt() {
+    public void getNBelmt() {
         L.add(1);
         L.add(3);
         L.add(5);

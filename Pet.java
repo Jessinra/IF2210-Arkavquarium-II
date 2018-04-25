@@ -7,7 +7,9 @@ public class Pet extends Object {
    * default constructor.
    */
   public Pet() {
-    petId = petCount++;
+
+    Pet.petCount++;
+    petId = Pet.petCount;
   }
 
   /**
