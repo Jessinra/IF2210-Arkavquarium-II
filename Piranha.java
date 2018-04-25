@@ -117,7 +117,7 @@ public class Piranha extends Fish implements AbleToSearch<Guppy> {
     double xguppy = g.getX();
     double yguppy = g.getY();
 
-    return (Math.sqrt(Math.pow(xpiranha - xguppy, 2)) + (Math.pow(ypiranha - yguppy, 2)));
+    return (Math.sqrt(Math.pow(xpiranha - xguppy, 2) + Math.pow(ypiranha - yguppy, 2)));
   }
 
   /**

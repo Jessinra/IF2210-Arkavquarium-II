@@ -231,7 +231,7 @@ public class Guppy extends Fish implements AbleToSearch<Food> {
     double xfood = m.getX();
     double yfood = m.getY();
 
-    return (Math.sqrt(Math.pow(xguppy - xfood, 2)) + (Math.pow(yguppy - yfood, 2)));
+    return (Math.sqrt(Math.pow(xguppy - xfood, 2) + Math.pow(yguppy - yfood, 2)));
   }
 
   /**

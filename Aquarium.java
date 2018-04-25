@@ -272,7 +272,7 @@ public class Aquarium extends Object {
     double xcoin = c.getX();
     double ycoin = c.getY();
 
-    return (sqrt(pow(x - xcoin, 2)) + (pow(y - ycoin, 2)));
+    return (sqrt(pow(x - xcoin, 2) + pow(y - ycoin, 2)));
   }
 
   /**
