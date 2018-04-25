@@ -10,16 +10,16 @@ public class TestRunnerArkavquarium {
         // >> ADD YOUR TEST CLASS HERE <<
         Class[] testClasses = new Class[]{
 
-            // TestImage.class,
-            // TestFood.class,
-            // TestCoin.class,
-            // TestSiput.class,
-            // TestFish.class,
-            // TestGuppy.class,
-            // TestPiranha.class,
-            // TestLinkedList.class,
-            // TestPet.class,
-            // TestAquarium.class,
+            TestImage.class,
+            TestFood.class,
+            TestCoin.class,
+            TestFish.class,
+            TestGuppy.class,
+            TestPiranha.class,
+            TestLinkedList.class,
+            TestPet.class,
+            TestSiput.class,
+            TestAquarium.class,
 
         };
 
