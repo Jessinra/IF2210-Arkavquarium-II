@@ -76,7 +76,7 @@ public class Siput extends Pet implements AbleToSearch<Coin> {
     boolean find = false;
     int i = 1;
 
-    while (i < c.getNBelmt() && !find) {
+    while (i <= c.getNBelmt() && !find) {
       if (c.get(i).getY() == Constants.SCREEN_BOTTOM) {
         find = true;
       } else {
