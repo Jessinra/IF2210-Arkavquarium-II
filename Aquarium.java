@@ -289,7 +289,9 @@ public class Aquarium extends Object {
 
     LinkedList<Coin> listCoin = getListCoin();
     nearest = listCoin.get(idx).getX();
-    while (idx + 1 < listCoin.getNBelmt()) {
+
+    idx++;
+    while (idx <= listCoin.getNBelmt()) {
       if (euclidean(x, y, listCoin.get(idx)) < nearest) {
         nearest = euclidean(x, y, listCoin.get(idx));
         radius = idx;
