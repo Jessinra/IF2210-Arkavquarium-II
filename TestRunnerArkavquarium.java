@@ -15,6 +15,8 @@ public class TestRunnerArkavquarium {
             TestCoin.class,
             TestSiput.class,
             TestFish.class,
+            TestGuppy.class,
+            TestPiranha.class,
 
         };
 
