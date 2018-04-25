@@ -56,7 +56,14 @@ public class Gameplay extends JPanel
     String money = "Money:  " + Aquarium.money;
     g.drawString(money, 20, 40);
     String egg = "Egg:   " + Aquarium.egg;
-    g.drawString(egg, 1150, 40);
+    g.drawString(egg, 20, 70);
+
+    // button that can be use
+    g.drawString("f: food", 1100, 40);
+    g.drawString("g: guppy", 1100, 70);
+    g.drawString("p: piranha", 1100, 100);
+    g.drawString("s: snail", 1100, 130);
+    g.drawString("e: egg", 1100, 160);
 
     // win lose state
     if (win == 1) {
@@ -253,11 +260,11 @@ public class Gameplay extends JPanel
     int x = (int) b.getX();
     int y = (int) b.getY();
 
-    int cvalue = aquarium.clickCoin(x, y);
+    int cvalue = aquarium.clickCoin(x + 30, y + 30);
     if (cvalue > 0) {
       Aquarium.money += cvalue;
     } else {
-      aquarium.buyFood(x);
+      aquarium.buyFood(x - 30);
     }
   }
 
