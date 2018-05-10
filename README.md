@@ -1,24 +1,13 @@
-# IF2230-Arkavquarium-II
-    /**
-     * default constructor.
-     * @param x location x
-     */
-    public Food(double x) {
-        set_y(Constants.SCREEN_TOP);
-        set_x(x);
-        food_count += 1;
-        set_id(food_count);
-        set_speed(Constants.FOOD_MOVEMENT_SPD);
+# IF2210-Arkavquarium-II
+IF2210 - OOP [Arkavquarium (java)]
 
-        this.set_image(ImageCollection.food);
+Folder contain source code for Arkavquarium (java) (IF2210 Project 02)
 
-        this.change_position(get_x(), get_y());
-    }
+# Arkavquarium-II
+* Simple game similar to insaniquarium, done to fulfill OOP task
 
-    /**
-     * getter food_id.
-     * @return food_id
-     */
-    public int get_id() {
-        return this.food_id;
-    }
+# Contributors
+* Jessin D. - IF ITB - 2018
+* Nicholas W. - IF ITB - 2018
+* Nella Z. - IF ITB - 2018
+* M. Devira - IF ITB - 2018
